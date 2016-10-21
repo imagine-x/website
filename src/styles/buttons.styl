@@ -1,0 +1,30 @@
+.solidBtn {
+	background-color: main;
+	border-color: main;
+	color: #FFF;
+	font-size: 15px;
+	&:hover {
+		background-color: mainDark;
+	}
+}
+
+.modalBtn {
+  @extends .solidBtn;
+  margin-top: 48px;
+  width: 100%;
+  font-weight: 700;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
