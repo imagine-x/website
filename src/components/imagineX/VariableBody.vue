@@ -3,9 +3,9 @@
 .variable
   table
     tbody
-      tr(v-for='(x, index) in content')
-        td.number {{ index + 1 }}
-        td {{ x }}
+      tr(v-for='x in content')
+        td.number {{ Object.keys(x)[0] }}
+        td {{ x[Object.keys(x)[0]] }}
 
 </template>
 
@@ -18,12 +18,14 @@ export default {
 <style lang="stylus" scoped>
   @import "../../styles/main"
 
-  .variable
+  table
     text-align:left
-    padding-left:21%
+    padding-left:10%
     padding-right:5%
+    font-size:.9em
 
   .number
-    font-size: 2em
+    font-size: .9em
+    font-weight: bolder
 
 </style>
