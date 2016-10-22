@@ -3,9 +3,13 @@
 main
   .container
     heading(v-bind:content='idea.heading')
-    hr
-    variable-body(v-bind:content='idea.variable')
-    sources(v-bind:content='idea.sources')
+    .four.columns
+      application
+    .seven.columns.pitch
+      variable-body(v-bind:content='idea.variable')
+    div
+      values(v-bind:content='idea.values')
+      sources(v-bind:content='idea.sources')
     hr
     who
 
@@ -14,10 +18,12 @@ main
 <script>
 // import { Who } from '../attackAds/Who.vue'
 
-import VariableBody from './VariableBody.vue'
+import VariableBody from '../generics/VariableBody.vue'
 import Heading from './Heading.vue'
+import Values from './Values'
 import Who from '../generics/Who.vue'
 import Sources from '../generics/Sources.vue'
+import Application from '../generics/Application.vue'
 
 console.log({VariableBody})
 
@@ -31,7 +37,9 @@ export default {
       VariableBody,
       Heading,
       Who,
-      Sources
+      Sources,
+      Application,
+      Values
     },
 }
 
@@ -43,6 +51,7 @@ export default {
   hr
     border-top:1px solid black;
 
-
+  .pitch
+    padding-top:2em
 
 </style>

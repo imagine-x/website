@@ -21,7 +21,7 @@
         placeholder='Postal Code',
         name='postal',
       )
-    button(@click.prevent='') submit
+    button(@click.prevent='') I'm In
 
 </template>
 
@@ -36,7 +36,7 @@ export default {
 
   .application
     padding-top:60px
-    
+
   input
     width: 100%
     height: 50px
@@ -52,7 +52,6 @@ export default {
     height: 50px
     border-color: rgb(221, 221, 221)
     font-size: 16px
-    background: #ff0
     font-family: Montserrat,Arial,sans-serif
     font-weight: bold
 

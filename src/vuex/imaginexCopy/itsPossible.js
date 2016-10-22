@@ -1,7 +1,11 @@
 export const itsPossible = [
   {
-    heading:['Our Core Values:'],
     variable:[
+      `Let’s admit it. Politics in BC is stuck. It’s a tug-of-war between the left, the right and a single issue party. Our current options are limited, but we can’t wait any longer. Our province needs a radically different future, a government that we can trust. Do you dare to imagine an alternative?`,
+      `Imagine a government that was transparent rather than secretive; more frequently collaborative than adversarial; citizen-centric rather than interest-focused; forward-thinking rather than backward-looking. We can do this.`,
+      `Imagine X is a political platform. We are a group of passionate citizens starting a political movement for a better BC. We stand for a good government with principles and policies that meet our core values. And no, we are not affiliated with the BC Liberals, NDPs, Greens, or any other party. We simply want a better government for a better BC - just like you.`,
+    ],
+    values:[
       {
         'Citizen-centric' :`Always put public good over private interests. We strive to create fair solutions and provide services that achieve the greatest benefits for citizens of today and tomorrow.`,
       },{

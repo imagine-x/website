@@ -1,6 +1,7 @@
 <template lang="jade">
 
 .variable
+  h5 Our Core Values:
   table
     tbody
       tr(v-for='x in content')
@@ -20,7 +21,7 @@ export default {
 
   table
     text-align:left
-    padding-left:10%
+    padding-left:0%
     padding-right:5%
     font-size:.9em
 

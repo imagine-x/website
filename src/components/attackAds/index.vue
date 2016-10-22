@@ -22,9 +22,9 @@ main
 <script>
 
 import Heading from './Heading.vue'
-import VariableBody from './VariableBody.vue'
+import VariableBody from '../generics/VariableBody.vue'
 import FixedBody from './FixedBody.vue'
-import Application from './Application.vue'
+import Application from '../generics/Application.vue'
 import Who from '../generics/Who.vue'
 import Sources from '../generics/Sources.vue'
 
