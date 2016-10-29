@@ -7,11 +7,11 @@ main
         application
       .seven.columns.pitch
         variable-body(v-bind:content='idea.variable')
+        hr
         values(v-bind:content='idea.values')
         sources(v-bind:content='idea.sources')
-    hr
-    who
-    hr
+        hr
+        who
 
 </template>
 
