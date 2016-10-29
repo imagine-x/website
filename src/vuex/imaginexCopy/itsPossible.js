@@ -26,5 +26,8 @@ export const itsPossible = [{
     ],
     values,
     sources:[],
+    heading:[
+        `Let's imagine a #BetterBC`
+    ]
   },
 ]

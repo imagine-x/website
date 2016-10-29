@@ -1,14 +1,16 @@
 <template lang="jade">
 
 #heading
-  div
-    img(
-      src='../../../static/images/imaginex.svg',
-      @click='next'
-      )
-  h1
-    span(v-for='x in content')
-      span.mark {{ x }}
+  .row
+      .four.columns
+        img(
+          src='../../../static/images/imaginex.svg',
+          @click='next'
+          )
+      .eight.columns
+          h1
+            span(v-for='x in content')
+              span.mark {{ x }}
 
 </template>
 

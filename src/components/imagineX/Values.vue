@@ -2,11 +2,9 @@
 
 .variable
   h5 Our Core Values:
-  table
-    tbody
-      tr(v-for='x in content')
-        td.number {{ Object.keys(x)[0] }}
-        td {{ x[Object.keys(x)[0]] }}
+  div(v-for='x in content')
+    label{{ Object.keys(x)[0] }}
+    p{{ x[Object.keys(x)[0]] }}
 
 </template>
 

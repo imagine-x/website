@@ -1,18 +1,14 @@
 <template lang="jade">
 
 main
-  .container
     heading(v-bind:content='idea.heading')
-    hr
     .row
-      .seven.columns.pitch
-        variable-body(v-bind:content='idea.variable')
       .four.columns
         application
-    hr
-    div
-      values(v-bind:content='idea.values')
-      sources(v-bind:content='idea.sources')
+      .seven.columns.pitch
+        variable-body(v-bind:content='idea.variable')
+        values(v-bind:content='idea.values')
+        sources(v-bind:content='idea.sources')
     hr
     who
     hr
@@ -52,7 +48,6 @@ export default {
     border-top:1px solid black;
 
   .pitch
-    text-align:center
     padding-top:2em
 
 </style>
