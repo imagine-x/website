@@ -34,9 +34,6 @@ export default {
 <style lang="stylus" scoped>
   @import "../../styles/main"
 
-  .application
-    padding-top:60px
-
   input
     width: 100%
     height: 50px
