@@ -5,9 +5,10 @@ main
     .row.container
       .eight.columns.layout__main
         variable-body(v-bind:content='idea.variable')
-        b Join us and together let's imagine a #BetterBC.
+        b Join us and together let's create a #BetterBC.
         hr
       .four.columns.layout__sidebar
+        #form
         application
         hr.hr--hide-lg
       .eight.columns.layout__main
@@ -18,7 +19,7 @@ main
         #footer
           a.footer__link Privacy Policy
           span  | 
-          a.footer__link Contact Us
+          a.footer__link(href="mailto:hello@imagine-x.ca") Contact Us
           img.logo.logo--footer(src='../../../static/images/imaginex.svg')
 
 </template>
