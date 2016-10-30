@@ -25,7 +25,7 @@
     .checkbox-container
         input(type="checkbox", name="subscribe", id="subscribe")
         label.checkbox__label(for="subscribe") Yes, I’d like to receive updates
-    button.btn(@click.prevent='') Learn more
+    button.btn.btn--full(@click.prevent='') Learn more
 
 </template>
 

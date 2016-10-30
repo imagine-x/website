@@ -1,6 +1,5 @@
 <template lang="jade">
-.container
-  div
+div
   div
     imagine-x(v-if='mode!=="attack"')
     attack-ads(v-else)
@@ -51,9 +50,6 @@
 
 
 <style lang="stylus">
-  .container
-    margin-top: 10rem;
-
   body
     width: initial;
     border: 10px solid black;
