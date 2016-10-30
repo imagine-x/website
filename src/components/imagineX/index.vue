@@ -22,7 +22,7 @@ main
             values(v-bind:content='idea.values')
         hr
         sources(v-bind:content='idea.sources')
-        hr(v-if='idea.sources.length')
+        hr(v-if='idea.sources.length > 0')
         #footer
           a.footer__link Privacy Policy
           span  | 
