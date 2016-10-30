@@ -2,13 +2,14 @@
 
 main
     heading(v-bind:content='idea.heading')
-    .row
+    .row.container
       .eight.columns.layout__main
         variable-body(v-bind:content='idea.variable')
         b Join us and together let's imagine a #BetterBC.
         hr
       .four.columns.layout__sidebar
         application
+        hr.hr--hide-lg
       .eight.columns.layout__main
         values(v-bind:content='idea.values')
         hr
@@ -49,4 +50,10 @@ export default {
 
 <style lang="stylus" scoped>
   @import "../../styles/main"
+
+  @media (min-width: breakpoint) {
+    .hr--hide-lg {
+        display: none;
+    }
+  }
 </style>
