@@ -15,7 +15,7 @@ const values = [
 export const itsPossible = [{
     values,
     variable:[
-      `Let’s admit it. Politics in BC is stuck. It’s a tug-of-war between the left, the right and a single issue party. Our current options are limited, but we can’t wait any longer. Our province needs a radically different future, a government that we can trust. Do you dare to imagine an alternative?`,
+      `Politics in BC is stuck. It’s a tug-of-war between the left, the right and a single issue party. Our current options are limited, but we can’t wait any longer. Our province needs a radically different future, a government that we can trust. Do you dare to imagine an alternative?`,
       `Imagine a government that was transparent rather than secretive; more frequently collaborative than adversarial; citizen-centric rather than interest-focused; forward-thinking rather than backward-looking. We can do this.`,
       `Imagine X is a political platform. We are a group of passionate citizens starting a political movement for a better BC. We stand for a good government with principles and policies that meet our core values. And no, we are not affiliated with the BC Liberals, NDPs, Greens, any other party or interest group. We simply want a better government for a better BC - just like you.`
     ],
@@ -25,10 +25,13 @@ export const itsPossible = [{
     main: true
   },{
     variable:[
-      `BC has the highest GDP growth and the lowest unemployment rate nationally, yet we are the second worst in education funding after Prince Edward Islands. According Statistics Canada1, BC spends almost $1000 less per student than the national average of $11,393. Something doesn’t add up.`,
+      'BC has the highest GDP growth and the lowest unemployment rate nationally, yet we are the second worst in education funding after Prince Edward Islands. According Statistics Canada [1], BC spends almost $1000 less per student than the national average of $11,393. Something doesn’t add up.',
       `Imagine instead a BC government that is genuinely passionate about educating the next generation. A government that invests in preparing our children for society and jobs of the future instead of spending on infrastructure without transparent business cases. A government that recognizes that only talent will transform us from a resource-dependent economy to a resourceful one. A government that realizes that music lessons are just as important as coding lessons.`,
       `It's possible.`,
       `We are Imagine X. We are citizens starting a new political movement for a better BC.`
+    ],
+    sources: [
+        `Table 21. Operating expenditures per student in public elementary and secondary schools, “Summary Elementary and Secondary School Indicators for Canada, the Provinces and Territories, 2006/2007 to 2010/2011,” Statistics Canada`
     ],
     heading: [
         `BC spends $1000 less per student than the national average`
