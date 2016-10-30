@@ -38,7 +38,7 @@ export const itsPossible = [{
   {
     variable:[
       `The BC K-12 education system currently serves as a proxy political battle between the provincial government and school boards. There are no winners, only losers - students and teachers.`,
-      `Imagine instead a BC government that is genuinely passionate about educating the next generation. A government that is not afraid of trying new models of education governance, and knows that every dollar invested in education today, yields many more tomorrow.`,
+      `Imagine instead a BC government that is genuinely passionate about educating the next generation. A government that is not afraid of trying new models of education governance, and knows that every dollar invested in education today yields many more tomorrow.`,
       `Imagine a government that understands the balance between realizing operational efficiencies and giving every child the equal opportunity to live up to their full human and economic potential. A government that considers music rooms and computer labs investments rather than expenses.`,
       `It's possible.`,
       `We are Imagine X. We are citizens starting a new political movement for a better BC.`
