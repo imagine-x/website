@@ -2,13 +2,61 @@
 main =  #202020
 mainDark = black
 mainLight = #caaabd
-font = 'Roboto', sans-serif
+font = 'Arial', sans-serif
 fontcolor = #777777
+fontSize = 15px
+primaryColour = black;
+breakpoint = 960px;
 
 body {
-	font-family: font;
+    font-family: font;
+    font-size: fontSize;
+    border: 5px solid primaryColour;
+    width: 100%;
+}
+
+h1 {
+    font-size: 30px;
+    padding: 0;
+    font-weight: bold;
+}
+
+h6 {
+    font-weight: bold;
+    font-size: fontSize;
+}
+
+hr {
+    color: #E0E1DC;
+}
+
+a {
+    color: primaryColour;
+    text-decoration: underline;
+}
+
+.footer__link {
+    font-size: 12px;
+    margin-top: 1.25rem;
+    display: inline-block;
+}
+
+.logo {
+    max-width: 15rem;
+}
+
+.logo--footer {
+    float: right;
+}
+
+.layout__sidebar {
+    float: left;
+    margin-left: 0;
+}
+
+.layout__main {
+    float: right;
 }
 
 @import "./buttons"
-@import "./dropdowns"
-@import "./transitions"
+@import "./forms"

@@ -1,7 +1,10 @@
 <template lang="jade">
 
-.variable
-    p(v-for='x in content') {{ x }}
+#footer
+  a.footer__link Privacy Policy
+  span  | 
+  a.footer__link Contact Us
+  img.logo.logo--footer(src='../../../static/images/imaginex.svg')
 
 </template>
 
@@ -14,3 +17,4 @@ export default {
 <style lang="stylus" scoped>
   @import "../../styles/main"
 </style>
+

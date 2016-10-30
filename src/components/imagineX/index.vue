@@ -2,16 +2,28 @@
 
 main
     heading(v-bind:content='idea.heading')
-    .row
-      .four.columns
-        application
-      .seven.columns.pitch
+    .row.container
+      .eight.columns.layout__main
         variable-body(v-bind:content='idea.variable')
+        b Join us and together let's create a #BetterBC.
         hr
-        values(v-bind:content='idea.values')
+      .four.columns.layout__sidebar
+        #form
+        application
+        hr.hr--hide-lg
+      .eight.columns.layout__main
+        div(v-if='idea.main')
+            values(v-bind:content='idea.values')
+            hr
+            who
+        div(v-else)
+            who
+            hr
+            values(v-bind:content='idea.values')
+        hr
         sources(v-bind:content='idea.sources')
-        hr
-        who
+        hr(v-if='idea.sources.length > 0')
+        footer-x
 
 </template>
 
@@ -20,6 +32,7 @@ import VariableBody from '../generics/VariableBody.vue'
 import Heading from './Heading.vue'
 import Values from './Values'
 import Who from '../generics/Who.vue'
+import FooterX from '../generics/FooterX.vue'
 import Sources from '../generics/Sources.vue'
 import Application from '../generics/Application.vue'
 
@@ -33,6 +46,7 @@ export default {
       VariableBody,
       Heading,
       Who,
+      FooterX,
       Sources,
       Application,
       Values
@@ -43,11 +57,9 @@ export default {
 <style lang="stylus" scoped>
   @import "../../styles/main"
 
-
-  hr
-    border-top:1px solid black;
-
-  .pitch
-    padding-top:2em
-
+  @media (min-width: breakpoint) {
+    .hr--hide-lg {
+        display: none;
+    }
+  }
 </style>

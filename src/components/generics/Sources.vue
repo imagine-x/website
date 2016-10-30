@@ -1,14 +1,13 @@
 <template lang="jade">
 
-div
-  .sources(v-show='!!content.length')
-    span Sources :
-    div(v-for='(link, index) in content')
-      a.source(
+div.sources(v-show='!!content.length')
+    h6 SOURCES
+    div.sources__container(v-for='(link, index) in content')
+      p.source(
         v-bind:href='link',
         target="_blank",
         :style='style'
-        ) ~{{index}}~{{link}}
+        ) [{{index + 1}}] {{link}}
 
 </template>
 
@@ -30,8 +29,9 @@ export default {
   @import "../../styles/main"
 
   .source
-    padding:0
-    padding:10px
     font-size:.7em
+
+  .sources__container
+    line-height: 1.6rem;
 
 </style>

@@ -1,14 +1,5 @@
 <template lang="jade">
-.container
-  div
-    imagine-x(v-if='mode!=="attack"')
-    attack-ads(v-else)
-  div
-    img(
-      src='../../static/images/hamburger.svg',
-      @click='changeMode'
-      )#modeswitcher
-
+  imagine-x
 </template>
 
 
@@ -50,9 +41,12 @@
 
 
 <style lang="stylus">
-
   body
-    width: 100vw
+    width: initial;
+    border: 10px solid black;
+    margin: 0;
+    padding-bottom: 5rem;
+
   #modeswitcher
     z-index: 1e10
     position:fixed
