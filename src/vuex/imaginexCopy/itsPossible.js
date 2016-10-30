@@ -22,6 +22,7 @@ export const itsPossible = [{
     heading:[
         `Let's create a #BetterBC`
     ],
+    sources: [],
     main: true
   },{
     variable:[
@@ -49,6 +50,7 @@ export const itsPossible = [{
     heading: [
         `Imagine a BC government that values students and teachers over politics. It’s possible.`
     ],
+    sources: [],
     main: false
   }
 ]
