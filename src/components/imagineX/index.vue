@@ -12,9 +12,14 @@ main
         application
         hr.hr--hide-lg
       .eight.columns.layout__main
-        values(v-bind:content='idea.values')
-        hr
-        who
+        div(v-if='idea.main')
+            values(v-bind:content='idea.values')
+            hr
+            who
+        div(v-else)
+            who
+            hr
+            values(v-bind:content='idea.values')
         hr
         #footer
           a.footer__link Privacy Policy
