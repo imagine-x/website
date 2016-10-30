@@ -1,7 +1,7 @@
 <template lang="jade">
 #who
   h6 WHO WE ARE
-  p Imagine X is a group of passionate citizens starting a political movement for a better BC. We stand for a good government that meets our core values of: Transparency, Evidence-Based Decision-Making, Citizen-Centric, Empathy, Collaboration, Sustainability, Forward-Thinking, and Fun. And no, we’re not affiliated with the BC Liberals, BC NDPs, Greens, or any other party. We simply want a better government for a better BC - just like you. Sign up to support us and keep up-to-date on our next steps.
+  p Imagine X is a political platform. We are a group of passionate citizens starting a political movement for a better BC. We stand for a good government with principles and policies that meet our core values. And no, we are not affiliated with the BC Liberals, NDPs, Greens, any other party or interest group. We simply want a better government for a better BC - just like you.
 </template>
 
 <script>

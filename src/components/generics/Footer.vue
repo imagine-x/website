@@ -1,7 +1,10 @@
 <template lang="jade">
 
 #footer
-    img(src='../../../static/images/imaginex.svg')
+  a.footer__link Privacy Policy
+  span  | 
+  a.footer__link Contact Us
+  img.logo.logo--footer(src='../../../static/images/imaginex.svg')
 
 </template>
 

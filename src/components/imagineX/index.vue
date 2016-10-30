@@ -15,8 +15,10 @@ main
         hr
         who
         hr
-        .footer
+        #footer
           a.footer__link Privacy Policy
+          span  | 
+          a.footer__link Contact Us
           img.logo.logo--footer(src='../../../static/images/imaginex.svg')
 
 </template>
@@ -26,7 +28,7 @@ import VariableBody from '../generics/VariableBody.vue'
 import Heading from './Heading.vue'
 import Values from './Values'
 import Who from '../generics/Who.vue'
-import Footer from './Footer.vue'
+import Footer from '../generics/Footer.vue'
 import Sources from '../generics/Sources.vue'
 import Application from '../generics/Application.vue'
 

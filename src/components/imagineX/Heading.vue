@@ -8,7 +8,7 @@
       )
     button.btn.btn--header Take Action
   .eight.columns
-      h1(v-for='x in content')
+      h1.heading__text(v-for='x in content')
         {{ x }}
 
 </template>
@@ -66,6 +66,10 @@ img
 
     .btn--header {
         display: none;
+    }
+    
+    .heading__text {
+        margin-bottom: 4rem;
     }
 }
 </style>
