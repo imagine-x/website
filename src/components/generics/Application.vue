@@ -68,7 +68,7 @@ export default {
       if (this.isValidInfo()) {
         let info = _.pick(this, ['name', 'mail', 'postal', 'subscribe'])
         request
-          .post('/')
+          .post('/post')
           .send(info)
           .then(console.log)
           .catch(console.log)
@@ -131,4 +131,8 @@ export default {
 
 <style lang="stylus" scoped>
   @import "../../styles/main"
+
+  input!important // prevent webkit yellow
+    background-color: white
+
 </style>
