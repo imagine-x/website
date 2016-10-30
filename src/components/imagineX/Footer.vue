@@ -1,7 +1,7 @@
 <template lang="jade">
 
-.variable
-    p(v-for='x in content') {{ x }}
+#footer
+    img(src='../../../static/images/imaginex.svg')
 
 </template>
 
@@ -14,3 +14,4 @@ export default {
 <style lang="stylus" scoped>
   @import "../../styles/main"
 </style>
+

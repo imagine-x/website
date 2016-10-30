@@ -15,9 +15,13 @@ const values = [
 export const itsPossible = [{
     values,
     variable:[
-      `We are a group of passionate citizens starting a political movement for a better BC. We are not affiliated with the BC Liberals, NDPs, Greens, or any other party. We're fed up with the political games and backroom deals. We stand for a good government with principles and policies that meet our core values. We simply want a better government for a better BC - just like you.`,
+      `Let’s admit it. Politics in BC is stuck. It’s a tug-of-war between the left, the right and a single issue party. Our current options are limited, but we can’t wait any longer. Our province needs a radically different future, a government that we can trust. Do you dare to imagine an alternative?`,
       `Imagine a government that was transparent rather than secretive; more frequently collaborative than adversarial; citizen-centric rather than interest-focused; forward-thinking rather than backward-looking. We can do this.`,
+      `Imagine X is a political platform. We are a group of passionate citizens starting a political movement for a better BC. We stand for a good government with principles and policies that meet our core values. And no, we are not affiliated with the BC Liberals, NDPs, Greens, any other party or interest group. We simply want a better government for a better BC - just like you.`
     ],
+    heading:[
+        `Let's imagine a #BetterBC`
+    ]
   },{
     variable:[
       `Let’s admit it. Politics in BC is stuck. Our current options are limited, but we can’t wait any longer. Our province needs a radically different future, a government that we can trust. Do you dare to imagine an alternative?`,
@@ -25,9 +29,6 @@ export const itsPossible = [{
       `Imagine X is a political platform. We are a group of passionate citizens starting a political movement for a better BC. We stand for a good government with principles and policies that meet our core values. And no, we are not affiliated with the BC Liberals, NDPs, Greens, or any other party. We simply want a better government for a better BC - just like you.`,
     ],
     values,
-    sources:[],
-    heading:[
-        `Let's imagine a #BetterBC`
-    ]
+    sources:[]
   },
 ]

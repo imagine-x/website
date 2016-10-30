@@ -1,6 +1,7 @@
 <template lang="jade">
 .container
   div
+  div
     imagine-x(v-if='mode!=="attack"')
     attack-ads(v-else)
   div
@@ -50,9 +51,15 @@
 
 
 <style lang="stylus">
+  .container
+    margin-top: 10rem;
 
   body
-    width: 100vw
+    width: initial;
+    border: 10px solid black;
+    margin: 0;
+    padding-bottom: 5rem;
+
   #modeswitcher
     z-index: 1e10
     position:fixed
