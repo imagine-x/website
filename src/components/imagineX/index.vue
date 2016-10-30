@@ -23,11 +23,7 @@ main
         hr
         sources(v-bind:content='idea.sources')
         hr(v-if='idea.sources.length > 0')
-        #footer
-          a.footer__link Privacy Policy
-          span  | 
-          a.footer__link(href="mailto:hello@imagine-x.ca") Contact Us
-          img.logo.logo--footer(src='../../../static/images/imaginex.svg')
+        footer-x
 
 </template>
 
@@ -36,7 +32,7 @@ import VariableBody from '../generics/VariableBody.vue'
 import Heading from './Heading.vue'
 import Values from './Values'
 import Who from '../generics/Who.vue'
-import Footer from '../generics/Footer.vue'
+import FooterX from '../generics/FooterX.vue'
 import Sources from '../generics/Sources.vue'
 import Application from '../generics/Application.vue'
 
@@ -50,7 +46,7 @@ export default {
       VariableBody,
       Heading,
       Who,
-      Footer,
+      FooterX,
       Sources,
       Application,
       Values

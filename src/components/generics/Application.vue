@@ -10,9 +10,9 @@
 			input(
 				type='text',
 				placeholder='Your Name',
-				name='name'
-				v-model='name'
-		v-bind:style='nameInputStyle'
+				name='name',
+				v-model='name',
+		    v-bind:style='nameInputStyle'
 			)
 		div
 			input(
@@ -20,7 +20,7 @@
 				placeholder='Your Email',
 				name='mail',
 				v-model='mail',
-		v-bind:style='mailInputStyle'
+		    v-bind:style='mailInputStyle'
 			)
 		div
 			input(
@@ -28,8 +28,7 @@
 				placeholder='Postal Code',
 				name='postal',
 				v-model='postal'
-		v-bind:style='postalInputStyle'
-
+		    v-bind:style='postalInputStyle'
 			)
 		.checkbox-container
 			input(type="checkbox", name="subscribe", id="subscribe")
