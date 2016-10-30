@@ -1,14 +1,5 @@
 <template lang="jade">
-div
-  div
-    imagine-x(v-if='mode!=="attack"')
-    attack-ads(v-else)
-  div
-    img(
-      src='../../static/images/hamburger.svg',
-      @click='changeMode'
-      )#modeswitcher
-
+  imagine-x
 </template>
 
 

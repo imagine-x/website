@@ -21,7 +21,8 @@ export const itsPossible = [{
     ],
     heading:[
         `Let's create a #BetterBC`
-    ]
+    ],
+    main: true
   },{
     variable:[
       `BC has the highest GDP growth and the lowest unemployment rate nationally, yet we are the second worst in education funding after Prince Edward Islands. According Statistics Canada1, BC spends almost $1000 less per student than the national average of $11,393. Something doesn’t add up.`,
@@ -31,7 +32,8 @@ export const itsPossible = [{
     ],
     heading: [
         `BC spends $1000 less per student than the national average`
-    ]
+    ],
+    main: false
   },
   {
     variable:[
@@ -43,6 +45,7 @@ export const itsPossible = [{
     ],
     heading: [
         `Imagine a BC government that values students and teachers over politics. It’s possible.`
-    ]
+    ],
+    main: false
   }
 ]

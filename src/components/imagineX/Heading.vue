@@ -1,13 +1,13 @@
 <template lang="jade">
 
-#heading.container
+#heading.container.container--header
   .four.columns.header-container
-    img.logo(
+    img.logo.header-container__block(
       src='../../../static/images/imaginex.svg',
       @click='next'
       )
-    a.btn.btn--header(href="#form") Take Action
-  .eight.columns
+    a.btn.btn--header.header-container__block(href="#form") Take Action
+  .eight.columns.header-container__block
       h1.heading__text(v-for='x in content')
         {{ x }}
 
@@ -39,9 +39,20 @@ img
   justify-content: space-between;
   align-items: center;
 
-.btn--header{
+.header-container__block {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.btn--header {
     display: none;
 }
+
+.container--header {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 
 @media (min-width: 390px) {
     .btn--header {
@@ -53,6 +64,7 @@ img
         text-transform: uppercase;
         font-weight: bold;
         line-height: 38px;
+        margin-right: 20px;
     }
 }
 
@@ -68,12 +80,22 @@ img
         display: block;
     }
 
+    .header-container__block {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
     .btn--header {
         display: none;
     }
 
     .heading__text {
         margin-bottom: 4rem;
+    }
+
+    .container--header {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
 </style>
