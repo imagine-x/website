@@ -3,7 +3,7 @@
 #heading
   .row
       .four.columns
-        img(
+        img.logo(
           src='../../../static/images/imaginex.svg',
           @click='next'
           )
@@ -29,18 +29,17 @@ export default {
   @import "../../styles/main"
 
   h1
-    font-weight:900
-    font-family: Montserrat,Arial,sans-serif
     line-height: 1.5
-    font-size: 3rem
-    margin: 2rem 0 1rem;
+    font-size: 30px
     color black
     padding:0
+    font-weight: bold
 
 img
   cursor:pointer
 
 #heading
   content-align:center
+  margin: 3rem 0;
 
 </style>

@@ -3,15 +3,20 @@
 main
     heading(v-bind:content='idea.heading')
     .row
-      .four.columns
-        application
-      .seven.columns.pitch
+      .eight.columns.layout__main
         variable-body(v-bind:content='idea.variable')
+        b Join us and together let's imagine a #BetterBC.
         hr
+      .four.columns.layout__sidebar
+        application
+      .eight.columns.layout__main
         values(v-bind:content='idea.values')
-        sources(v-bind:content='idea.sources')
         hr
         who
+        hr
+        .footer
+          a.footer__link Privacy Policy
+          img.logo.logo--footer(src='../../../static/images/imaginex.svg')
 
 </template>
 
@@ -20,6 +25,7 @@ import VariableBody from '../generics/VariableBody.vue'
 import Heading from './Heading.vue'
 import Values from './Values'
 import Who from '../generics/Who.vue'
+import Footer from './Footer.vue'
 import Sources from '../generics/Sources.vue'
 import Application from '../generics/Application.vue'
 
@@ -33,6 +39,7 @@ export default {
       VariableBody,
       Heading,
       Who,
+      Footer,
       Sources,
       Application,
       Values
@@ -42,12 +49,4 @@ export default {
 
 <style lang="stylus" scoped>
   @import "../../styles/main"
-
-
-  hr
-    border-top:1px solid black;
-
-  .pitch
-    padding-top:2em
-
 </style>

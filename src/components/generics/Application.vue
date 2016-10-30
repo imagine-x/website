@@ -2,7 +2,8 @@
 
 .application
   form
-    label Help us get started.
+    label TAKE ACTION
+    p Add your name to learn more.
     div
       input(
         type='text',
@@ -21,7 +22,10 @@
         placeholder='Postal Code',
         name='postal',
       )
-    button(@click.prevent='') I'm In
+    .checkbox-container
+        input(type="checkbox", name="subscribe", id="subscribe")
+        label.checkbox__label(for="subscribe") Yes, I’d like to receive updates
+    button.btn(@click.prevent='') Learn more
 
 </template>
 
@@ -33,23 +37,4 @@ export default {
 
 <style lang="stylus" scoped>
   @import "../../styles/main"
-
-  input
-    width: 100%
-    height: 50px
-    border: 1px solid #dddddd
-    margin-bottom: 12px
-    padding: 10px
-    font-size: 16px
-    border-radius:0
-
-  button
-    color:black
-    width: 100%
-    height: 50px
-    border-color: rgb(221, 221, 221)
-    font-size: 16px
-    font-family: Montserrat,Arial,sans-serif
-    font-weight: bold
-
 </style>
