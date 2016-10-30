@@ -31,7 +31,7 @@
 		    v-bind:style='postalInputStyle'
 			)
 		.checkbox-container
-			input(type="checkbox", name="subscribe", id="subscribe")
+			input(type="checkbox", name="subscribe", id="subscribe", v-model='subscribe')
 			label.checkbox__label(for="subscribe") Yes, I’d like to receive updates
 		button.btn.btn--full(@click.prevent='postInfo') Learn more
 
@@ -57,6 +57,7 @@ export default {
       name: '',
       mail: '',
       postal: '',
+      subscribe: true,
       submitAttempted: false,
     }
   },
@@ -65,12 +66,17 @@ export default {
     postInfo() {
       this.submitAttempted = true
       if (this.isValidInfo()) {
-        let info = _.pick(this, ['name', 'mail', 'postal'])
+        let info = _.pick(this, ['name', 'mail', 'postal', 'subscribe'])
         request
           .post('/')
           .send(info)
           .then(console.log)
           .catch(console.log)
+        //reset
+        this.submitAttempted = false
+        this.name = ''
+        this.mail = ''
+        this.postInfo = ''
       }
       console.log('invalid')
     },
