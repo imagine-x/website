@@ -6,7 +6,7 @@
       src='../../../static/images/imaginex.svg',
       @click='next'
       )
-    button.btn.btn--header Take Action
+    a.btn.btn--header(href="#form") Take Action
   .eight.columns
       h1.heading__text(v-for='x in content')
         {{ x }}
@@ -49,6 +49,10 @@ img
         padding: 0 20px;
         height: 40px;
         margin-bottom: 0;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        line-height: 38px;
     }
 }
 
@@ -67,7 +71,7 @@ img
     .btn--header {
         display: none;
     }
-    
+
     .heading__text {
         margin-bottom: 4rem;
     }
