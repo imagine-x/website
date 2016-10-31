@@ -22,6 +22,9 @@ export default {
 <style lang="stylus" scoped>
   @import "../../styles/main"
 
-  a
-    cursor:pointer
+.footer__link {
+    font-size: 12px;
+    margin-top: 0.75rem;
+    display: inline-block;
+}
 </style>
