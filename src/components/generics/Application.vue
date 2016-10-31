@@ -44,11 +44,11 @@ import request from 'superagent'
 import _ from 'lodash'
 
 const invalidStyle = {
-  'border-color': 'darkRed',
+  'border-color': '#da0505',
 }
 
 const validStyle = {
-  'border-color': 'darkGreen',
+  'border-color': '',
 }
 
 export default {
