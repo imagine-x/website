@@ -1,14 +1,14 @@
 <template lang="jade">
 
 .modal(v-show='visible', @click='close')
-  .content(@click.stop='')
+  .content(v-bind:class='privacyclass', @click.stop='')
       slot
 
 </template>
 
 <script>
 export default {
-  props: ['visible', 'close'],
+  props: ['visible', 'close', 'privacyclass'],
 }
 </script>
 

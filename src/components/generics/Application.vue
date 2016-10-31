@@ -1,7 +1,5 @@
 <template lang="jade">
 
-
-
 .application
 	form
 		label TAKE ACTION
@@ -11,15 +9,14 @@
 				type='text',
 				placeholder='Your Name',
 				name='name',
-				v-model='name',
+				v-model='info.name',
 		    v-bind:style='nameInputStyle'
 			)
 		div
 			input(
-				type='text',
 				placeholder='Your Email',
 				name='mail',
-				v-model='mail',
+				v-model='info.mail',
 		    v-bind:style='mailInputStyle'
 			)
 		div
@@ -27,15 +24,13 @@
 				type='text',
 				placeholder='Postal Code',
 				name='postal',
-				v-model='postal'
+				v-model='info.postal'
 		    v-bind:style='postalInputStyle'
 			)
 		.checkbox-container
-			input(type="checkbox", name="subscribe", id="subscribe", v-model='subscribe')
+			input(type="checkbox", name="subscribe", id="subscribe", v-model='info.subscribe')
 			label.checkbox__label(for="subscribe") Yes, I’d like to receive updates
 		button.btn.btn--full(@click.prevent='postInfo') Learn more
-
-
 
 </template>
 
@@ -54,55 +49,67 @@ const validStyle = {
 export default {
   data() {
     return {
-      name: '',
-      mail: '',
-      postal: '',
-      subscribe: true,
-      submitAttempted: false,
-    }
+			info: {
+				name: '',
+				mail: '',
+				postal: '',
+				subscribe: true,
+				submitAttempted: false,
+			}
+		}
   },
   props: ['content'],
   methods: {
     postInfo() {
-      this.submitAttempted = true
+      this.info.submitAttempted = true
       if (this.isValidInfo()) {
-        let info = _.pick(this, ['name', 'mail', 'postal', 'subscribe'])
-        request
-          .post('/post')
-          .send(info)
-          .then(console.log)
-          .catch(console.log)
-        //reset
-        this.submitAttempted = false
-        this.name = ''
-        this.mail = ''
-        this.postInfo = ''
+        let info = {
+					name:this.info.name,
+					mail:this.info.mail,
+					postal:this.info.postal,
+					subscribe:this.info.subscribe
+				}
+				console.log(info)
 				this.$store.dispatch('TOGGLE_THANKYOU')
+				// request
+        //   .post('/post')
+        //   .send(info)
+        //   .then(console.log)
+        //   .catch(console.log)
+        //reset
+        this.info.submitAttempted = false
+        this.info.name = ' '
+        this.info.mail = ' '
+				this.info.postal = ' '
+        this.info.postInfo = ' '
       }
       console.log('invalid')
     },
     isValidInfo() {
+			this.info.name = this.info.name.replace(/\s/, '')
+			this.info.mail = this.info.mail.replace(/\s/, '')
+			this.info.postal = this.info.postal.replace(/\s/, '')
       return (
         this.isValidName() &&
         this.isValidMail()
       )
     },
     isValidName() {
-      return this.name.length > 3
+      return this.info.name.length > 3
     },
     isValidMail() {
       let mailRegex =
         /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i
-      return mailRegex.test(this.mail)
+      return mailRegex.test(this.info.mail)
     },
     isValidPostal() {
       let postalRegex = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/
-      return postalRegex.test(this.postal)
+      return postalRegex.test(this.info.postal)
     },
   },
   computed: {
     nameInputStyle() {
-      if (this.submitAttempted) {
+      if (this.info.submitAttempted) {
         if (this.isValidName()) {
           return validStyle
         }
@@ -110,7 +117,7 @@ export default {
       }
     },
     mailInputStyle(){
-      if (this.submitAttempted) {
+      if (this.info.submitAttempted) {
         if (this.isValidMail()) {
           return validStyle
         }
@@ -118,7 +125,7 @@ export default {
       }
     },
     postalInputStyle(){
-      if (this.submitAttempted) {
+      if (this.info.submitAttempted) {
         if (this.isValidPostal()) {
           return validStyle
         }
@@ -132,9 +139,6 @@ export default {
 
 <style lang="stylus" scoped>
   @import "../../styles/main"
-
-  input!important // prevent webkit yellow
-    background-color: white
 
   @media (min-width: smBreakpoint) {
     .application {

@@ -1,7 +1,7 @@
 <template lang="jade">
 
 
-Modal(v-bind:visible='visible', v-bind:close='closeModal')
+Modal(v-bind:visible='visible', v-bind:close='closeModal', v-bind:class='styleClass')
   h1 Privacy Policy
   p Imagine X is committed to respecting your privacy. The purpose of this Privacy Policy is to explain how we handle personal information to ensure its confidentiality, security and accuracy.
   label WHAT IS “PERSONAL INFORMATION”?
@@ -52,6 +52,11 @@ export default {
   computed: {
     visible() {
       return this.$store.state.director.privacy
+    },
+    styleClass(){
+      return {
+      "content--md": true
+      }
     }
   },
   methods: {
