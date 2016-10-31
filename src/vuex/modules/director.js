@@ -6,12 +6,16 @@ const mutations = {
     },
     setThankYou(director, thanks){
       director.thankYou = thanks
+    },
+    setPrivacy(director, thanks){
+      director.privacy = thanks
     }
 }
 
 const state = {
   mode:"imagine",
-  thankYou: false
+  thankYou: false,
+  privacy: true
 }
 
 let j = 1
@@ -24,14 +28,12 @@ const actions = {
     commit('setMode', modes[j])
   },
   TOGGLE_THANKYOU({ commit, state }){
-    console.log(state)
     commit('setThankYou', !state.thankYou)
+  },
+  TOGGLE_PRIVACY({ commit, state }){
+    commit('setPrivacy', !state.privacy)
   }
 }
-
-
-
-
 
 export default {
   state,
