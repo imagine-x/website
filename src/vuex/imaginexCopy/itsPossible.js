@@ -2,7 +2,7 @@ const values = [
   {
     'Citizen-centric' :`Always put public good over private interests. We strive to create fair solutions and provide services that achieve the greatest benefits for citizens of today and tomorrow.`,
   },{
-    'Respectful collaboration': `We can multiply our collective contribution through respectful collaboration; we are stronger when we reach shared goals through mutual trust and support.`,
+    'Respectful collaboration': `We can multiply our collective contribution through respectful collaboration. We are stronger when we reach shared goals through mutual trust and support.`,
   },{
     'Evidence-based decision making':`Sound decision-making is guided by quality facts and data. Thorough investigation and pragmatic scientific rigour should inform every decision. Seek out objective, independent and expert opinion.`,
   },{

@@ -1,7 +1,7 @@
 <template lang="jade">
 
 #footer
-  a(@click='showPrivacyModal').footer__link Privacy Policy
+  a(href="#", @click.prevent='showPrivacyModal').footer__link Privacy Policy
   span  |  
   a.footer__link(href='mailto:hello@imagine-x.ca') Contact Us
   img.logo.logo--footer(src='../../../static/images/imaginex.svg')
@@ -22,6 +22,9 @@ export default {
 <style lang="stylus" scoped>
   @import "../../styles/main"
 
-  a
-    cursor:pointer
+.footer__link {
+    font-size: 12px;
+    margin-top: 0.75rem;
+    display: inline-block;
+}
 </style>

@@ -35,7 +35,6 @@ export default {
       background-color: white;
       padding: 20px;
       border: 1px solid #888;
-      height: 100%;
   }
 
   .modal__close-btn {
