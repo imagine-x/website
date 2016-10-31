@@ -77,6 +77,7 @@ export default {
         this.name = ''
         this.mail = ''
         this.postInfo = ''
+				this.$store.dispatch('TOGGLE_THANKYOU')
       }
       console.log('invalid')
     },
