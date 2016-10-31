@@ -15,7 +15,7 @@ const mutations = {
 const state = {
   mode:"imagine",
   thankYou: false,
-  privacy: true
+  privacy: false
 }
 
 let j = 1
