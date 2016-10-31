@@ -29,7 +29,7 @@ export const itsPossible = [{
       'BC has the highest GDP growth and the lowest unemployment rate nationally, yet we are the second worst in education funding after Prince Edward Island. According Statistics Canada [1], BC spends almost $1000 less per student than the national average of $11,393. Something doesn’t add up.',
       `Imagine instead a BC government that is genuinely passionate about educating the next generation. A government that invests in preparing our children for society and jobs of the future instead of spending on infrastructure without transparent business cases. A government that recognizes that only talent will transform us from a resource-dependent economy to a resourceful one. A government that realizes that music lessons are just as important as coding lessons.`,
       `It's possible.`,
-      `We are Imagine X. We are citizens starting a new political movement for a better BC.`
+      `We are Imagine X. We are a group of passionate citizens starting a political movement for a better BC.`
     ],
     sources: [
         `Table 21. Operating expenditures per student in public elementary and secondary schools, “Summary Elementary and Secondary School Indicators for Canada, the Provinces and Territories, 2006/2007 to 2010/2011,” Statistics Canada`
@@ -45,7 +45,7 @@ export const itsPossible = [{
       `Imagine instead a BC government that is genuinely passionate about educating the next generation. A government that is not afraid of trying new models of education governance, and knows that every dollar invested in education today yields many more tomorrow.`,
       `Imagine a government that understands the balance between realizing operational efficiencies and giving every child the equal opportunity to live up to their full human and economic potential. A government that considers music rooms and computer labs investments rather than expenses.`,
       `It's possible.`,
-      `We are Imagine X. We are citizens starting a new political movement for a better BC.`
+      `We are Imagine X. We are a group of passionate citizens starting a political movement for a better BC.`
     ],
     heading: [
         `Imagine a BC government that values students and teachers over politics. It’s possible.`

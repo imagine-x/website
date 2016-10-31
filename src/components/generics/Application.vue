@@ -14,8 +14,9 @@
 			)
 		div
 			input(
-				placeholder='Your Email',
+				type='text',
 				name='mail',
+				placeholder='Your Email',
 				v-model='info.mail',
 		    v-bind:style='mailInputStyle'
 			)

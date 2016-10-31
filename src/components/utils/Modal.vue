@@ -1,14 +1,25 @@
 <template lang="jade">
 
 .modal(v-show='visible', @click='close')
-  .content(v-bind:class='privacyclass', @click.stop='')
+  .content(v-bind:class='contentClass', @click.stop='')
+      button.modal__close-btn(@click='close') x
       slot
 
 </template>
 
 <script>
 export default {
-  props: ['visible', 'close', 'privacyclass'],
+  props: ['visible', 'close', 'md'],
+  computed: {
+    contentClass(){
+      if (this.md){
+        return {
+          "content--md": true
+        }
+      }
+      return {}
+    }
+  }
 }
 </script>
 
@@ -27,11 +38,31 @@ export default {
       height: 100%;
   }
 
+  .modal__close-btn {
+    border: 3px solid black;
+    background: white;
+    color: black;
+    padding: 1.25rem 0.75rem;
+    height: auto;
+    line-height: 0;
+    float: right;
+  }
+
+  .modal__close-btn:hover {
+    background: black;
+    color: white;
+  }
+
 @media (min-width: smBreakpoint) {
   .content {
       margin: 15% auto;
       width: minBreakpoint;
       height: auto;
+  }
+
+  .content.content--md {
+    margin: 5% auto;
+    width: 85%;
   }
 }
 
