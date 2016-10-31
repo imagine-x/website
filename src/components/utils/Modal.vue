@@ -2,6 +2,7 @@
 
 .modal(v-show='visible', @click='close')
   .content(@click.stop='')
+      button.modal__close-btn(@click='close') x
       slot
 
 </template>
@@ -27,11 +28,31 @@ export default {
       height: 100%;
   }
 
+  .modal__close-btn {
+    border: 3px solid black;
+    background: white;
+    color: black;
+    padding: 1.25rem 0.75rem;
+    height: auto;
+    line-height: 0;
+    float: right;
+  }
+
+  .modal__close-btn:hover {
+    background: black;
+    color: white;
+  }
+
 @media (min-width: smBreakpoint) {
   .content {
       margin: 15% auto;
       width: minBreakpoint;
       height: auto;
+  }
+
+  .content--md {
+    margin: 5% auto;
+    width: 85%;
   }
 }
 
