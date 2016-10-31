@@ -79,10 +79,9 @@ export default {
         //   .catch(console.log)
         //reset
         this.info.submitAttempted = false
-        this.info.name = ' '
-        this.info.mail = ' '
-				this.info.postal = ' '
-        this.info.postInfo = ' '
+        this.info.name = ''
+        this.info.mail = ''
+				this.info.postal = ''
       }
       console.log('invalid')
     },
