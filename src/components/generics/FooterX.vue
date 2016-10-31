@@ -3,7 +3,7 @@
 #footer
   a.footer__link Privacy Policy
   span  | 
-  a.footer__link Contact Us
+  a.footer__link(href='mailto:hello@imagine-x.ca') Contact Us
   img.logo.logo--footer(src='../../../static/images/imaginex.svg')
 
 </template>

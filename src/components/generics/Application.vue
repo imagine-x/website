@@ -136,4 +136,15 @@ export default {
   input!important // prevent webkit yellow
     background-color: white
 
+  @media (min-width: smBreakpoint) {
+    .application {
+        width: 50%;
+    }
+  }
+
+  @media (min-width: breakpoint) {
+    .application {
+        width: 100%;
+    }
+  }
 </style>

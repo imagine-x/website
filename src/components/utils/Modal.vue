@@ -17,17 +17,23 @@ export default {
 
   .modal{
     @extends .backdrop
-    border-radius: 6%
+    background-color: rgba(0,0,0,.8);
   }
 
   .content {
-      background-color: rgba(255,255,255,1);
-      margin: 15% auto; /* 15% from the top and centered */
+      background-color: white;
       padding: 20px;
       border: 1px solid #888;
-      border-radius: 6%;
-      width: 440px; /* Could be more or less, depending on screen size */
+      height: 100%;
   }
+
+@media (min-width: smBreakpoint) {
+  .content {
+      margin: 15% auto;
+      width: minBreakpoint;
+      height: auto;
+  }
+}
 
 
 </style>

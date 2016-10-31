@@ -6,12 +6,14 @@ font = 'Arial', sans-serif
 fontcolor = #777777
 fontSize = 15px
 primaryColour = black;
+minBreakpoint = 390px;
+smBreakpoint = 480px;
 breakpoint = 960px;
+
 
 body {
     font-family: font;
     font-size: fontSize;
-    border: 5px solid primaryColour;
     width: 100%;
 }
 
@@ -41,14 +43,6 @@ a {
     display: inline-block;
 }
 
-.logo {
-    max-width: 15rem;
-}
-
-.logo--footer {
-    float: right;
-}
-
 .layout__sidebar {
     float: left;
     margin-left: 0;
@@ -61,3 +55,4 @@ a {
 @import "./buttons"
 @import "./forms"
 @import "./dropdowns"
+@import "./logo"

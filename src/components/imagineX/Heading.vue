@@ -45,27 +45,20 @@ img
 }
 
 .btn--header {
-    display: none;
+    display: block;
+    padding: 0 20px;
+    height: 40px;
+    margin-bottom: 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 38px;
+    margin-right: 20px;
 }
 
 .container--header {
     padding-left: 0;
     padding-right: 0;
-}
-
-
-@media (min-width: 390px) {
-    .btn--header {
-        display: block;
-        padding: 0 20px;
-        height: 40px;
-        margin-bottom: 0;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-weight: bold;
-        line-height: 38px;
-        margin-right: 20px;
-    }
 }
 
 @media (min-width: breakpoint) {

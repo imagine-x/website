@@ -43,9 +43,14 @@
 <style lang="stylus">
   body
     width: initial;
-    border: 10px solid black;
     margin: 0;
     padding-bottom: 5rem;
+
+  @media (min-width: 960px) {
+    body {
+        border: 5px solid black;
+    }
+  }
 
   #modeswitcher
     z-index: 1e10
