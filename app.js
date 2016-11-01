@@ -103,6 +103,9 @@ function newContactAPI (subscribed, email, name, clientIP, country) {
 // app.get('/', function(req, res){
 //     res.render()
 // });
+app.get('/*', function(req,res){
+  res.sendFile(path.join(__dirname + '/dist/index.html'));
+})
 
 // Post Template
 app.post('/post', function(req, res){
