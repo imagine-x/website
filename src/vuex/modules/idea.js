@@ -36,6 +36,16 @@ const actions = {
     console.log(`Displaying ad #${k + 1}/${imaginexCount}`)
     commit('nextAd', ad)
     k = (k + 1) % imaginexCount
+  },
+  SET_IMAGINE_X_BY_URL({commit}, url){
+    console.log('SET BY URL', {url})
+    imaginexCopy.every(ad => {
+      if(ad.url === url){
+        commit('nextAd',  _.clone(ad) )
+        return false //terminate
+      }
+      return true
+    })
   }
 }
 
