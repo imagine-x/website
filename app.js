@@ -24,6 +24,8 @@ var https = require('https');
 
 var isProduction = (process.env.PRODUCTION == 'true');
 var mailApiKey = process.env.MAILAPIKEY || '';
+
+var crypto = require('crypto');
 // if not in production, send to dev test mailing list
 var mailList = isProduction ? '7e7fb31eaa' : '1194bbe271';
 
@@ -60,7 +62,43 @@ function execute(query, inserts, callback){
     });
 }
 
+
+function slackAPI (name, email) {
+
+    var firstName = name.split(" ")[0] || '';
+
+    var md5 = function (str) {
+        var hash = crypto.createHash('md5');
+        hash.update(str.toLowerCase().trim());
+        return hash.digest('hex');
+    };
+    var gravitarURL = "https://www.gravatar.com/avatar/" + md5(email) + "&s=40";
+    var post_data = JSON.stringify({  "text": "New signup: " + firstName,
+                                        "username" : isProduction ? "ProdBot" : "DevBot",
+                                        "icon_url" : gravitarURL
+                                    });
+      console.log(gravitarURL, post_data);
+    var req = https.request({
+                    "headers": { 'Content-type': 'application/json',
+                                'Content-Length': Buffer.byteLength(post_data)},
+                    "host": 'hooks.slack.com',
+                    "path": '/services/T2CT8GAHK/B2WNNK39B/wqUtlyfYzA0bzKx7FJXmwkCd',
+                    "method": 'POST'
+              },(res) => {
+                  console.log('statusCode:', res.statusCode, 'headers:', res.headers);
+                  res.on('data', (chunk) => {
+                      console.log(chunk.toString());
+                  });
+          });
+    req.write(post_data);
+    req.end();
+}
+
+
 function mailAPI (path, payload, callback) {
+    if (mailApiKey == '') {
+        return;
+    }
     var req = https.request({
                       "headers": {  "Authorization" : 'Basic ' + mailApiKey,
                                     'Content-Length': Buffer.byteLength(payload)},
@@ -68,8 +106,12 @@ function mailAPI (path, payload, callback) {
                       "path": path,
                       "method": 'POST'
                 }, (res) => {
-                    console.log('statusCode:', res.statusCode);
-                    console.log('headers:', res.headers);
+                    if (res.statusCode != '200') {
+                        console.log('statusCode:', res.statusCode);
+                        console.log('headers:', res.headers);
+                        return;
+                    }
+
                     res.setEncoding('utf8');
                     res.on('data', (chunk) => {
                         if (typeof callback != 'function') {
@@ -95,7 +137,7 @@ function newContactAPI (subscribed, email, name, clientIP, country) {
                          "COUNTRY" : country
                         }
                 });
-    mailAPI (path, payload, (response) => {console.log(response)});
+    mailAPI (path, payload, (response) => {});
 
 }
 
@@ -138,6 +180,7 @@ app.post('/post', function(req, res){
             res.send({ok: true});
         });
         newContactAPI (subscribed, email, name, clientIP, country);
+        slackAPI(name, email);
     };
 });
 // Does the table exist?
