@@ -105,8 +105,7 @@ export default {
       return this.info.name.length > 3
     },
     isValidMail() {
-      let mailRegex =
-        /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i
+      let mailRegex = /^\w+\.?\w+?\@\w+\.(\w+\.)?\w+$/
       return mailRegex.test(this.info.mail)
     },
     isValidPostal() {
