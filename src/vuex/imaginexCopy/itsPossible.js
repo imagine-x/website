@@ -28,7 +28,7 @@ export const itsPossible = [{
   },{
     url:'/1000-less-per-student',
     variable:[
-      'BC has the highest GDP growth and the lowest unemployment rate nationally, yet we are the second worst in education funding after Prince Edward Island. According Statistics Canada [1], BC spends almost $1000 less per student than the national average of $11,393. Something doesn’t add up.',
+      'BC has the highest GDP growth and the lowest unemployment rate nationally, yet we are the second worst in education funding after Prince Edward Island. According to Statistics Canada [1], BC spends almost $1000 less per student than the national average of $11,393. Something doesn’t add up.',
       `Imagine instead a BC government that is genuinely passionate about educating the next generation. A government that invests in preparing our children for society and jobs of the future instead of spending on infrastructure without transparent business cases. A government that recognizes that only talent will transform us from a resource-dependent economy to a resourceful one. A government that realizes that music lessons are just as important as coding lessons.`,
       `It's possible.`,
       `We are Imagine X. We are a group of passionate citizens starting a political movement for a better BC.`
