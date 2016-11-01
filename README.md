@@ -7,7 +7,7 @@ We are not only designing our website, we are in the process of trying to define
 
 If you have ideas for our values are goals. Please add them to files within the ./src/vuex/imaginexCopy folder.
 
-If you want to call attention to incompetence, corruption, stupidity, or other activities far too often associated with our politicians: Add your ideas to the ./src/vuex/attackAdCopy folder. 
+If you want to call attention to incompetence, corruption, stupidity, or other activities far too often associated with our politicians: Add your ideas to the ./src/vuex/attackAdCopy folder.
 
 
 ### Development Help
@@ -24,7 +24,7 @@ cd website
 npm install
 
 # serve with hot reload at localhost:8080
-npm run dev
+MAILAPIKEY=<API KEY> npm run dev
 
 # visit localhost:8080 in your browser
 ```
