@@ -31,7 +31,7 @@
 		.checkbox-container
 			input(type="checkbox", name="subscribe", id="subscribe", v-model='info.subscribe')
 			label.checkbox__label(for="subscribe") Yes, I’d like to receive updates
-		button.btn.btn--full(@click.prevent='postInfo') Learn more
+		button.btn.btn--full(v-bind:class='buttonStatus.btnClass', @click.prevent='postInfo') {{buttonStatus.btnMessage}}
 
 </template>
 
@@ -56,7 +56,7 @@ export default {
 				postal: '',
 				subscribe: true,
 				submitAttempted: false,
-			}
+			},
 		}
   },
   props: ['content'],
@@ -68,25 +68,27 @@ export default {
 					name:this.info.name,
 					mail:this.info.mail,
 					postal:this.info.postal,
-					subscribe:this.info.subscribe
+					subscribe:this.info.subscribe,
+					success: false,
 				}
 				console.log(info)
 				this.$store.dispatch('TOGGLE_THANKYOU')
-				// request
-        //   .post('/post')
-        //   .send(info)
-        //   .then(console.log)
-        //   .catch(console.log)
+				request
+          .post('/post')
+          .send(info)
+          .then(console.log)
+          .catch(console.log)
         //reset
+				this.info.success = true
         this.info.submitAttempted = false
         this.info.name = ''
         this.info.mail = ''
 				this.info.postal = ''
+				return true
       }
-      console.log('invalid')
     },
     isValidInfo() {
-			this.info.name = this.info.name.replace(/\s/, '')
+			this.info.name = this.info.name.replace(/^\s/, '')
 			this.info.mail = this.info.mail.replace(/\s/, '')
 			this.info.postal = this.info.postal.replace(/\s/, '')
       return (
@@ -132,7 +134,27 @@ export default {
         return invalidStyle
       }
     },
-
+		buttonStatus(){
+			if (this.info.submitAttempted && !this.isValidInfo()){
+				return {
+					btnClass:{
+						invalidbtn:true
+					},
+					btnMessage:"invalid"
+				}
+			}
+			if (this.info.success){
+				return {
+					btnClass:{
+						successBtn:true
+					},
+					btnMessage:"thank you"
+				}
+			}
+			return {
+				btnMessage: 'learn more'
+			}
+		}
   }
 }
 </script>
@@ -142,13 +164,20 @@ export default {
 
   @media (min-width: smBreakpoint) {
     .application {
-        width: 50%;
+        width: 50%
     }
   }
 
   @media (min-width: breakpoint) {
     .application {
-        width: 100%;
+        width: 100%
     }
   }
+
+	.invalidbtn
+		background-color:red
+
+	.successbtn
+		background-color:green
+
 </style>
