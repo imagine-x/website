@@ -19,6 +19,14 @@ var bodyParser = require('body-parser');
 var multer = require('multer');
 var upload = multer();
 
+// outbound http client
+var https = require('https');
+
+var isProduction = (process.env.PRODUCTION == 'true');
+var mailApiKey = process.env.MAILAPIKEY || '';
+// if not in production, send to dev test mailing list
+var mailList = isProduction ? '7e7fb31eaa' : '1194bbe271';
+
 app.use(express.static('dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -52,6 +60,45 @@ function execute(query, inserts, callback){
     });
 }
 
+function mailAPI (path, payload, callback) {
+    var req = https.request({
+                      "headers": {  "Authorization" : 'Basic ' + mailApiKey,
+                                    'Content-Length': Buffer.byteLength(payload)},
+                      "host": 'us14.api.mailchimp.com',
+                      "path": path,
+                      "method": 'POST'
+                }, (res) => {
+                    console.log('statusCode:', res.statusCode);
+                    console.log('headers:', res.headers);
+                    res.setEncoding('utf8');
+                    res.on('data', (chunk) => {
+                        if (typeof callback != 'function') {
+                            return;
+                        }
+                        callback(chunk.toString());
+                    });
+                });
+    req.write(payload);
+    req.end();
+}
+
+function newContactAPI (subscribed, email, name, clientIP, country) {
+
+    path = '/3.0/lists/' + mailList + '/members';
+    var payload = JSON.stringify({
+                    "email_type" : "html",
+                    "status" : subscribed ? "pending" : "unsubscribed",
+                    "email_address" : email,
+                    "merge_fields" : {
+                         "FNAME" : name,
+                         "OPTIN_IP" : clientIP,
+                         "COUNTRY" : country
+                        }
+                });
+    mailAPI (path, payload, (response) => {console.log(response)});
+
+}
+
 // Landing Route
 // app.get('/', function(req, res){
 //     res.render()
@@ -59,20 +106,13 @@ function execute(query, inserts, callback){
 
 // Post Template
 app.post('/post', function(req, res){
-    console.log('/post', req.body)
-
     var timestamp = Date.now();
     var name = req.body.name;
     var email = req.body.mail;
     var postal_code = req.body.postal.toLowerCase();
     var subscribed = req.body.subscribe;
-
-    console.log({
-      name:name,
-      email:email,
-      postal_code:postal_code,
-      subscribed: subscribed,
-    })
+    var clientIP = req.headers['CF-Connecting-IP'] || req.headers['X-Forwarded-For'] || req.connection.remoteAddress || '';
+    var country = req.headers['CF-IPCountry'] || '';
 
     var error = [];
     if (name.match(/[/\\()~!@#$%^&*+-;|<>"'_]/)){
@@ -94,10 +134,9 @@ app.post('/post', function(req, res){
         execute(query, insert, function(){
             res.send({ok: true});
         });
-    }
-
+        newContactAPI (subscribed, email, name, clientIP, country);
+    };
 });
-
 // Does the table exist?
 db.get("SELECT count(*) AS found FROM sqlite_master WHERE type='table' AND name='first_form'",function(err,row){
     if (row.found == 0) { // not found, create the first instance
