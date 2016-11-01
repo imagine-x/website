@@ -13,7 +13,7 @@ const values = [
 ]
 
 export const itsPossible = [{
-    url:'/main',
+    url:'/',
     values,
     variable:[
       `Politics in BC is stuck. It’s a tug-of-war between the left, the right and a single issue party. Our current options are limited, but we can’t wait any longer. Our province needs a different future from status quo, a government that we can trust. Do you dare to imagine an alternative?`,
@@ -26,7 +26,7 @@ export const itsPossible = [{
     sources: [],
     main: true
   },{
-    url:'/education',
+    url:'/1000-less-per-student',
     variable:[
       'BC has the highest GDP growth and the lowest unemployment rate nationally, yet we are the second worst in education funding after Prince Edward Island. According Statistics Canada [1], BC spends almost $1000 less per student than the national average of $11,393. Something doesn’t add up.',
       `Imagine instead a BC government that is genuinely passionate about educating the next generation. A government that invests in preparing our children for society and jobs of the future instead of spending on infrastructure without transparent business cases. A government that recognizes that only talent will transform us from a resource-dependent economy to a resourceful one. A government that realizes that music lessons are just as important as coding lessons.`,
@@ -42,7 +42,7 @@ export const itsPossible = [{
     main: false
   },
   {
-    url:'/education2',
+    url:'/students-over-politics',
     variable:[
       `The BC K-12 education system currently serves as a proxy political battle between the provincial government and school boards. There are no winners, only losers - students and teachers.`,
       `Imagine instead a BC government that is genuinely passionate about educating the next generation. A government that is not afraid of trying new models of education governance, and knows that every dollar invested in education today yields many more tomorrow.`,
