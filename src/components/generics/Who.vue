@@ -2,6 +2,11 @@
 #who
   h6 WHO WE ARE
   p Imagine X is a political platform. We are a group of passionate citizens starting a political movement for a better BC. We stand for a good government with principles and policies that meet our core values. And no, we are not affiliated with the BC Liberals, NDPs, Greens, any other party or interest group. We simply want a better government for a better BC - just like you.
+  a(href="https://www.facebook.com/imaginexbc", target="_blank") 
+    i.fa.fa-facebook-official.fa-lg
+  span &nbsp&nbsp
+  a(href="https://www.twitter.com/imaginexbc", target="_blank")
+    i.fa.fa-twitter.fa-lg
 </template>
 
 <script>
