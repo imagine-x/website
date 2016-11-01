@@ -56,6 +56,7 @@ export default {
 				postal: '',
 				subscribe: true,
 				submitAttempted: false,
+				success:false,
 			},
 		}
   },
@@ -80,6 +81,10 @@ export default {
           .catch(console.log)
         //reset
 				this.info.success = true
+				setTimeout(()=> {
+					console.log('timeout triggered success back to false', this.$forceUpdate)
+					this.info.success = false
+				}, 11111)
         this.info.submitAttempted = false
         this.info.name = ''
         this.info.mail = ''
