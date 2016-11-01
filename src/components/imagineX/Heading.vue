@@ -34,6 +34,10 @@ img
   padding: 2rem 0;
   margin-bottom: 5rem;
   display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;

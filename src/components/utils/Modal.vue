@@ -35,6 +35,7 @@ export default {
       background-color: white;
       padding: 20px;
       border: 1px solid #888;
+      min-height: 100%;
   }
 
   .modal__close-btn {
@@ -57,6 +58,7 @@ export default {
       margin: 15% auto;
       width: minBreakpoint;
       height: auto;
+      min-height: 0;
   }
 
   .content.content--md {
