@@ -11,4 +11,19 @@ export const factsFigures = [
     `http://bcbudget.gov.bc.ca/2016/bfp/2016_budget_and_fiscal_plan.pdf`
   ],
 },
+{
+  url: ['/mislead'],
+  heading: [
+    "Politicians mislead intentionally."
+  ],
+  variable: [
+    "The BC Liberals have continually refused to adhere to Generally Accepted Accounting Principle, instead manipulating the provincial books to make the financial picture of the province look better than it really is.[1]",
+    "Social housing projects that the Liberals announced would be fast tracked and completed by the Olympics, were not, and no word where they are at now.[2]",
+    `Both our government and it's official opposition play games with the numbers. We need a true alternative. We need better government.`
+  ],
+  sources: [
+    "https://lailayuile.com/2013/01/06/british-columbians-deserve-easy-to-understand-financial-reportingwith-a-clean-opinion-from-their-government-auditor-general-john-doyle/",
+    "http://www.campbellcuts.com/social_housing_funding_cuts.html",
+  ],
+},
 ]
