@@ -4,8 +4,8 @@ import { itsPossible } from './itsPossible'
 import { factsFigures } from './factsFigures'
 
 let ads = _.concat(
+  factsFigures,
   itsPossible,
-  factsFigures
 )
 
 export const imaginexCopy = ads
