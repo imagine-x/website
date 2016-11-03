@@ -200,7 +200,6 @@ app.post('/post', function(req, res){
     var clientIP = req.headers['CF-Connecting-IP'] || req.ip || '';
     var country = req.headers['CF-IPCountry'] || '';
 
-    console.log (clientIP,req.headers['CF-Connecting-IP'],req.ip,req.headers['CF-IPCountry'])
     var error = [];
     if (name.match(/[/\\()~!@#$%^&*+-;|<>"'_]/)){
         error.push('name');
@@ -228,7 +227,8 @@ app.post('/post', function(req, res){
 });
 
 app.post('/slackCommand', function(req, res){
-console.log(req.body);
+
+    console.log (req.headers['CF-Connecting-IP'],req.ip,req.headers['CF-IPCountry']);
     var token_hash = md5(req.body.token || '');
     var user_name = req.body.user_name || '';
     var user_name_hash = md5(user_name);
@@ -236,30 +236,27 @@ console.log(req.body);
     var user_id_hash = md5(user_id);
     var command = req.body.command || '';
 
-    console.log('command', command);
-    console.log('user_name',user_name, user_name_hash);
-    console.log('user_id',user_id, user_id_hash);
-    console.log('token',req.body.token, token_hash);
+    var authorizedUsers = ['65fbef05e01fac390cb3fa073fb3e8cf',
+                            '9818e2287e76d37753313e255e2428a2',
+                            'a185111d5e99bd8ff410dc463f9ec4f8'];
 
-    var authorizedUsers = ['9d92074df2c8b0e01ca6c14c280d3489',
-                            '7a67b0e8677370261bd3f06ffe8d66ea',
-                            'c5a9df9556b88ad2c8825a3ed695ed32'];
-
-    if (!(command == '/dumplist' &&
+    if (!(
+        command == '/dumplist' &&
         token_hash == 'fcf3d60b50ad7904e73739e80c373fa8' &&
-        authorizedUsers.indexOf(user_name_hash)
+        (authorizedUsers.indexOf(user_name_hash) >= 0)
     )) {
-            return res.status(404).send('Not found');
+        return res.status(404).send('Not found');
     }
     db.serialize(() => {
         db.all("SELECT * FROM first_form", (err, results) => {
-            console.log(results);
+            output = results.map((row) => [row.email, row.name, row.postal, row.subscribed].join())
+                            .join('\n');
             res.json({
                 "response_type": "ephemeral",
                 "text": "Email database",
                 "attachments": [
                     {
-                        "text": JSON.stringify(results)
+                        "text": output
                     }
                 ]
             });
