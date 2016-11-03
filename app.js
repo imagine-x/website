@@ -23,9 +23,15 @@ var upload = multer();
 var https = require('https');
 
 var isProduction = (process.env.PRODUCTION == 'true');
+var listApiKey = process.env.LISTAPIKEY || '';
 var mailApiKey = process.env.MAILAPIKEY || '';
 
 var crypto = require('crypto');
+var md5 = function (str) {
+    var hash = crypto.createHash('md5');
+    hash.update(str.toLowerCase().trim());
+    return hash.digest('hex');
+};
 // if not in production, send to dev test mailing list
 var mailList = isProduction ? '7e7fb31eaa' : '1194bbe271';
 
@@ -66,18 +72,11 @@ function execute(query, inserts, callback){
 function slackAPI (name, email) {
 
     var firstName = name.split(" ")[0] || '';
-
-    var md5 = function (str) {
-        var hash = crypto.createHash('md5');
-        hash.update(str.toLowerCase().trim());
-        return hash.digest('hex');
-    };
     var gravitarURL = "https://www.gravatar.com/avatar/" + md5(email) + "&s=40";
     var post_data = JSON.stringify({  "text": "New signup: " + firstName,
                                         "username" : isProduction ? "ProdBot" : "DevBot",
                                         "icon_url" : gravitarURL
                                     });
-      console.log(gravitarURL, post_data);
     var req = https.request({
                     "headers": { 'Content-type': 'application/json',
                                 'Content-Length': Buffer.byteLength(post_data)},
@@ -96,11 +95,11 @@ function slackAPI (name, email) {
 
 
 function mailAPI (path, payload, callback) {
-    if (mailApiKey == '') {
+    if (listApiKey == '') {
         return;
     }
     var req = https.request({
-                      "headers": {  "Authorization" : 'Basic ' + mailApiKey,
+                      "headers": {  "Authorization" : 'Basic ' + listApiKey,
                                     'Content-Length': Buffer.byteLength(payload)},
                       "host": 'us14.api.mailchimp.com',
                       "path": path,
@@ -129,7 +128,7 @@ function newContactAPI (subscribed, email, name, clientIP, country) {
     path = '/3.0/lists/' + mailList + '/members';
     var payload = JSON.stringify({
                     "email_type" : "html",
-                    "status" : subscribed ? "pending" : "unsubscribed",
+                    "status" : subscribed ? "subscribed" : "pending",
                     "email_address" : email,
                     "merge_fields" : {
                          "FNAME" : name,
@@ -140,6 +139,48 @@ function newContactAPI (subscribed, email, name, clientIP, country) {
     mailAPI (path, payload, (response) => {});
 
 }
+
+function sendWelcome(email, name) {
+    if (mailApiKey == '') {
+        return;
+    }
+    var post_data = JSON.stringify({
+                        "key": mailApiKey,
+                        "template_name": "imagine-x",
+                    	"template_content": [],
+                        "global_merge_vars": [
+                            {
+                                "name": "FNAME",
+                                "content": name
+                            }
+                        ],
+                        "message": {
+                            "to": [
+                                {
+                                    "email": email,
+                                    "name": name,
+                                    "type": "to"
+                                }
+                            ]
+                        }
+                    });
+    var req = https.request({
+                    "headers": { 'Content-type': 'application/json',
+                                'Content-Length': Buffer.byteLength(post_data)},
+                    "host": 'mandrillapp.com',
+                    "path": '/api/1.0/messages/send-template.json',
+                    "method": 'POST'
+              },(res) => {
+                  console.log('statusCode:', res.statusCode, 'headers:', res.headers);
+                  res.on('data', (chunk) => {
+                      console.log(chunk.toString());
+                  });
+          });
+    req.write(post_data);
+    req.end();
+
+}
+
 
 // Landing Route
 // app.get('/', function(req, res){
@@ -156,9 +197,10 @@ app.post('/post', function(req, res){
     var email = req.body.mail;
     var postal_code = req.body.postal.toLowerCase();
     var subscribed = req.body.subscribe;
-    var clientIP = req.headers['CF-Connecting-IP'] || req.headers['X-Forwarded-For'] || req.connection.remoteAddress || '';
+    var clientIP = req.headers['CF-Connecting-IP'] || req.ip || '';
     var country = req.headers['CF-IPCountry'] || '';
 
+    console.log (clientIP,req.headers['CF-Connecting-IP'],req.ip,req.headers['CF-IPCountry'])
     var error = [];
     if (name.match(/[/\\()~!@#$%^&*+-;|<>"'_]/)){
         error.push('name');
@@ -180,9 +222,52 @@ app.post('/post', function(req, res){
             res.send({ok: true});
         });
         newContactAPI (subscribed, email, name, clientIP, country);
+        sendWelcome(email,name);
         slackAPI(name, email);
     };
 });
+
+app.post('/slackCommand', function(req, res){
+console.log(req.body);
+    var token_hash = md5(req.body.token || '');
+    var user_name = req.body.user_name || '';
+    var user_name_hash = md5(user_name);
+    var user_id = req.body.user_id || '';
+    var user_id_hash = md5(user_id);
+    var command = req.body.command || '';
+
+    console.log('command', command);
+    console.log('user_name',user_name, user_name_hash);
+    console.log('user_id',user_id, user_id_hash);
+    console.log('token',req.body.token, token_hash);
+
+    var authorizedUsers = ['9d92074df2c8b0e01ca6c14c280d3489',
+                            '7a67b0e8677370261bd3f06ffe8d66ea',
+                            'c5a9df9556b88ad2c8825a3ed695ed32'];
+
+    if (!(command == '/dumplist' &&
+        token_hash == 'fcf3d60b50ad7904e73739e80c373fa8' &&
+        authorizedUsers.indexOf(user_name_hash)
+    )) {
+            return res.status(404).send('Not found');
+    }
+    db.serialize(() => {
+        db.all("SELECT * FROM first_form", (err, results) => {
+            console.log(results);
+            res.json({
+                "response_type": "ephemeral",
+                "text": "Email database",
+                "attachments": [
+                    {
+                        "text": JSON.stringify(results)
+                    }
+                ]
+            });
+        })
+    })
+
+});
+
 // Does the table exist?
 db.get("SELECT count(*) AS found FROM sqlite_master WHERE type='table' AND name='first_form'",function(err,row){
     if (row.found == 0) { // not found, create the first instance
