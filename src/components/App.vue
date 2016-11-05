@@ -1,5 +1,6 @@
 <template lang="jade">
-  imagine-x
+#betterBC
+  calendar
 </template>
 
 
@@ -8,6 +9,7 @@
   import store from '../vuex/store'
   import attackAds from './attackAds'
   import imagineX from './imagineX'
+  import Calendar from './calendar/Calendar.vue'
 
   export default {
       methods:{
@@ -28,7 +30,8 @@
       },
       components: {
         attackAds,
-        imagineX
+        imagineX,
+        Calendar,
       },
       store,
       computed: {

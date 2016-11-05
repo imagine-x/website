@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import Calendar from '../calendar/Calendar.vue'
 import VariableBody from '../generics/VariableBody.vue'
 import Heading from './Heading.vue'
 import Values from './Values'
@@ -49,6 +50,7 @@ export default {
     },
   },
   components: {
+		Calendar,
     VariableBody,
     Heading,
     Who,
