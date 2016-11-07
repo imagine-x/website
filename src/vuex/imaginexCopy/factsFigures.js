@@ -27,12 +27,12 @@ export const factsFigures = [
   ],
 },
 {
-  url: '/our-turn-in-six-months',
+  url: ['/our-turn-in-six-months'],
   heading: [
     "BC, it's our turn in six months."
   ],
   variable: [
-    "The US are going to the polls today. They are making one of the most important decisions for their country and the world. But they are facing a hard choice between two of the most disliked candidates in a deeply politically polarized country.",
+    "The US is going to the polls today. They are making one of the most important decisions for their country and the world. But they are facing a hard choice between two of the most disliked candidates in a deeply politically polarized country.",
     "Six months from today, British Columbians will be making the same decision for the future of our province. On May 9, 2016, it will be our turn to make a choice. We can choose between the status quo or we can choose to take our democracy back.",
     "Let the US election remind us how fragile democracy is. It takes every one of us to step up to protect our democracy everyday. And it begins with caring. Caring for the future of our children, our environment, our economy, and all of us.",
     "Let’s be bold and imagine a better democracy. It's possible.",
