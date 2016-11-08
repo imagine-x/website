@@ -45,6 +45,7 @@
     width: initial;
     margin: 0;
     padding-bottom: 5rem;
+    font-family: 'Arial', san-serif;
 
   @media (min-width: 960px) {
     body {

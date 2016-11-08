@@ -42,7 +42,7 @@ export const itsPossible = [{
     main: false
   },
   {
-    url:'/students-over-politics',
+    url: '/students-over-politics',
     variable:[
       `The BC K-12 education system currently serves as a proxy political battle between the provincial government and school boards. There are no winners, only losers - students and teachers.`,
       `Imagine instead a BC government that is genuinely passionate about educating the next generation. A government that is not afraid of trying new models of education governance, and knows that every dollar invested in education today yields many more tomorrow.`,
@@ -54,6 +54,21 @@ export const itsPossible = [{
         `Imagine a BC government that values students and teachers over politics. It’s possible.`
     ],
     sources: [],
+    main: false
+  },
+  {
+    url: '/our-turn-in-six-months',
+    variable: [
+      "The US is going to the polls today. They are making one of the most important decisions for their country and the world. But they are facing a hard choice between two of the most disliked candidates in a deeply politically polarized country.",
+      "Six months from today, British Columbians will be making the same decision for the future of our province. On May 9, 2016, it will be our turn to make a choice. We can choose to stick with the status quo or we can choose to take our democracy back.",
+      "Let the US election remind us how fragile democracy is. It takes every one of us to step up to protect our democracy everyday. And it begins with caring. Caring for the future of our children, our environment, our economy, and all of us.",
+      "Let’s be bold and imagine a better democracy. It's possible.",
+      "We are Imagine X. We are a group of passionate citizens starting a political movement for a better BC."
+    ],
+    heading: [
+        "BC, it's our turn in six months."
+    ],
+    source: [],
     main: false
   }
 ]
