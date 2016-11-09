@@ -68,6 +68,9 @@ export default {
 <style lang="stylus" scoped>
   @import "../../styles/main"
 
+	main
+    font-family: Arial, san-serif;
+
   @media (min-width: breakpoint) {
     .hr--hide-lg {
         display: none;
