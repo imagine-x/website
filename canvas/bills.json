@@ -3,7 +3,7 @@ var bills = [
         "parliament":40,
         "session":2,
         "bill":"Agricultural Land Commission Amendment Act, 2014 (Bill 24)",
-        "motion":"amdt. to 2R (moved by Mungall)",
+        "motion":"amdt. to Second Reading (moved by Mungall)",
         "result":"divided",
         "yays":[
             [
@@ -322,7 +322,7 @@ var bills = [
         "parliament":40,
         "session":2,
         "bill":"Agricultural Land Commission Amendment Act, 2014 (Bill 24)",
-        "motion":"amdt. to 2R (moved by Ralston)",
+        "motion":"amdt. to Second Reading (moved by Ralston)",
         "result":"divided",
         "yays":[
             [
@@ -641,7 +641,7 @@ var bills = [
         "parliament":40,
         "session":2,
         "bill":"Agricultural Land Commission Amendment Act, 2014 (Bill 24)",
-        "motion":"2R",
+        "motion":"Second Reading",
         "result":"divided",
         "yays":[
             [
@@ -960,7 +960,7 @@ var bills = [
         "parliament":40,
         "session":2,
         "bill":"Agricultural Land Commission Amendment Act, 2014 (Bill 24)",
-        "motion":"3R",
+        "motion":"Third Reading",
         "result":"divided",
         "yays":[
             [
@@ -1275,7 +1275,7 @@ var bills = [
         "parliament":40,
         "session":2,
         "bill":"Animal Health Act (Bill 19)",
-        "motion":"2R",
+        "motion":"Second Reading",
         "result":"unanimous",
         "yays":[
             [
@@ -2609,7 +2609,7 @@ var bills = [
         "parliament":40,
         "session":2,
         "bill":"Electoral Boundaries Commission Amendment Act, 2014 (Bill 2)",
-        "motion":"2R",
+        "motion":"Second Reading",
         "result":"divided",
         "yays":[
             [
@@ -4680,45 +4680,6 @@ var bills = [
                 "Simon Gibson",
                 "Liberal"
             ]
-        ]
-    },
-    {
-        "parliament":40,
-        "session":2,
-        "bill":"",
-        "motion":"",
-        "result":"",
-        "yays":[
-
-        ],
-        "nays":[
-
-        ]
-    },
-    {
-        "parliament":40,
-        "session":2,
-        "bill":"",
-        "motion":"",
-        "result":"",
-        "yays":[
-
-        ],
-        "nays":[
-
-        ]
-    },
-    {
-        "parliament":40,
-        "session":2,
-        "bill":"",
-        "motion":"",
-        "result":"",
-        "yays":[
-
-        ],
-        "nays":[
-
         ]
     },
     {
@@ -7573,7 +7534,7 @@ var bills = [
         "parliament":40,
         "session":2,
         "bill":"Park Amendment Act, 2014 (Bill 4)",
-        "motion":"amdt. to 2R (moved by Spencer Chandra Herbert)",
+        "motion":"amdt. to Second Reading (moved by Spencer Chandra Herbert)",
         "result":"divided",
         "yays":[
             [
@@ -7876,7 +7837,7 @@ var bills = [
         "parliament":40,
         "session":2,
         "bill":"Park Amendment Act, 2014 (Bill 4)",
-        "motion":"amdt. to 2R (moved by Weaver)",
+        "motion":"amdt. to Second Reading (moved by Weaver)",
         "result":"divided",
         "yays":[
             [
@@ -8211,7 +8172,7 @@ var bills = [
         "parliament":40,
         "session":2,
         "bill":"Park Amendment Act, 2014 (Bill 4)",
-        "motion":"2R",
+        "motion":"Second Reading",
         "result":"divided",
         "yays":[
             [
@@ -8861,7 +8822,7 @@ var bills = [
         "parliament":40,
         "session":2,
         "bill":"Pooled Registered Pension Plans Act (Bill 9)",
-        "motion":"2R",
+        "motion":"Second Reading",
         "result":"unanimous",
         "yays":[
             [
@@ -9512,7 +9473,7 @@ var bills = [
         "parliament":40,
         "session":2,
         "bill":"South Coast British Columbia Transportation Authority Funding Referenda Act (Bill 23)",
-        "motion":"2R",
+        "motion":"Second Reading",
         "result":"divided",
         "yays":[
             [
@@ -10656,7 +10617,7 @@ var bills = [
         "parliament":40,
         "session":3,
         "bill":"Greenhouse Gas Industrial Reporting and Control Act (Bill 2)",
-        "motion":"2R",
+        "motion":"Second Reading",
         "result":"divided",
         "yays":[
             [
@@ -11246,7 +11207,7 @@ var bills = [
         "parliament":40,
         "session":3,
         "bill":"Greenhouse Gas Industrial Reporting and Control Act (Bill 2)",
-        "motion":"2R",
+        "motion":"Second Reading",
         "result":"divided",
         "yays":[
             [
@@ -12814,7 +12775,7 @@ var bills = [
         "parliament":40,
         "session":3,
         "bill":"Liquefied Natural Gas Income Tax Act (Bill 6)",
-        "motion":"2R",
+        "motion":"Second Reading",
         "result":"divided",
         "yays":[
             [
@@ -13133,7 +13094,7 @@ var bills = [
         "parliament":40,
         "session":3,
         "bill":"Liquefied Natural Gas Income Tax Act (Bill 6)",
-        "motion":"amdt. to 3R (moved by Weaver)",
+        "motion":"amdt. to Third Reading (moved by Weaver)",
         "result":"divided",
         "yays":[
             [
@@ -14333,7 +14294,7 @@ var bills = [
         "parliament":40,
         "session":4,
         "bill":"Auditor General for Local Government Amendment Act, 2015 (Bill 36)",
-        "motion":"2R",
+        "motion":"Second Reading",
         "result":"divided",
         "yays":[
             [
@@ -15234,7 +15195,7 @@ var bills = [
         "parliament":40,
         "session":4,
         "bill":"Budget Measures Implementation Act, 2015 (Bill 10)",
-        "motion":"2R",
+        "motion":"Second Reading",
         "result":"unanimous",
         "yays":[
             [
@@ -15594,7 +15555,7 @@ var bills = [
         "parliament":40,
         "session":4,
         "bill":"Education Statutes Amendment Act, 2015 (Bill 11)",
-        "motion":"amdt. to 2R (moved by Hammell)",
+        "motion":"amdt. to Second Reading (moved by Hammell)",
         "result":"divided",
         "yays":[
             [
@@ -15909,7 +15870,7 @@ var bills = [
         "parliament":40,
         "session":4,
         "bill":"Education Statutes Amendment Act, 2015 (Bill 11)",
-        "motion":"2R",
+        "motion":"Second Reading",
         "result":"divided",
         "yays":[
             [
@@ -16839,7 +16800,7 @@ var bills = [
         "parliament":40,
         "session":4,
         "bill":"Education Statutes Amendment Act, 2015 (Bill 11)",
-        "motion":"3R",
+        "motion":"Third Reading",
         "result":"divided",
         "yays":[
             [
@@ -17138,7 +17099,7 @@ var bills = [
         "parliament":40,
         "session":4,
         "bill":"Election Amendment Act, 2015 (Bill 20)",
-        "motion":"2R",
+        "motion":"Second Reading",
         "result":"divided",
         "yays":[
             [
@@ -18686,7 +18647,7 @@ var bills = [
         "parliament":40,
         "session":4,
         "bill":"Election Amendment Act, 2015 (Bill 20)",
-        "motion":"amdt. to 3R (moved by Weaver)",
+        "motion":"amdt. to Third Reading (moved by Weaver)",
         "result":"divided",
         "yays":[
             [
@@ -19001,7 +18962,7 @@ var bills = [
         "parliament":40,
         "session":4,
         "bill":"Election Amendment Act, 2015 (Bill 20)",
-        "motion":"3R",
+        "motion":"Third Reading",
         "result":"divided",
         "yays":[
             [
@@ -19316,7 +19277,7 @@ var bills = [
         "parliament":40,
         "session":4,
         "bill":"Federal Port Development Act (Bill 12)",
-        "motion":"amdt. to 2R (moved by Weaver)",
+        "motion":"amdt. to Second Reading (moved by Weaver)",
         "result":"divided",
         "yays":[
             [
@@ -20719,7 +20680,7 @@ var bills = [
         "parliament":40,
         "session":4,
         "bill":"Franchises Act (Bill 38)",
-        "motion":"2R",
+        "motion":"Second Reading",
         "result":"unanimous",
         "yays":[
             [
@@ -21366,7 +21327,7 @@ var bills = [
         "parliament":40,
         "session":4,
         "bill":"Liquefied Natural Gas Income Tax Amendment Act, 2015 (Bill 26)",
-        "motion":"2R",
+        "motion":"Second Reading",
         "result":"divided",
         "yays":[
             [
@@ -21952,7 +21913,7 @@ var bills = [
         "parliament":40,
         "session":4,
         "bill":"Liquefied Natural Gas Project Agreements Act (Bill 30)",
-        "motion":"amdt. to 2R (moved by Weaver)",
+        "motion":"amdt. to Second Reading (moved by Weaver)",
         "result":"divided",
         "yays":[
             [
@@ -22247,7 +22208,7 @@ var bills = [
         "parliament":40,
         "session":4,
         "bill":"Liquefied Natural Gas Project Agreements Act (Bill 30)",
-        "motion":"2R",
+        "motion":"Second Reading",
         "result":"divided",
         "yays":[
             [
@@ -23835,7 +23796,7 @@ var bills = [
         "parliament":40,
         "session":4,
         "bill":"Property Taxation (Exemptions) Statutes Amendment Act, 2015 (Bill 29)",
-        "motion":"2R",
+        "motion":"Second Reading",
         "result":"unanimous",
         "yays":[
             [
@@ -24195,7 +24156,7 @@ var bills = [
         "parliament":40,
         "session":4,
         "bill":"Provincial Immigration Programs Act (Bill 39)",
-        "motion":"2R",
+        "motion":"Second Reading",
         "result":"unanimous",
         "yays":[
             [
@@ -24555,7 +24516,7 @@ var bills = [
         "parliament":40,
         "session":4,
         "bill":"Red Tape Reduction Day (Bill 34)",
-        "motion":"1R",
+        "motion":"First Reading",
         "result":"divided",
         "yays":[
             [
@@ -24858,7 +24819,7 @@ var bills = [
         "parliament":40,
         "session":4,
         "bill":"Red Tape Reduction Day (Bill 34)",
-        "motion":"2R",
+        "motion":"Second Reading",
         "result":"divided",
         "yays":[
             [
@@ -25101,7 +25062,7 @@ var bills = [
         "parliament":40,
         "session":4,
         "bill":"Red Tape Reduction Day (Bill 34)",
-        "motion":"3R",
+        "motion":"Third Reading",
         "result":"divided",
         "yays":[
             [
@@ -25400,7 +25361,7 @@ var bills = [
         "parliament":40,
         "session":4,
         "bill":"Special Wine Store Licence Auction Act (Bill 22)",
-        "motion":"2R",
+        "motion":"Second Reading",
         "result":"divided",
         "yays":[
             [
@@ -25715,7 +25676,7 @@ var bills = [
         "parliament":40,
         "session":4,
         "bill":"Special Wine Store Licence Auction Act (Bill 22)",
-        "motion":"amdt. to 3R (moved by Weaver)",
+        "motion":"amdt. to Third Reading (moved by Weaver)",
         "result":"divided",
         "yays":[
             [
@@ -26624,7 +26585,7 @@ var bills = [
         "parliament":40,
         "session":4,
         "bill":"Liquefied Natural Gas Project Agreements Act (Bill 30)",
-        "motion":"3R",
+        "motion":"Third Reading",
         "result":"divided",
         "yays":[
             [

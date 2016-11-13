@@ -5,13 +5,18 @@
             * {
                 margin: 0;
                 padding: 0;
-                line-height: 1px;
-                font-size: 16px;
-                font-family: 'Helvetica', sans-serif;
+                font-size: 15px;
+                font-family: 'Arial', sans-serif;
                 text-rendering: optimizeLegibility;
                 box-sizing: border-box;
             }
-            canvas { position: absolute; width: 100vw; height: 100vh; top: 0; left: 0; right: 0; bottom: 0; z-index: -100; }
+            h2 {
+                font-size: 26px;
+                line-height: 1.2;
+                margin-bottom: 0.4rem;
+                letter-spacing: -.1rem;
+            }
+            canvas { position: absolute; width: 100vw; height: 100vh; top: 0; left: 0; right: 0; bottom: 0; z-index: -100; cursor: pointer; }
             #popup-container {
                 position: absolute;
                 top: 0;
@@ -48,6 +53,9 @@
             .yay, .nay {
                 font-weight: 700;
             }
+            .table--canvas {
+                margin-top: 1.5rem;
+            }
         </style>
         <script src="bills.json"></script>
         <script src="mlas.json"></script>
@@ -60,7 +68,7 @@
                 return new (function(){
 
                     self.state = {
-                        billsection: null,
+                        billsection: null
                     }
 
                     self.setup = function setup(){
@@ -157,7 +165,7 @@
                             y += (v_interval*2);
                         }
                     }
-                    
+
                     self.chart = function(){
                         var count = bills.length;
                         var i = 0;
@@ -182,8 +190,8 @@
                             ctx.closePath();
                         });
                         canvas.addEventListener('click', function(e){
-                            var html = bills[self.state.billsection].bill + '<br>' + bills[self.state.billsection].motion + '<br><br>'
-                            html += '<table><tr><td>';
+                            var html = '<h2>' + bills[self.state.billsection].bill + '</h2><p>' + bills[self.state.billsection].motion + '</p>'
+                            html += '<table class="table--canvas"><tr><td>';
                             html += '<span class="yay">YAYS</span><br>';
                             for (var i = 0; i < bills[self.state.billsection].yays.length; i++){
                                 html += bills[self.state.billsection].yays[i][0] + ', <span style="color:' + self.colors[bills[self.state.billsection].yays[i][1]] + ';">' + bills[self.state.billsection].yays[i][1] + '</span><br>';
