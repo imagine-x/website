@@ -11,8 +11,18 @@ div
 import _ from 'lodash'
 import {rawbills} from './bills'
 
-let passed = rawbills.filter( bill => {
-  console.log(bill.yays.length, bill.yays.nays)
+let rawbillsSorted = rawbills.map(bill => {
+  bill.yays = _.sortBy(bill.yays, mla => {
+    return mla[1]
+  })
+
+  bill.nays = _.sortBy(bill.nays, mla => {
+    if(mla) return mla[1];
+  })
+  return bill
+})
+
+let passed = rawbillsSorted.filter(bill => {
   return bill.yays.length > bill.nays.length
 })
 
@@ -24,8 +34,7 @@ let passedPartisan = passed.filter(bill => {
   return bill.nays.length > bill.yays.length - 30
 })
 
-let failed = rawbills.filter( bill => {
-  console.log(bill.yays.length, bill.yays.nays)
+let failed = rawbillsSorted.filter(bill => {
   return bill.nays.length > bill.yays.length
 })
 
@@ -37,9 +46,7 @@ let failedBadly = failed.filter(bill => {
   return bill.nays.length > bill.yays.length + 30
 })
 
-
-let bills = _.concat( passedOverwhelmingly, passedPartisan , failedPartisan, failedBadly)
-
+let bills = _.concat(passedOverwhelmingly, passedPartisan, failedPartisan, failedBadly)
 
 export default {
   mounted: function(){
