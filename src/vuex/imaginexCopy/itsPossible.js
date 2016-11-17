@@ -30,7 +30,7 @@ export const itsPossible = [{
     variable:[
       `A record number of 103,400 British Columbians have already used a food bank this year [1]. That is almost the same population as Kelowna, BC. Just take a moment to think about that.`,
       `The BC Liberal government claims that job creation is key to putting food on the table, while the NDP wants a poverty reduction strategy. Why can’t we do both?`,
-      `Imagine instead a BC government that promotes both job creation and poverty elimination. A BC government that strives to create a path for individuals to move from poverty to prosperity. A BC that recognizes that our youth, families, and seniors need full stomachs and full wallets to lead healthy and rich lives. A BC that wants everyone to be able to afford a can of spam and a rack of lamb.`,
+      `Imagine instead a BC government that promotes both job creation and poverty elimination. A BC government that strives to create a path for individuals to move from poverty to prosperity. A BC government that recognizes that our youth, families, and seniors need full stomachs and full wallets to lead healthy and rich lives. A BC government that wants everyone to be able to afford a can of spam and a rack of lamb.`,
       `It's possible.`,
       `We are Imagine X. We are a group of passionate citizens starting a political movement for a better BC.`
     ],
