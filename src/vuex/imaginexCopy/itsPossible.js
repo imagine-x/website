@@ -26,6 +26,22 @@ export const itsPossible = [{
     sources: [],
     main: true
   },{
+    url:'/full-stomachs-full-wallets',
+    variable:[
+      `A record number of 103,400 British Columbians have already used the food bank this year [1]. That is almost the same population as Kelowna, BC. Just take a moment to think about that.`,
+      `The BC Liberal government claims that job creation is key to putting food on the table, while the NDP wants a poverty reduction strategy. Why can’t we do both?`,
+      `Imagine instead a BC government that promotes both job creation and poverty elimination. A BC government that strives to create a path for individuals to move from poverty to prosperity. A BC that recognizes that our youth, families, and seniors need full stomachs and full wallets to lead healthy and rich lives. A BC that wants everyone to be able to afford a can of spam and a rack of lamb.`,
+      `It's possible.`,
+      `We are Imagine X. We are a group of passionate citizens starting a political movement for a better BC.`
+    ],
+    heading: [
+        `Imagine a BC where everyone can have full stomachs and full wallets. It’s possible.`
+    ],
+    sources: [
+        `"HungerCount 2016", Food Banks Canada.`
+    ],
+    main: false
+  },{
     url:'/whoa',
     heading: [
       "Whoa 😱"
@@ -65,21 +81,6 @@ export const itsPossible = [{
     heading: [
         `BC spends $1000 less per student than the national average`
     ],
-    main: false
-  },
-  {
-    url:'/students-over-politics',
-    variable:[
-      `The BC K-12 education system currently serves as a proxy political battle between the provincial government and school boards. There are no winners, only losers - students and teachers.`,
-      `Imagine instead a BC government that is genuinely passionate about educating the next generation. A government that is not afraid of trying new models of education governance, and knows that every dollar invested in education today yields many more tomorrow.`,
-      `Imagine a government that understands the balance between realizing operational efficiencies and giving every child the equal opportunity to live up to their full human and economic potential. A government that considers music rooms and computer labs investments rather than expenses.`,
-      `It's possible.`,
-      `We are Imagine X. We are a group of passionate citizens starting a political movement for a better BC.`
-    ],
-    heading: [
-        `Imagine a BC government that values students and teachers over politics. It’s possible.`
-    ],
-    sources: [],
     main: false
   }
 ]

@@ -3,7 +3,6 @@
 div.sources(v-show='!!content.length')
     h6 SOURCES
     div.sources__container(v-for='(link, index) in content')
-      a(v-bind:href='link')
         p.source(
           target="_blank",
           :style='style'
