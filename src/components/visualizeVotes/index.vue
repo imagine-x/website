@@ -1,6 +1,9 @@
 <template lang="jade">
 
 div
+  .header-container
+    img.logo(src='../../../static/images/imaginex.svg')
+    p This is a graph of BC MLA votes in the legislature.
   canvas(id="canvas")
   div(id="popup-container")
     div(id="popup")
@@ -231,10 +234,21 @@ h2 {
     line-height: 1.2;
     margin-bottom: 0.4rem;
     letter-spacing: -.1rem;
+    font-weight: bold;
 }
+
 canvas {
   z-index: 1000;
-  position: absolute; width: 100vw; height: 100vh; top: 0; left: 0; right: 0; bottom: 0; z-index: -100; cursor: pointer; }
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -100;
+  cursor: pointer;
+}
+
 #popup-container {
     position: absolute;
     top: 0;
@@ -274,5 +288,15 @@ canvas {
 .table--canvas {
     margin-top: 1.5rem;
 }
-
+.logo {
+    max-width: 15rem;
+    margin-bottom: 2rem;
+}
+.header-container {
+    display: block;
+    width: 100%;
+    background: white;
+    padding: 3rem;
+    padding-bottom: 1rem;
+}
 </style>
