@@ -3,7 +3,14 @@
 div
   .header-container
     img.logo(src='../../../static/images/imaginex.svg')
-    p This is a graph of BC MLA votes in the legislature.
+    p Think your MLA represents your voice in the BC legislature in Victoria? Think again. The BC legislature voting data shows that unless your MLA is an independent member, their votes are usually whipped to party lines - meaning that your MLA is representing Victoria back to you. Use the interactive app below to discover your MLA's voting record.
+    label HOW TO USE THE APP
+    p
+      ul
+        li Each rectangle represents a vote in the legislature between 2009 to 2016 for the 40th and 41st parliaments under the Christy Clark government. A vote can be a motion for an ammendment, bill or other matters. Votes are sorted by whether it was passed and then chronologically. Click on the rectangle to discover the details of each vote.
+        li Each dot represents an MLA who voted. The colour of the dot represents the MLA's party affiliation.
+        li The top half of the graph represents 'YAY' votes. The bottom of the graph represents 'NAY votes'. Votes are passed if there are more 'YAY' votes than 'NAY' votes.
+    hr
   canvas(id="canvas")
   div(id="popup-container")
     div(id="popup")
@@ -297,6 +304,13 @@ canvas {
     width: 100%;
     background: white;
     padding: 3rem;
-    padding-bottom: 1rem;
+    padding-bottom: 0;
+}
+ul {
+    padding-left: 1.75rem;
+}
+li {
+    list-style-type: square;
+    list-style-position: outside;
 }
 </style>
