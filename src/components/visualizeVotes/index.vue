@@ -7,7 +7,7 @@ div
     label HOW TO USE THE APP
     p
       ul
-        li Each rectangle represents a vote in the legislature between 2009 to 2016 for the 40th and 41st parliaments under the Christy Clark government. A vote can be a motion for an ammendment, bill or other matters. Votes are sorted by whether it was passed and then chronologically. Click on the rectangle to discover the details of each vote.
+        li Each rectangle represents a vote in the legislature between 2009 to 2016 for the 40th and 41st parliaments under the B.C. Liberal government. A vote can be a motion for an ammendment, bill or other matters. Click on the rectangle to discover the details of each vote.
         li Each dot represents an MLA who voted. The colour of the dot represents the MLA's party affiliation.
         li The top half of the graph represents 'YAY' votes. The bottom of the graph represents 'NAY votes'. Votes are passed if there are more 'YAY' votes than 'NAY' votes.
     hr
@@ -56,7 +56,8 @@ let failedBadly = failed.filter(bill => {
   return bill.nays.length > bill.yays.length + 30
 })
 
-let bills = _.concat(passedOverwhelmingly, passedPartisan, failedPartisan, failedBadly)
+let bills = rawbillsSorted;
+//_.concat(passedOverwhelmingly, passedPartisan, failedPartisan, failedBadly)
 
 export default {
   mounted: function(){
@@ -188,20 +189,47 @@ export default {
                         ctx.closePath();
                     });
                     canvas.addEventListener('click', function(e){
-                        var html = '<h2>' + bills[self.state.billsection].bill + '</h2><p>' + bills[self.state.billsection].motion + '</p>'
-                        html += '<table class="table--canvas"><tr><td>';
-                        html += '<span class="yay">YAYS</span><br>';
-                        for (var i = 0; i < bills[self.state.billsection].yays.length; i++){
-                            html += bills[self.state.billsection].yays[i][0] + ', <span style="color:' + self.colors[bills[self.state.billsection].yays[i][1]] + ';">' + bills[self.state.billsection].yays[i][1] + '</span><br>';
+                        var billSection = bills[self.state.billsection];
+                        var yays = billSection.yays;
+                        var yaysLength = yays.length;
+                        var nays = billSection.nays;
+                        var naysLength = nays.length;
+
+                        var billPassed = yaysLength > naysLength ? true : false;
+                        var billStatusText;
+                        var billStatusColour;
+
+                        if (billPassed) {
+                            billStatusText = 'PASSED';
+                            billStatusColour = '#4caf50';
+                        } else {
+                            billStatusText = 'FAILED';
+                            billStatusColour = '#f70330';
+                        }
+
+                        var billStatusBadge = '<div class="status-badge" style="background-color:' + billStatusColour + ';">' + billStatusText + '</div>';
+
+                        var html = '<h2>' + billSection.bill + '</h2><p class="u-margin--bottom">' + billSection.motion + '</p>';
+                        html += '<p class="u-margin--bottom">Parliament: ' + billSection.parliament + ' &nbsp Session: ' + billSection.session + '</p>';
+                        html += billStatusBadge;
+                        html += '<hr class="u-no-margin--bottom"/><table class="table--canvas"><tr><td>';
+                        html += '<span class="yay">YAYS (';
+                        html += yaysLength;
+                        html += ')</span></br>';
+                        for (var i = 0; i < yaysLength; i++){
+                            html += yays[i][0] + ', <span style="color:' + self.colors[yays[i][1]] + ';">' + yays[i][1] + '</span><br>';
                         }
                         html += '</td><td>';
-                        html += '<span class="nay">NAYS</span><br>';
-                        for (var i = 0; i < bills[self.state.billsection].nays.length; i++){
-                            html += bills[self.state.billsection].nays[i][0] + ', <span style="color:' + self.colors[bills[self.state.billsection].nays[i][1]] + ';">' + bills[self.state.billsection].nays[i][1] + '</span><br>';
+                        html += '<span class="nay">NAYS (';
+                        html += naysLength;
+                        html += ')</span></br>'
+                        for (var i = 0; i < naysLength; i++){
+                            html += nays[i][0] + ', <span style="color:' + self.colors[nays[i][1]] + ';">' + nays[i][1] + '</span><br>';
                         }
                         html += '</td></tr></table>';
                         popup.innerHTML = html;
                         container.style.display = 'block';
+                        popup.scrollTop = 0;
 
                         container.addEventListener('click', function close(){
                             html = '';
@@ -257,7 +285,7 @@ canvas {
 }
 
 #popup-container {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -266,7 +294,7 @@ canvas {
     display: none;
 }
 #popup-container #popup {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -283,11 +311,13 @@ canvas {
 }
 #popup-container #popup table {
     width: 100%;
+    margin-bottom: 0;
 }
 #popup-container #popup table td {
     vertical-align: top;
     width: 50%;
     line-height: 24px;
+    border-bottom: 0;
 }
 .yay, .nay {
     font-weight: 700;
@@ -312,5 +342,17 @@ ul {
 li {
     list-style-type: square;
     list-style-position: outside;
+}
+.status-badge {
+    display: inline;
+    color: white;
+    padding: 0.4rem 0.6rem;
+    font-size: 13px;
+}
+.u-margin--bottom {
+    margin-bottom: 1rem;
+}
+.u-no-margin--bottom {
+    margin-bottom: 0;
 }
 </style>
