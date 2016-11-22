@@ -18,6 +18,10 @@ div
     &nbsp&nbsp
     input(type="radio", name="sort", value="1", id="yaynayRadio")
     |  Yay to Nay
+    br
+    span Highlight: &nbsp
+    input(type="checkbox", name="passed", id="passedCheckbox")
+    |  Passed votes
   canvas(id="canvas")
   div(id="popup-container")
     div(id="popup")
@@ -72,6 +76,7 @@ export default {
 
         var graph = function(){
             return new (function(){
+                var highlightPassed = false;
 
                 self.state = {
                     billsection: null
@@ -159,16 +164,31 @@ export default {
                 }
 
                 self.plot_bill = function(bill, x){
-                    var count;
-                    (bill.yays.length > bill.nays.length) ? count = bill.yays.length : count = bill.nays.length;
-                    for (var i = 0, y = v_interval + 5; i < count; i++){
+                    var yaysLength = bill.yays.length;
+                    var naysLength = bill.nays.length;
+                    var billIsPassed = yaysLength > naysLength;
+
+                    var maxVoteCount = billIsPassed ? yaysLength : naysLength;
+
+                    if (highlightPassed) {
+                        self.state.billsection = Math.floor((x - margin / 2) / h_interval);
+
+                        if (billIsPassed) {
+                            ctx.beginPath();
+                            ctx.fillStyle = 'rgba(150, 234, 52, 0.3)';
+                            ctx.fillRect(self.state.billsection * h_interval + margin / 2,margin / 2,h_interval,self.height-margin);
+                            ctx.closePath();
+                        }
+                    }
+
+                    for (var i = 0, y = v_interval + 5; i < maxVoteCount; i++){
                         if (bill.yays[i]){
                             animate_dot(x, v_center - y, bill.yays[i][1])
                         }
                         if (bill.nays[i]){
                             animate_dot(x, v_center + y, bill.nays[i][1])
                         }
-                        y += (v_interval*2);
+                        y += (v_interval * 2);
                     }
                 }
 
@@ -187,6 +207,7 @@ export default {
                     var container = document.getElementById('popup-container');
                     var timeInput = document.getElementById('timeRadio');
                     var yaynayInput = document.getElementById('yaynayRadio');
+                    var passedCheckbox = document.getElementById('passedCheckbox');
                     var canvas = document.getElementById('canvas');
 
                     canvas.addEventListener('mousemove', function(e){
@@ -201,11 +222,18 @@ export default {
                     });
 
                     timeInput.addEventListener('click', function(e){
-                        self.init(rawbillsSorted);
+                        bills = rawbillsSorted;
+                        self.init(bills);
                     });
 
                     yaynayInput.addEventListener('click', function(e){
-                        self.init(ynSorted);
+                        bills = ynSorted;
+                        self.init(bills);
+                    });
+
+                    passedCheckbox.addEventListener('click', function(e){
+                        highlightPassed = passedCheckbox.checked ? true : false;
+                        self.init(bills);
                     });
 
                     canvas.addEventListener('click', function(e){
