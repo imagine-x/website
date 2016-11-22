@@ -7,10 +7,17 @@ div
     label HOW TO USE THE APP
     p
       ul
-        li Each rectangle represents a vote in the legislature between 2009 to 2016 for the 40th and 41st parliaments under the B.C. Liberal government. A vote can be a motion for an ammendment, bill or other matters. Click on the rectangle to discover the details of each vote.
+        li Each rectangle represents a vote in the legislature between 2013 to 2016 for the 40th parliament under the B.C. Liberal government. A vote can be a motion for an ammendment, bill or other matters. Click on the rectangle to discover the details of each vote.
         li Each dot represents an MLA who voted. The colour of the dot represents the MLA's party affiliation.
         li The top half of the graph represents 'YAY' votes. The bottom of the graph represents 'NAY votes'. Votes are passed if there are more 'YAY' votes than 'NAY' votes.
     hr
+  div.body-container
+    span Sort by: &nbsp
+    input(type="radio", name="sort", value="0", id="timeRadio", checked)
+    |  Time
+    &nbsp&nbsp
+    input(type="radio", name="sort", value="1", id="yaynayRadio")
+    |  Yay to Nay
   canvas(id="canvas")
   div(id="popup-container")
     div(id="popup")
@@ -57,7 +64,7 @@ let failedBadly = failed.filter(bill => {
 })
 
 let bills = rawbillsSorted;
-//_.concat(passedOverwhelmingly, passedPartisan, failedPartisan, failedBadly)
+let ynSorted = _.concat(passedOverwhelmingly, passedPartisan, failedPartisan, failedBadly);
 
 export default {
   mounted: function(){
@@ -178,8 +185,12 @@ export default {
                 self.listeners = function(){
                     var popup = document.getElementById('popup');
                     var container = document.getElementById('popup-container');
-                    document.addEventListener('mousemove', function(e){
-                        self.init();
+                    var timeInput = document.getElementById('timeRadio');
+                    var yaynayInput = document.getElementById('yaynayRadio');
+                    var canvas = document.getElementById('canvas');
+
+                    canvas.addEventListener('mousemove', function(e){
+                        self.init(bills);
                         var x = e.clientX;
                         if(x > margin / 2 && x < width - margin / 2)
                         self.state.billsection = Math.floor((x - margin / 2) / h_interval);
@@ -188,6 +199,15 @@ export default {
                         ctx.fillRect(self.state.billsection * h_interval + margin / 2,margin/2,h_interval,self.height-margin);
                         ctx.closePath();
                     });
+
+                    timeInput.addEventListener('click', function(e){
+                        self.init(rawbillsSorted);
+                    });
+
+                    yaynayInput.addEventListener('click', function(e){
+                        self.init(ynSorted);
+                    });
+
                     canvas.addEventListener('click', function(e){
                         var billSection = bills[self.state.billsection];
                         var yays = billSection.yays;
@@ -239,13 +259,14 @@ export default {
                     });
                 }();
 
-                self.init = function init(){
+                self.init = function init(billsArray){
+                    bills = billsArray;
                     self.grid();
                     self.frame();
                     self.chart();
                 };
 
-                self.init();
+                self.init(bills);
 
             });
         }();
@@ -354,5 +375,8 @@ li {
 }
 .u-no-margin--bottom {
     margin-bottom: 0;
+}
+.body-container {
+    padding: 0 3rem;
 }
 </style>
