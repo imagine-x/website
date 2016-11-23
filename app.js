@@ -36,6 +36,7 @@ var md5 = function (str) {
 var mailList = isProduction ? '7e7fb31eaa' : '1194bbe271';
 
 app.use(express.static('dist'));
+app.use('/parliament', express.static(path.join(__dirname, 'dist/static/canvas')))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -186,6 +187,11 @@ function sendWelcome(email, name) {
 // app.get('/', function(req, res){
 //     res.render()
 // });
+
+app.get('/parliament', function(req,res){
+  res.sendFile(path.join(__dirname + '/dist/static/canvas/canvas.html'));
+})
+
 app.get('/*', function(req,res){
   res.sendFile(path.join(__dirname + '/dist/index.html'));
 })
