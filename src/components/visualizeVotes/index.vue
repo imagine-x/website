@@ -22,6 +22,8 @@ div
     span Highlight: &nbsp
     input(type="checkbox", name="passed", id="passedCheckbox")
     |  Passed votes
+    select
+      option(v-for="(key, value) in mlas") {{value}}
   canvas(id="canvas")
   div(id="popup-container")
     div(id="popup")
@@ -31,6 +33,7 @@ div
 <script>
 import _ from 'lodash'
 import {rawbills} from './bills'
+import {mlas} from './mlas'
 
 let rawbillsSorted = rawbills.map(bill => {
   bill.yays = _.sortBy(bill.yays, mla => {
@@ -71,8 +74,12 @@ let bills = rawbillsSorted;
 let ynSorted = _.concat(passedOverwhelmingly, passedPartisan, failedPartisan, failedBadly);
 
 export default {
+  computed: {
+    mlas: ()=> {
+        return mlas
+    }
+  },
   mounted: function(){
-
 
         var graph = function(){
             return new (function(){
@@ -170,15 +177,12 @@ export default {
 
                     var maxVoteCount = billIsPassed ? yaysLength : naysLength;
 
-                    if (highlightPassed) {
+                    if (highlightPassed & billIsPassed) {
                         self.state.billsection = Math.floor((x - margin / 2) / h_interval);
-
-                        if (billIsPassed) {
-                            ctx.beginPath();
-                            ctx.fillStyle = 'rgba(150, 234, 52, 0.3)';
-                            ctx.fillRect(self.state.billsection * h_interval + margin / 2,margin / 2,h_interval,self.height-margin);
-                            ctx.closePath();
-                        }
+                        ctx.beginPath();
+                        ctx.fillStyle = 'rgba(150, 234, 52, 0.3)';
+                        ctx.fillRect(self.state.billsection * h_interval + margin / 2,margin / 2,h_interval,self.height-margin);
+                        ctx.closePath();
                     }
 
                     for (var i = 0, y = v_interval + 5; i < maxVoteCount; i++){
@@ -289,6 +293,9 @@ export default {
 
                 self.init = function init(billsArray){
                     bills = billsArray;
+                    // var result = _.find(mlas, function(e) {
+                    //     console.log(e["Jane Shin"]);
+                    // });
                     self.grid();
                     self.frame();
                     self.chart();
