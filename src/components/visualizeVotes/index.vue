@@ -13,17 +13,19 @@ div
     hr
   div.body-container
     span Sort by: &nbsp
-    input(type="radio", name="sort", value="0", id="timeRadio", checked)
+    input(type="radio", name="sort", value="0", id="time-radio", checked)
     |  Time
     &nbsp&nbsp
-    input(type="radio", name="sort", value="1", id="yaynayRadio")
+    input(type="radio", name="sort", value="1", id="yn-radio")
     |  Yay to Nay
     br
     span Highlight: &nbsp
-    input(type="checkbox", name="passed", id="passedCheckbox")
+    input(type="checkbox", name="passed", id="passed-checkbox")
     |  Passed votes
-    select
-      option(v-for="(key, value) in mlas") {{value}}
+    br
+    label Select your MLA
+    select(id="mla-select")
+      option(v-for="(key, value) in mlas" v-bind:value="(value)") {{value}}
   canvas(id="canvas")
   div(id="popup-container")
     div(id="popup")
@@ -84,6 +86,7 @@ export default {
         var graph = function(){
             return new (function(){
                 var highlightPassed = false;
+                var mlaSelected = null;
 
                 self.state = {
                     billsection: null
@@ -123,7 +126,8 @@ export default {
                         NDP: 'rgba(255,200,0,1)',
                         Liberal: 'rgba(255,0,0,1)',
                         Green: 'rgba(0,255,0,1)',
-                        Independent: 'rgba(125,125,125,1)'
+                        Independent: 'rgba(125,125,125,1)',
+                        Selected: 'rgba(0,0,0,1)'
                     }
                     self.v_center = height / 2;
                 }();
@@ -181,16 +185,20 @@ export default {
                         self.state.billsection = Math.floor((x - margin / 2) / h_interval);
                         ctx.beginPath();
                         ctx.fillStyle = 'rgba(150, 234, 52, 0.3)';
-                        ctx.fillRect(self.state.billsection * h_interval + margin / 2,margin / 2,h_interval,self.height-margin);
+                        ctx.fillRect(self.state.billsection * h_interval + margin / 2, margin / 2, h_interval,self.height - margin);
                         ctx.closePath();
                     }
 
                     for (var i = 0, y = v_interval + 5; i < maxVoteCount; i++){
+                        var party = null;
+
                         if (bill.yays[i]){
-                            animate_dot(x, v_center - y, bill.yays[i][1])
+                            party = (mlaSelected === bill.yays[i][0]) ? 'Selected' : bill.yays[i][1];
+                            animate_dot(x, v_center - y, party);
                         }
                         if (bill.nays[i]){
-                            animate_dot(x, v_center + y, bill.nays[i][1])
+                            party = (mlaSelected === bill.nays[i][0]) ? 'Selected' : bill.nays[i][1];
+                            animate_dot(x, v_center + y, party);
                         }
                         y += (v_interval * 2);
                     }
@@ -209,9 +217,10 @@ export default {
                 self.listeners = function(){
                     var popup = document.getElementById('popup');
                     var container = document.getElementById('popup-container');
-                    var timeInput = document.getElementById('timeRadio');
-                    var yaynayInput = document.getElementById('yaynayRadio');
-                    var passedCheckbox = document.getElementById('passedCheckbox');
+                    var timeInput = document.getElementById('time-radio');
+                    var yaynayInput = document.getElementById('yn-radio');
+                    var passedCheckbox = document.getElementById('passed-checkbox');
+                    var mlaSelect = document.getElementById('mla-select');
                     var canvas = document.getElementById('canvas');
 
                     canvas.addEventListener('mousemove', function(e){
@@ -238,6 +247,11 @@ export default {
                     passedCheckbox.addEventListener('click', function(e){
                         highlightPassed = passedCheckbox.checked ? true : false;
                         self.init(bills);
+                    });
+
+                    mlaSelect.addEventListener('change', function(e){
+                        mlaSelected = this.value;
+                        self.init(bills, mlaSelected);
                     });
 
                     canvas.addEventListener('click', function(e){
@@ -291,7 +305,7 @@ export default {
                     });
                 }();
 
-                self.init = function init(billsArray){
+                self.init = function init(billsArray, mlaSelected = null){
                     bills = billsArray;
                     // var result = _.find(mlas, function(e) {
                     //     console.log(e["Jane Shin"]);
