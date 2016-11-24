@@ -26,7 +26,7 @@ div
     label(class="no-bold") Select MLA:
     select(id="mla-select")
       option(value="0") none
-      option(v-for="(key, value) in mlas" v-bind:value="(value)") {{value}}
+      option(v-for="(key, value) in mlas" v-bind:value="(value)")  {{value}}, {{key.district}}
   canvas(id="canvas")
   div(id="popup-container")
     div(id="popup")
@@ -79,7 +79,13 @@ let ynSorted = _.concat(passedOverwhelmingly, passedPartisan, failedPartisan, fa
 export default {
   computed: {
     mlas: ()=> {
-        return mlas;
+        let mlasSorted = {};
+
+        _(mlas).keys().sort().forEach((key) => {
+            mlasSorted[key] = mlas[key];
+        });
+
+        return mlasSorted;
     }
   },
   mounted: function(){
@@ -130,6 +136,13 @@ export default {
                         Independent: 'rgba(125,125,125,1)',
                         Selected: 'rgba(0,0,0,1)'
                     }
+                    self.fadedColors = {
+                        NDP: 'rgba(255,200,0,0.65)',
+                        Liberal: 'rgba(255,0,0,0.65)',
+                        Green: 'rgba(0,255,0,0.65)',
+                        Independent: 'rgba(125,125,125,0.65)',
+                        Selected: 'rgba(0,0,0,1)'
+                    }
                     self.v_center = height / 2;
                 }();
 
@@ -167,7 +180,7 @@ export default {
 
                 self.animate_dot = function animate_dot(x,y,party){
                     var opacity = 0;
-                    var party_color = colors[party];
+                    var party_color = mlaSelected ? fadedColors[party] : colors[party];
                         ctx.beginPath();
                         ctx.fillStyle = party_color;
                         ctx.arc(x,y,v_interval,0,Math.PI * 2);
@@ -185,7 +198,7 @@ export default {
                     if (highlightPassed & billIsPassed) {
                         self.state.billsection = Math.floor((x - margin / 2) / h_interval);
                         ctx.beginPath();
-                        ctx.fillStyle = 'rgba(150, 234, 52, 0.3)';
+                        ctx.fillStyle = 'rgba(150, 234, 52, 0.2)';
                         ctx.fillRect(self.state.billsection * h_interval + margin / 2, margin / 2, h_interval,self.height - margin);
                         ctx.closePath();
                     }
@@ -276,7 +289,7 @@ export default {
 
                         var billStatusBadge = '<div class="status-badge" style="background-color:' + billStatusColour + ';">' + billStatusText + '</div>';
 
-                        var html = '<h2>' + billSection.bill + '</h2><p class="u-margin--bottom">' + billSection.motion + '</p>';
+                        var html = '<h2>' + billSection.bill + '<a href="#" target="_blank"><i class="fa fa-external-link"></i></a></h2><p class="u-margin--bottom">' + billSection.motion + '</p>';
                         html += '<p class="u-margin--bottom">Parliament: ' + billSection.parliament + ' &nbsp Session: ' + billSection.session + '</p>';
                         html += billStatusBadge;
                         html += '<hr class="u-no-margin--bottom"/><table class="table--canvas"><tr><td>';
@@ -308,9 +321,6 @@ export default {
 
                 self.init = function init(billsArray, mlaSelected = null){
                     bills = billsArray;
-                    // var result = _.find(mlas, function(e) {
-                    //     console.log(e["Jane Shin"]);
-                    // });
                     self.grid();
                     self.frame();
                     self.chart();
@@ -436,5 +446,13 @@ select, select:focus {
 }
 .no-bold {
     font-weight: normal;
+}
+.fa {
+    margin-left: 1rem;
+    font-size: 2rem;
+    color: black;
+}
+.fa:hover {
+    color: gray;
 }
 </style>
