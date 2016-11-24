@@ -1,5 +1,10 @@
 <template lang="jade">
-  imagine-x
+div
+  div
+    imagine-x(v-if="mode==='imagine'")
+  div
+    visualize-votes(v-if="mode==='votes'")
+
 </template>
 
 
@@ -8,6 +13,7 @@
   import store from '../vuex/store'
   import attackAds from './attackAds'
   import imagineX from './imagineX'
+  import visualizeVotes from './visualizeVotes'
 
   export default {
       methods:{
@@ -28,7 +34,8 @@
       },
       components: {
         attackAds,
-        imagineX
+        imagineX,
+        visualizeVotes
       },
       store,
       computed: {
@@ -47,11 +54,6 @@
     padding-bottom: 5rem;
     font-family: 'Arial', san-serif;
 
-  @media (min-width: 960px) {
-    body {
-        border: 5px solid black;
-    }
-  }
 
   #modeswitcher
     z-index: 1e10

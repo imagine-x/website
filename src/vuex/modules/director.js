@@ -13,7 +13,7 @@ const mutations = {
 }
 
 const state = {
-  mode:"imagine",
+  mode:"votes",
   thankYou: false,
   privacy: false
 }

@@ -26,6 +26,19 @@ export const itsPossible = [{
     sources: [],
     main: true
   },{
+    url:'/our-turn-in-six-months',
+    heading: [
+      "BC, it's our turn in six months."
+    ],
+    variable: [
+      "The US is going to the polls today. They are choosing between two of the most disliked candidates in a deeply politically polarized country.",
+      "Let the US election remind us how fragile democracy is. It takes every one of us to step up to protect our democracy. It begins with caring. Caring for the future of our children, our environment, our economy, and all of us.",
+      "Six months from today, British Columbians will be faced with a similar choice. On May 9, 2016, it will be our turn. We can choose to stick with the right or the left of the status quo or we can choose to take our democracy back.",
+      "Let’s be bold and imagine a better democracy. It's possible.",
+      "We are Imagine X. We are a group of passionate citizens starting a political movement for a better BC."
+    ],
+    main: false
+  },{
     url:'/1000-less-per-student',
     variable:[
       'BC has the highest GDP growth and the lowest unemployment rate nationally, yet we are the second worst in education funding after Prince Edward Island. According to Statistics Canada [1], BC spends almost $1000 less per student than the national average of $11,393. Something doesn’t add up.',
