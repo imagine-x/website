@@ -23,8 +23,9 @@ div
     input(type="checkbox", name="passed", id="passed-checkbox")
     |  Passed votes
     br
-    label Select your MLA
+    label(class="no-bold") Select MLA:
     select(id="mla-select")
+      option(value="0") none
       option(v-for="(key, value) in mlas" v-bind:value="(value)") {{value}}
   canvas(id="canvas")
   div(id="popup-container")
@@ -78,7 +79,7 @@ let ynSorted = _.concat(passedOverwhelmingly, passedPartisan, failedPartisan, fa
 export default {
   computed: {
     mlas: ()=> {
-        return mlas
+        return mlas;
     }
   },
   mounted: function(){
@@ -427,5 +428,13 @@ li {
 }
 .body-container {
     padding: 0 3rem;
+}
+select, select:focus {
+    outline: 1px solid black;
+    border-radius: 0;
+    border: 0;
+}
+.no-bold {
+    font-weight: normal;
 }
 </style>

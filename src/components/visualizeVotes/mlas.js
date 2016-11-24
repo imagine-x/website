@@ -347,4 +347,4 @@ export const mlas = {
         "party": "Liberal",
         "district": "Vernon-Monashee"
     }
-}
+};
