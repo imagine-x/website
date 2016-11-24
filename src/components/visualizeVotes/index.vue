@@ -1,53 +1,63 @@
 <template lang="jade">
-
 div
-  .header-container
+  div.header-container
     img.logo(src='../../../static/images/imaginex.svg')
+  div.container--full
+    h1 MLA Voting Records
     p Think your MLA represents your voice in the BC legislature in Victoria? Think again. The BC legislature voting data shows that unless your MLA is an independent member, their votes are usually whipped to party lines - meaning that your MLA is representing Victoria back to you. Use the interactive app below to discover your MLA's voting record.
-    label HOW TO USE THE APP
-    p
+    a(href="#", @click.prevent='toggleInstructions')
+      h6.label--expand HOW TO USE THE APP
+      i.fa.fa-plus(v-bind:class="{ hidden: isOpen }")
+      i.fa.fa-minus(v-bind:class="{ hidden: !isOpen }")
+    div.instructions(v-bind:class="{ open: isOpen }")
       ul
         li Each rectangle represents a vote in the legislature between 2013 to 2016 for the 40th parliament under the B.C. Liberal government. A vote can be a motion for an ammendment, bill or other matters. Click on the rectangle to discover the details of each vote.
         li Each dot represents an MLA who voted. The colour of the dot represents the MLA's party affiliation.
         li The top half of the graph represents 'YAY' votes. The bottom of the graph represents 'NAY votes. Votes are passed if there are more 'YAY' votes than 'NAY' votes.
     hr
-  div.body-container
+  div.container--full
     div.six.columns.u-margin-bottom--large
-      label FILTER OPTIONS
-      span Sort by: &nbsp
-      input(type="radio", name="sort", value="0", id="time-radio", checked)
-      |  Time
-      &nbsp&nbsp
-      input(type="radio", name="sort", value="1", id="yn-radio")
-      |  Yay to Nay
-      br
-      span Highlight: &nbsp
-      input(type="checkbox", name="passed", id="passed-checkbox")
-      |  Passed votes
-      br
-      label(class="no-bold") Select MLA:
-      select(id="mla-select")
-        option(value="0") none
-        option(v-for="(key, value) in mlas" v-bind:value="(value)")  {{value}}, {{key.district}}
+      a(href="#", @click.prevent="toggleFilters")
+        h6.label--expand FILTER OPTIONS
+        i.fa.fa-plus(v-bind:class="{ hidden: filterIsOpen }")
+        i.fa.fa-minus(v-bind:class="{ hidden: !filterIsOpen }")
+      div.filters(v-bind:class="{ open: filterIsOpen }")
+        span Sort by: &nbsp
+        input(type="radio", name="sort", value="0", id="time-radio", checked)
+        label.input-label(for="time-radio") Time
+        &nbsp&nbsp
+        input(type="radio", name="sort", value="1", id="yn-radio")
+        label.input-label(for="yn-radio") Yay to Nay
+        br
+        span Highlight: &nbsp
+        input(type="checkbox", name="passed", id="passed-checkbox")
+        label.input-label(for="passed-checkbox") Passed votes
+        br
+        label(class="no-bold") Select MLA:
+        select(id="mla-select")
+          option(value="0") none
+          option(v-for="(key, value) in mlas" v-bind:value="(value)")  {{value}}, {{key.district}}
+        div
+          a(href="#", class="text--small" @click.prevent="clearFilters") Clear all filters
     div.six.columns
       label LEGEND
       ul.list--clean
         li
           div.circle-container
             div.full-circle
-            span.circle-label BC Liberal
+            span.circle-label BC Liberal MLA
         li
           div.circle-container
             div.full-circle.full-circle--ndp
-            span.circle-label BC NDP
+            span.circle-label BC NDP MLA
         li
           div.circle-container
             div.full-circle.full-circle--green
-            span.circle-label BC Greens
+            span.circle-label BC Greens MLA
         li
           div.circle-container
             div.full-circle.full-circle--indie
-            span.circle-label Independent
+            span.circle-label Independent MLA
         li
           div.circle-container
             div.full-circle.full-circle--selected
@@ -102,8 +112,14 @@ let bills = rawbillsSorted;
 let ynSorted = _.concat(passedOverwhelmingly, passedPartisan, failedPartisan, failedBadly);
 
 export default {
+  data() {
+    return {
+      isOpen: false,
+      filterIsOpen: true,
+    }
+  },
   computed: {
-    mlas: ()=> {
+    mlas: () => {
         let mlasSorted = {};
 
         _(mlas).keys().sort().forEach((key) => {
@@ -111,6 +127,27 @@ export default {
         });
 
         return mlasSorted;
+    }
+  },
+  methods: {
+    toggleInstructions() {
+      this.isOpen = !this.isOpen;
+    },
+    toggleFilters() {
+      this.filterIsOpen = !this.filterIsOpen;
+    },
+    clearFilters() {
+      var passedCheckbox = document.getElementById('passed-checkbox');
+      var mlaSelect = document.getElementById('mla-select');
+      var timeRadio = document.getElementById('time-radio');
+      var event = new Event('change');
+
+      if (passedCheckbox.checked) {
+        passedCheckbox.click();
+      }
+      timeRadio.click();
+      mlaSelect.value = '0';
+      mlaSelect.dispatchEvent(event);
     }
   },
   mounted: function(){
@@ -370,6 +407,10 @@ export default {
     text-rendering: optimizeLegibility;
     box-sizing: border-box;
 }
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+}
 h2 {
     font-size: 26px;
     line-height: 1.2;
@@ -377,7 +418,12 @@ h2 {
     letter-spacing: -.1rem;
     font-weight: bold;
 }
-
+a {
+  color: black;
+}
+a:hover {
+  color: gray;
+}
 canvas {
   z-index: 1000;
   width: 100vw;
@@ -432,8 +478,7 @@ canvas {
     margin-top: 1.5rem;
 }
 .logo {
-    max-width: 15rem;
-    margin-bottom: 2rem;
+    max-width: 11.5rem;
 }
 .header-container {
     display: block;
@@ -461,23 +506,22 @@ li {
 .u-no-margin--bottom {
     margin-bottom: 0;
 }
-.body-container {
-    padding: 0 3rem;
-}
 select, select:focus {
     outline: 1px solid black;
     border-radius: 0;
     border: 0;
+    max-width: 100%;
+    margin-bottom: 0.5rem;
 }
 .no-bold {
     font-weight: normal;
 }
-.fa {
+.fa-external-link {
     margin-left: 1rem;
     font-size: 2rem;
     color: black;
 }
-.fa:hover {
+.fa-external-link:hover {
     color: gray;
 }
 .full-circle {
@@ -516,5 +560,46 @@ select, select:focus {
 }
 .u-margin-bottom--large {
   margin-bottom: 2rem;
+}
+.label--expand {
+  display: inline-block;
+  margin-right: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.instructions, .filters {
+  display: none;
+}
+.instructions.open, .filters.open {
+  display: block;
+}
+.container--full {
+  padding: 0 20px;
+}
+.header-container {
+  padding: 2rem 20px;
+  margin-bottom: 5rem;
+  border-bottom: 1px solid #e0e1dc;
+}
+.hidden {
+  display: none;
+}
+.text--small {
+  font-size: 12px;
+}
+.input-label {
+  display: inline-block;
+  margin-left: 0.5rem;
+  margin-right: 1rem;
+  font-weight: normal;
+}
+@media (min-width: 480px) {
+    .logo {
+        max-width: 15rem;
+    }
+    .header-container {
+      border-bottom: 0;
+      margin-bottom: 1rem;
+    }
 }
 </style>
