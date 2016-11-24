@@ -12,21 +12,46 @@ div
         li The top half of the graph represents 'YAY' votes. The bottom of the graph represents 'NAY votes. Votes are passed if there are more 'YAY' votes than 'NAY' votes.
     hr
   div.body-container
-    span Sort by: &nbsp
-    input(type="radio", name="sort", value="0", id="time-radio", checked)
-    |  Time
-    &nbsp&nbsp
-    input(type="radio", name="sort", value="1", id="yn-radio")
-    |  Yay to Nay
-    br
-    span Highlight: &nbsp
-    input(type="checkbox", name="passed", id="passed-checkbox")
-    |  Passed votes
-    br
-    label(class="no-bold") Select MLA:
-    select(id="mla-select")
-      option(value="0") none
-      option(v-for="(key, value) in mlas" v-bind:value="(value)")  {{value}}, {{key.district}}
+    div.six.columns.u-margin-bottom--large
+      label FILTER OPTIONS
+      span Sort by: &nbsp
+      input(type="radio", name="sort", value="0", id="time-radio", checked)
+      |  Time
+      &nbsp&nbsp
+      input(type="radio", name="sort", value="1", id="yn-radio")
+      |  Yay to Nay
+      br
+      span Highlight: &nbsp
+      input(type="checkbox", name="passed", id="passed-checkbox")
+      |  Passed votes
+      br
+      label(class="no-bold") Select MLA:
+      select(id="mla-select")
+        option(value="0") none
+        option(v-for="(key, value) in mlas" v-bind:value="(value)")  {{value}}, {{key.district}}
+    div.six.columns
+      label LEGEND
+      ul.list--clean
+        li
+          div.circle-container
+            div.full-circle
+            span.circle-label BC Liberal
+        li
+          div.circle-container
+            div.full-circle.full-circle--ndp
+            span.circle-label BC NDP
+        li
+          div.circle-container
+            div.full-circle.full-circle--green
+            span.circle-label BC Greens
+        li
+          div.circle-container
+            div.full-circle.full-circle--indie
+            span.circle-label Independent
+        li
+          div.circle-container
+            div.full-circle.full-circle--selected
+            span.circle-label Selected MLA
   canvas(id="canvas")
   div(id="popup-container")
     div(id="popup")
@@ -454,5 +479,42 @@ select, select:focus {
 }
 .fa:hover {
     color: gray;
+}
+.full-circle {
+    background-color: rgba(255,0,0,1);
+    height: 8px;
+    border-radius: 50%;
+    width: 8px;
+    display: inline-block;
+}
+.full-circle--ndp {
+    background-color: rgba(255,200,0,1);
+}
+.full-circle--green {
+    background-color: rgba(0,255,0,1);
+}
+.full-circle--indie {
+    background-color: rgba(125,125,125,1);
+}
+.full-circle--selected {
+    background-color: rgba(0,0,0,1);
+}
+.circle-label {
+    margin-left: 0.5rem;
+    margin-right: 1.5rem;
+}
+.circle-container {
+  display: inline-block;
+}
+.list--clean {
+  list-style: none;
+  padding: 0;
+}
+.list--clean > li {
+  list-style: none;
+  display: inline;
+}
+.u-margin-bottom--large {
+  margin-bottom: 2rem;
 }
 </style>
