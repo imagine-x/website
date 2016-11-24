@@ -264,7 +264,7 @@ export default {
                     });
 
                     mlaSelect.addEventListener('change', function(e){
-                        mlaSelected = this.value;
+                        mlaSelected = (this.value !== '0') ? this.value : null;
                         self.init(bills, mlaSelected);
                     });
 
