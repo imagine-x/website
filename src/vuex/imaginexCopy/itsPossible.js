@@ -35,7 +35,7 @@ export const itsPossible = [{
       `We are Imagine X. We are a group of passionate citizens starting a political movement for a better BC.`
     ],
     heading: [
-        `Imagine BC politicans who don't sell themselves for money. It’s possible.`
+        `Imagine a BC government with politicans who don't sell themselves for money. It’s possible.`
     ],
     sources: [
         `"B.C. NDP under fire for pricey fundraising event" Nov 24, 2016, Globe and Mail. http://www.theglobeandmail.com/news/british-columbia/bc-ndp-under-fire-for-pricey-fundraising-event/article33045874`
