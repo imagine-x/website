@@ -26,6 +26,22 @@ export const itsPossible = [{
     sources: [],
     main: true
   },{
+    url:'/cash-for-access',
+    variable:[
+      `This week, the BC NDP hosted a fundraiser for the resource sector at one of the most expensive restaurants in Vancouver. For $10k a table, resource sector executives received special access to the Opposition leader and his team. The BC Liberals are also notorious for their cash-for-access fundraisers from $1k to $10k a head.`,
+      `What is $10k? It is almost half a year’s of full-time work for those working at BC’s current minimum wage - those who are the working class that BC NDPs and BC Liberals both say they are fighting for.`,
+      `Imagine instead a BC government that doesn’t sell themselves to wealthy donors for access. A government that truly listened to its people rather than private interests. A government that understands that cash-for-access is simply not right.`,
+      `It's possible.`,
+      `We are Imagine X. We are a group of passionate citizens starting a political movement for a better BC.`
+    ],
+    heading: [
+        `Imagine a BC Government and Opposition that doesn’t sell themselves for money. It’s possible.`
+    ],
+    sources: [
+        `"B.C. NDP under fire for pricey fundraising event" Nov 24, 2016, Globe and Mail. http://www.theglobeandmail.com/news/british-columbia/bc-ndp-under-fire-for-pricey-fundraising-event/article33045874`
+    ],
+    main: false
+  },{
     url:'/full-stomachs-full-wallets',
     variable:[
       `A record number of 103,400 British Columbians have already used a food bank this year [1]. That is almost the same population as Kelowna, BC. Just take a moment to think about that.`,
