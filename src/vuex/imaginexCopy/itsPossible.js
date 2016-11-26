@@ -18,7 +18,7 @@ export const itsPossible = [{
     variable:[
       `Politics in BC is stuck. It’s a tug-of-war between the left, the right and a single issue party. Our current options are limited, but we can’t wait any longer. Our province needs a different future from status quo, a government that we can trust. Do you dare to imagine an alternative?`,
       `Imagine a government that was transparent rather than secretive; more frequently collaborative than adversarial; citizen-centric rather than interest-focused; forward-thinking rather than backward-looking. We can do this.`,
-      `Imagine X is a political platform. We are a group of passionate citizens starting a political movement for a better BC. We stand for a good government with principles and policies that meet our core values. And no, we are not affiliated with the BC Liberals, NDPs, Greens, any other party or interest group. We simply want a better government for a better BC - just like you.`
+      `Imagine X is a political platform. We are a group of passionate citizens starting a political movement for a better BC. We stand for a good government with principles and policies that meet our core values. And no, we are not affiliated with the BC Liberals, NDPs, Greens, any other existing party or interest group. We are 100% self-funded and self-motivated. We simply want a better government for an even better BC - just like you.`
     ],
     heading:[
         `Let's create an even #BetterBC`
