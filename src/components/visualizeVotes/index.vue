@@ -5,42 +5,13 @@ div
   div.container--full
     h1 MLA Voting Records
     p Think your MLA represents your voice in the BC legislature in Victoria? Think again. The BC legislature voting data shows that unless your MLA is an independent member, their votes are usually whipped to party lines - meaning that your MLA is representing Victoria back to you. Use the interactive app below to discover your MLA's voting record.
-    a(href="#", @click.prevent='toggleInstructions')
-      h6.label--expand HOW TO USE THE APP
-      i.fa.fa-plus(v-bind:class="{ hidden: isOpen }")
-      i.fa.fa-minus(v-bind:class="{ hidden: !isOpen }")
-    div.instructions(v-bind:class="{ open: isOpen }")
-      ul
-        li Each rectangle represents a vote in the legislature between 2013 to 2016 for the 40th parliament under the B.C. Liberal government. A vote can be a motion for an ammendment, bill or other matters. Click on the rectangle to discover the details of each vote.
-        li Each dot represents an MLA who voted. The colour of the dot represents the MLA's party affiliation.
-        li The top half of the graph represents 'YAY' votes. The bottom of the graph represents 'NAY votes. Votes are passed if there are more 'YAY' votes than 'NAY' votes.
-    hr
+    instructions
   div.container--full
     div.six.columns.u-margin-bottom--large
-      a(href="#", @click.prevent="toggleFilters")
-        h6.label--expand FILTER OPTIONS
-        i.fa.fa-plus(v-bind:class="{ hidden: filterIsOpen }")
-        i.fa.fa-minus(v-bind:class="{ hidden: !filterIsOpen }")
-      div.filters(v-bind:class="{ open: filterIsOpen }")
-        span Sort by: &nbsp
-        input(type="radio", name="sort", value="0", id="time-radio", checked)
-        label.input-label(for="time-radio") Time
-        &nbsp&nbsp
-        input(type="radio", name="sort", value="1", id="yn-radio")
-        label.input-label(for="yn-radio") Yay to Nay
-        br
-        span Highlight: &nbsp
-        input(type="checkbox", name="passed", id="passed-checkbox")
-        label.input-label(for="passed-checkbox") Passed votes
-        br
-        label(class="no-bold") Select MLA:
-        select(id="mla-select")
-          option(value="0") none
-          option(v-for="(value, key) in mlas" v-bind:value="(key)")  {{key}}, {{value.district}}
-        div
-          a(href="#", class="text--small" @click.prevent="clearFilters") Clear all filters
+      filters
     div.six.columns
-      legend
+      mla-legend
+
   canvas(id="canvas")
   div(id="popup-container")
     div(id="popup")
@@ -52,11 +23,18 @@ import _ from 'lodash'
 import {mlas} from './mlas'
 import { rawbillsSorted , ynSorted } from './processBills'
 
-let bills = rawbillsSorted 
+let bills = rawbillsSorted
 
-import Legend from './Legend'
+import MlaLegend from './MlaLegend'
+import Instructions from './Instructions'
+import Filters from './Filters'
 
 export default {
+  components: {
+    MlaLegend,
+    Instructions,
+    Filters
+  },
   data() {
     return {
       isOpen: false,
@@ -75,9 +53,6 @@ export default {
     }
   },
   methods: {
-    toggleInstructions() {
-      this.isOpen = !this.isOpen;
-    },
     toggleFilters() {
       this.filterIsOpen = !this.filterIsOpen;
     },
@@ -342,7 +317,6 @@ export default {
 }
 
 </script>
-
 <style>
 * {
     margin: 0;
@@ -512,12 +486,7 @@ select, select:focus {
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
-.instructions, .filters {
-  display: none;
-}
-.instructions.open, .filters.open {
-  display: block;
-}
+
 .container--full {
   padding: 0 20px;
 }
@@ -525,9 +494,6 @@ select, select:focus {
   padding: 2rem 20px;
   margin-bottom: 5rem;
   border-bottom: 1px solid #e0e1dc;
-}
-.hidden {
-  display: none;
 }
 .text--small {
   font-size: 12px;
