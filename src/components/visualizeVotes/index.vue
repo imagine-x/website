@@ -36,32 +36,11 @@ div
         label(class="no-bold") Select MLA:
         select(id="mla-select")
           option(value="0") none
-          option(v-for="(key, value) in mlas" v-bind:value="(value)")  {{value}}, {{key.district}}
+          option(v-for="(value, key) in mlas" v-bind:value="(key)")  {{key}}, {{value.district}}
         div
           a(href="#", class="text--small" @click.prevent="clearFilters") Clear all filters
     div.six.columns
-      label LEGEND
-      ul.list--clean
-        li
-          div.circle-container
-            div.full-circle
-            span.circle-label BC Liberal MLA
-        li
-          div.circle-container
-            div.full-circle.full-circle--ndp
-            span.circle-label BC NDP MLA
-        li
-          div.circle-container
-            div.full-circle.full-circle--green
-            span.circle-label BC Greens MLA
-        li
-          div.circle-container
-            div.full-circle.full-circle--indie
-            span.circle-label Independent MLA
-        li
-          div.circle-container
-            div.full-circle.full-circle--selected
-            span.circle-label Selected MLA
+      legend
   canvas(id="canvas")
   div(id="popup-container")
     div(id="popup")
@@ -70,46 +49,12 @@ div
 
 <script>
 import _ from 'lodash'
-import {rawbills} from './bills'
 import {mlas} from './mlas'
+import { rawbillsSorted , ynSorted } from './processBills'
 
-let rawbillsSorted = rawbills.map(bill => {
-  bill.yays = _.sortBy(bill.yays, mla => {
-    return mla[1]
-  })
+let bills = rawbillsSorted 
 
-  bill.nays = _.sortBy(bill.nays, mla => {
-    if(mla) return mla[1];
-  })
-  return bill
-})
-
-let passed = rawbillsSorted.filter(bill => {
-  return bill.yays.length > bill.nays.length
-})
-
-let passedOverwhelmingly = passed.filter(bill => {
-  return bill.nays.length < bill.yays.length - 30
-})
-
-let passedPartisan = passed.filter(bill => {
-  return bill.nays.length > bill.yays.length - 30
-})
-
-let failed = rawbillsSorted.filter(bill => {
-  return bill.nays.length > bill.yays.length
-})
-
-let failedPartisan = failed.filter(bill => {
-  return bill.nays.length < bill.yays.length + 30
-})
-
-let failedBadly = failed.filter(bill => {
-  return bill.nays.length > bill.yays.length + 30
-})
-
-let bills = rawbillsSorted;
-let ynSorted = _.concat(passedOverwhelmingly, passedPartisan, failedPartisan, failedBadly);
+import Legend from './Legend'
 
 export default {
   data() {
