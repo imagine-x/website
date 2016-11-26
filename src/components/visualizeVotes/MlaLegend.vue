@@ -39,5 +39,25 @@ export default {}
   list-style: none;
   display: inline;
 }
+.full-circle {
+    background-color: rgba(255,0,0,1);
+    height: 8px;
+    border-radius: 50%;
+    width: 8px;
+    display: inline-block;
+}
+.full-circle--ndp {
+    background-color: rgba(255,200,0,1);
+}
+.full-circle--green {
+    background-color: rgba(0,255,0,1);
+}
+.full-circle--indie {
+    background-color: rgba(125,125,125,1);
+}
+.full-circle--selected {
+    background-color: rgba(0,0,0,1);
+}
+
 
 </style>

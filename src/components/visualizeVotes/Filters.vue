@@ -47,7 +47,20 @@ export default {
     toggleFilters() {
       this.filterIsOpen = !this.filterIsOpen;
     },
-  }
+    clearFilters() {
+      var passedCheckbox = document.getElementById('passed-checkbox');
+      var mlaSelect = document.getElementById('mla-select');
+      var timeRadio = document.getElementById('time-radio');
+      var event = new Event('change');
+
+      if (passedCheckbox.checked) {
+        passedCheckbox.click();
+      }
+      timeRadio.click();
+      mlaSelect.value = '0';
+      mlaSelect.dispatchEvent(event);
+    }
+  },
 }
 </script>
 
