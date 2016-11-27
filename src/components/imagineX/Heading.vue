@@ -6,14 +6,17 @@
       src='../../../static/images/imaginex.svg',
       @click='next'
       )
-    a.btn.btn--header.header-container__block(href="#form") Take Action
-  .eight.columns.header-container__block
+    a.btn.btn--header.header-container__block(href="#") MENU
+  navigation(className="navigation--offcanvas")
+  .eight.columns.header-container__block.header-container__block--text
       h1.heading__text(v-for='x in content')
         {{ x }}
 
 </template>
 
 <script>
+import Navigation from './Navigation.vue'
+
 export default {
     props: ['content'],
     methods:{
@@ -21,6 +24,9 @@ export default {
         this.$store.dispatch('NEXT_IMAGINE_X')
       },
     },
+    components: {
+        Navigation
+    }
 }
 </script>
 
@@ -32,7 +38,6 @@ img
 .header-container
   border-bottom: 1px solid #E0E1DC;
   padding: 2rem 0;
-  margin-bottom: 5rem;
   display: flex;
   display: -webkit-box;
   display: -moz-box;
@@ -42,22 +47,31 @@ img
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 0.65rem;
 
 .header-container__block {
     padding-left: 20px;
     padding-right: 20px;
 }
 
+.header-container__block--text {
+    margin-top: 5rem;
+}
+
 .btn--header {
     display: block;
-    padding: 0 20px;
-    height: 40px;
+    background: white;
+    color: black;
+    border: 3px solid black;
+    padding: 0 10px;
+    height: 26px;
     margin-bottom: 0;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
-    line-height: 38px;
+    line-height: 26px;
     margin-right: 20px;
+    font-size: 14px;
 }
 
 .container--header {
@@ -80,6 +94,10 @@ img
     .header-container__block {
         padding-left: 0;
         padding-right: 0;
+    }
+
+    .header-container__block--text {
+        margin-top: 0;
     }
 
     .btn--header {

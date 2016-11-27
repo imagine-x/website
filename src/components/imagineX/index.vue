@@ -12,6 +12,7 @@
 				b Join us and together let's create an even #BetterBC.
 				hr
 			.four.columns.layout__sidebar
+				navigation(className="navigation--sidebar")
 				#form
 				application
 				hr.hr--hide-lg
@@ -42,6 +43,8 @@ import Privacy from './Privacy.vue'
 import FooterX from '../generics/FooterX.vue'
 import Sources from '../generics/Sources.vue'
 import Application from '../generics/Application.vue'
+import Navigation from './Navigation.vue'
+
 export default {
   computed: {
     idea() {
@@ -58,6 +61,7 @@ export default {
     Sources,
     Application,
     Values,
+    Navigation
   },
 	beforeMount(){
 		this.$store.dispatch("SET_IMAGINE_X_BY_URL", window.location.pathname )
