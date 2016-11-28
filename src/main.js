@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import App from './components/App.vue'
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
 
 /* eslint-disable no-new */
 new Vue({
