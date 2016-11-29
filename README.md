@@ -1,5 +1,5 @@
 ## Welcome to Imagine-X
-Welcome to the Imagine-x development site. If you want to help out with the process, you can get started by following the build instructions below. Once you have you will be able to make changes to the project locally, and see the changes immeadiatly appear in your browser. When you push them to the main repository, all the   If you have problems getting set up, make an issue and I'll get back to you.
+Welcome to the Imagine-x development site. If you want to help out with the process, you can get started by following the build instructions below. Once you have you will be able to make changes to the project locally, and see the changes immeadiately appear in your browser. When you push them to the main repository, all the   If you have problems getting set up, make an issue and I'll get back to you.
 
 We are not only designing our website, we are in the process of trying to define who we are, what we believe, and what we are trying to accomplish. Welcome!
 

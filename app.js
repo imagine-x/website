@@ -18,13 +18,11 @@ app.use(express.static('dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Landing Route
-// app.get('/', function(req, res){
-//     res.render()
-// });
-// Post Template
+// route to save contacts, send welcome message
 app.post('/post', (req, res) => contactsController.submit(req, res));
+// route for slack bot that dumps whole list
 app.post('/slackCommand', (req, res) => slackController.slackCommand(req, res));
+// route to serve static vue app
 app.get('/*', function(req,res){
   res.sendFile(path.join(__dirname + '/dist/index.html'));
 })
