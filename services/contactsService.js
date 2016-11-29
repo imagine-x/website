@@ -1,22 +1,26 @@
 var https = require('https');
 var isProduction = (process.env.PRODUCTION == 'true');
+var mailList = isProduction ? '7e7fb31eaa' : '1194bbe271';
+var listApiKey = process.env.LISTAPIKEY || '';
+
 function contactsService (database) {
-  this.database = database;
-  this.listApiKey = process.env.LISTAPIKEY || '';
-  this.mailList = isProduction ? '7e7fb31eaa' : '1194bbe271';
+    this.database = database;
 }
 
-function contactAPI (path, payload) {
+function contactAPI (payload) {
 
     return new Promise(function (resolve,reject) {
-        if (this.listApiKey == '') {
+        if (listApiKey == '') {
+            console.log('listAPIKey not found');
             return;
         }
         var req = https.request({
-                          "headers": {  "Authorization" : 'Basic ' + listApiKey,
-                                        'Content-Length': Buffer.byteLength(payload)},
+                          "headers": {
+                                "Authorization" : 'Basic ' + listApiKey,
+                                'Content-Length': Buffer.byteLength(payload)
+                                    },
                           "host": 'us14.api.mailchimp.com',
-                          "path": '/3.0/lists/' + this.mailList + '/members',
+                          "path": '/3.0/lists/' + mailList + '/members',
                           "method": 'POST'
                     }, (res) => {
                         res.setEncoding('utf8');
@@ -29,6 +33,7 @@ function contactAPI (path, payload) {
     });
 }
 
+// add contact in the mailinglist provider, returns a promise
 contactsService.prototype.add = function (contact) {
 
     var payload = JSON.stringify({
@@ -41,20 +46,21 @@ contactsService.prototype.add = function (contact) {
                          "COUNTRY" : contact.country
                         }
                 });
-    contactAPI(payload).then((resp) => console.log(resp));
+    return contactAPI(payload);
 }
-contactsService.prototype.save = function (contact, res) {
+
+// saves contact in the databse, returns a promise
+contactsService.prototype.save = function (contact) {
     var self = this;
     var query = "INSERT INTO first_form(timestamp, name, email, postal_code, subscribed) " +
                 "VALUES ($timestamp, $name, $email, $postal_code, $subscribed)";
-    self.database.execute(query, {
+    return self.database.execute(query, {
         '$timestamp' : contact.timestamp,
         '$name' : contact.name,
         '$postal_code' : contact.postal_code,
         '$email' : contact.email,
         '$subscribed' : contact.subscribed,
-    }).then(() => res.send({ok: true}));
+    });
 }
-
 
 module.exports = contactsService;

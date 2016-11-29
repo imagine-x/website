@@ -40,3 +40,65 @@ nvm install stable
 ```
 ### Development Deploy:
 www.imagine-x.github.io
+
+
+### Server side API's
+
+## Custom modules
+
+* ./services/databaseService
+* ./services/contactsService
+* ./services/mailService
+* ./services/slackService
+
+To use a module, require and instantiate with `new` and constructor parameters:
+`var contactsController = new (require('./services/<module>'))(<parameter>);`
+
+
+# databaseService
+
+* constructor (filename)
+  * param: (filename) of the database file
+
+* select(query, params) - runs select queries
+  * param: query - string of the sql, can have template with $parameters `SELECT * FROM first_form where email = $email`
+  * param: params - object of parameters `{$email : 'email@email.com'}`
+  * returns: promise with the array of results
+
+* execute(query, params) - runs insert, update, delete and DML queries
+  * param: query - string of the sql, can have template with $parameters `INSERT INTO first_form (email) VALUES ($email)`
+  * param: params - object of parameters `{$email : 'email@email.com'}`
+  * returns: promise that provides no output when resolved, but returns an error variable when rejected
+
+# contactsService
+* constructor (database)
+  * param: (database) service instance
+
+* add(contact) - adds to mailing list provider
+  * param: contact - object ```{
+      'name' : 'first last',
+      'email' : 'email@email.com',
+      'postal_code' : 'V6A 1E7',
+      'subscribed' : true,
+      'clientIP' : '127.0.0.1',
+      'country' : 'CAN',
+      'timestamp' : '2016-11-26 23:12'
+  }```
+  * returns: promise with response from provider
+
+* save(contact) - saves contact to database
+  * param: contact object
+  * returns: promise that provides no output when resolved, but returns an error variable when rejected
+
+
+# mailService
+
+* sendWelcome(contact) - sends a welcome email from template
+  * param: contact - object
+  * returns: promise with response from email provider
+
+# slackService
+
+* notify(contact) - sends message to the system updates slack channel
+  * param: contact - object
+  * returns: promise with response from slack

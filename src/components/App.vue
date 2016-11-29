@@ -33,9 +33,9 @@ div
         },
       },
       components: {
+        visualizeVotes,
         attackAds,
-        imagineX,
-        visualizeVotes
+        imagineX
       },
       store,
       computed: {

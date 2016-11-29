@@ -37,13 +37,13 @@ DatabaseService.prototype.select = function (query, params) {
 DatabaseService.prototype.execute = function (query, params) {
     var self = this;
     return new Promise(function (resolve,reject) {
-        return self.db.run(query, params, function(err, result) {
+        return self.db.run(query, params, function(err) {
             if (err) {
                 sql_error(query, params, err);
                 return (reject) ? reject(err) : '';
             }
             if (resolve) {
-                return resolve(result);
+                return resolve();
             }
             console.log("No callback", query);
         });

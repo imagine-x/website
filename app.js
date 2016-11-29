@@ -14,25 +14,20 @@ var multer = require('multer');
 var upload = multer();
 
 // outbound http client
-
 app.use(express.static('dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 
 // Landing Route
 // app.get('/', function(req, res){
 //     res.render()
 // });
-
+// Post Template
+app.post('/post', (req, res) => contactsController.submit(req, res));
+app.post('/slackCommand', (req, res) => slackController.slackCommand(req, res));
 app.get('/*', function(req,res){
   res.sendFile(path.join(__dirname + '/dist/index.html'));
 })
-
-// Post Template
-app.post('/post', contactsController.submit);
-app.post('/slackCommand', slackController.slackCommand);
-// Does the table exist?
 
 // App Start
 app.listen(process.env.PORT || 8003);

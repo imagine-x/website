@@ -1,17 +1,18 @@
 var https = require('https');
 var crypto = require('crypto');
+
+isProduction = (process.env.PRODUCTION == 'true');
 var md5 = function (str) {
     var hash = crypto.createHash('md5');
     hash.update(str.toLowerCase().trim());
     return hash.digest('hex');
 };
 
-isProduction = (process.env.PRODUCTION == 'true');
-
 module.exports = slackService;
 
 function slackService(database) {
   this.database = database;
+
 }
 
 function slackAPI(post_data) {
@@ -39,5 +40,5 @@ slackService.prototype.notify = (contact) => {
                                         "username" : isProduction ? "ProdBot" : "DevBot",
                                         "icon_url" : gravitarURL
                                     });
-    slackAPI(post_data).then((resp) => console.log(response));
+    return slackAPI(post_data);
 };
