@@ -9,7 +9,7 @@
 		.row.container
 			.eight.columns.layout__main
 				variable-body(v-bind:content='idea.variable')
-				b Join us and together let's reimagine politics, reimagine BC.
+				b Join us and together let's Reimagine Politics, Reimagine BC.
 				hr
 			.four.columns.layout__sidebar
 				#form
