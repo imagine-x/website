@@ -39,6 +39,7 @@ import Navigation from '../generics/Navigation'
 import Heading from '../generics/Heading'
 import Application from '../generics/Application'
 import ThankYou from '../generics/ThankYou.vue'
+import FooterX from '../generics/FooterX.vue'
 
 let headingContent = ['MLA Voting Records App']
 
@@ -56,7 +57,8 @@ export default {
     Statistics,
     Popup,
     Application,
-    ThankYou
+    ThankYou,
+    FooterX
   },
   methods: {
     changeMode(){
