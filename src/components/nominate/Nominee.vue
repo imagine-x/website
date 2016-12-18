@@ -6,7 +6,8 @@
     <p class="why-block">{{nominee.why}}</p>
     <a href="#">More information ></a>
     <p></p>
-    <div class="btn--endorse" @click='endorse(nominee.name)'><i class="fa fa-thumbs-up thumbs-up"></i>Endorse</div>
+    <div role="button" class="endorse" @click='endorse(nominee.name)'><i class="fa fa-thumbs-up thumbs-up"></i>Endorse</div>
+    <div role="button" class="endorse is-endorsed"><i class="fa fa-thumbs-up thumbs-up"></i>Endorsed</div>
     <span>+{{nominee.support}}</span>
 </div>
 
@@ -30,7 +31,7 @@ export default {
 <style lang="stylus" scoped>
 @import "../../styles/main"
 
-.btn--endorse {
+.endorse {
     display: inline-block;
     text-transform: uppercase;
     font-size: 12px;
@@ -39,6 +40,19 @@ export default {
     border: 1px solid black;
     line-height: 1.2;
     margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.endorse:hover {
+    color: white;
+    background-color: black;
+}
+
+.endorse.is-endorsed {
+    color: gray;
+    background-color: lightgray;
+    border: lightgray;
+    cursor: initial;
 }
 
 .thumbs-up {
