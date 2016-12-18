@@ -11,7 +11,7 @@
       <router-link to="votes">MLA VOTING RECORDS APP</router-link>
     </li>
     <li>
-      <router-link to="press">PRESS RELEASES</router-link>
+      <router-link to="news">NEWS</router-link>
     </li>
   </ul>
 </nav>

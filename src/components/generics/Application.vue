@@ -174,7 +174,8 @@ export default {
 
   @media (min-width: breakpoint) {
     .application {
-        width: 100%
+        width: 100%;
+        margin-top: 3rem;
     }
   }
 

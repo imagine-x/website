@@ -2,10 +2,9 @@
 
 #heading.container.container--header
   .four.columns.header-container
-    img.logo.header-container__block(
-      src='../../../static/images/imaginex.svg',
-      @click='next'
-      )
+    router-link(to="home").link
+      img.logo.header-container__block(
+      src='../../../static/images/imaginex.svg')
   .eight.columns.header-container__block
       h1.heading__text(v-for='x in content')
         button(@click='toggleHeaderNav') MENU
@@ -51,9 +50,13 @@ button
 img
   cursor:pointer
 
+.link {
+    display: inherit;
+}
+
 .header-container
   border-bottom: 1px solid #E0E1DC;
-  padding: 2rem 0;
+  padding: 0;
   margin-bottom: 5rem;
   display: flex;
   display: -webkit-box;

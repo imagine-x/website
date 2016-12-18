@@ -1,8 +1,16 @@
 <template>
 
 <div class="nominee-card">
-    <h3 class="nominee-card__name">{{nominee.name}}</h3>
-    <p>Region/Riding: Some place cool<p>
+    <h3 class="nominee-card__name">
+        {{nominee.name}}
+        <div class="official-mark-container u-inline-block" title="Official nominee with Elections BC">
+            <i class="fa fa-check-circle official-mark"></i>
+        </div>
+    </h3>
+    <ul class="list--clean">
+        <li>Current occupation: Boss</li>
+        <li>Region or riding: Some place cool<li>
+    </ul>
     <p class="why-block">{{nominee.why}}</p>
     <a href="#">More information ></a>
     <p></p>
@@ -30,6 +38,16 @@ export default {
 
 <style lang="stylus" scoped>
 @import "../../styles/main"
+
+.official-mark {
+    font-size: 20px;
+    color: #4CAF50;
+}
+
+.official-mark-container {
+    width: 3rem;
+    cursor: pointer;
+}
 
 .endorse {
     display: inline-block;
