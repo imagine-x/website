@@ -61,7 +61,7 @@
             <p>Imagine X is a political platform. We are a group of passionate citizens starting a political movement to reimagine politics and reimagine BC. Our backgrounds range from economics, philosophy, political science and arts to technology, medicine, business and education. We are united by our stand for a good government with principles and policies that meet our core values. We are not affiliated with the BC Liberals, NDPs, Greens, any other existing political party or interest group. We simply want a better government for a even better BC. Visit www.imagine-x.ca for more information.</p>
             <b>Learn More</b>
             <ul class="list--clean">
-                <li>Candidate nomination website: <a href="/nominate">www.imagine-x.ca/nominate</a></li>
+                <li>MLA Voting Records App <a href="/votes">www.imagine-x.ca/votes</a></li>
                 <li>Imagine X: <a href="/">www.imagine-x.ca</a></li>
             </ul>
 			<footer-x></footer-x>
