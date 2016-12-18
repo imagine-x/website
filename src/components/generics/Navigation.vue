@@ -2,16 +2,16 @@
 <nav class="navigation">
   <ul class="list--clean">
     <li >
-      <router-link to="home">HOME</router-link>
+      <router-link to="/home">HOME</router-link>
     </li>
     <li>
-      <router-link to="nominate">NOMINATE AN INDEPEDENT CANDIDATE</router-link>
+      <router-link to="/nominate">NOMINATE AN INDEPEDENT CANDIDATE</router-link>
     </li>
     <li>
-      <router-link to="votes">MLA VOTING RECORDS APP</router-link>
+      <router-link to="/votes">MLA VOTING RECORDS APP</router-link>
     </li>
     <li>
-      <router-link to="news">NEWS</router-link>
+      <router-link to="/news">NEWS</router-link>
     </li>
   </ul>
 </nav>
