@@ -6,17 +6,34 @@
       src='../../../static/images/imaginex.svg',
       @click='next'
       )
-    //a.btn.btn--header.header-container__block(href="#form") Take Action
   .eight.columns.header-container__block
       h1.heading__text(v-for='x in content')
-        {{ x }}
+        button(@click='toggleHeaderNav') MENU
+        p {{ x }}
+  navigation(v-show="showHeaderNav").navigation--header
 
 </template>
 
 <script>
+import Navigation from './Navigation'
+
 export default {
+    components: { Navigation },
     props: ['content'],
+    data(){
+      return {
+        showHeaderNav: false,
+      }
+    },
     methods:{
+      toggleHeaderNav(){
+        this.showHeaderNav = !this.showHeaderNav
+        if( this.showHeaderNav ){
+
+        } else {
+
+        }
+      },
       next(){
         this.$store.dispatch(`CHANGE_MODE`, 'imagine')
         this.$store.dispatch('NEXT_IMAGINE_X')
@@ -27,6 +44,10 @@ export default {
 
 <style lang="stylus" scoped>
   @import "../../styles/main"
+
+button
+  float:right
+
 img
   cursor:pointer
 
@@ -65,8 +86,14 @@ img
     padding-left: 0;
     padding-right: 0;
 }
+.navigation--header
+  display:block
 
 @media (min-width: breakpoint) {
+    button{
+      display:none
+    }
+
     #heading {
         margin-top: 10rem;
     }

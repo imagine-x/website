@@ -17,7 +17,7 @@ If you are a website/javascript developer, take a moment read http://vuejs.org/ 
 ### Build Setup (mac, linux)
 ```
 # clone the repo
-git clone git@github.com:imagine-x/website.git
+git clone https://github.com:imagine-x/website.git
 cd website
 
 # install dependencies

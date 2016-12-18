@@ -1,5 +1,5 @@
 <template>
-<nav class="navigation navigation--sidebar">
+<nav class="navigation">
   <ul class="list--clean">
     <li >
       <router-link to="home">HOME</router-link>
@@ -49,9 +49,16 @@ a {
     display: none;
 }
 
+.navigation--header
+  display:block
+
 @media (min-width: breakpoint) {
     .navigation--sidebar {
         display: block;
+    }
+
+    .navigation--header{
+      display:none
     }
 }
 

@@ -64,10 +64,18 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  @import "../../styles/main"
+@import "../../styles/main"
 
-	main
+
+main
 	font-family: Arial, san-serif;
+
+
+@media (max-width: breakpoint) {
+	.layout__sidebar {
+		display:none
+	}
+}
 
 @media (min-width: breakpoint) {
 	.hr--hide-lg {
