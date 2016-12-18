@@ -22,12 +22,9 @@
 					who
 					hr
 					values(v-bind:content='idea.values')
-				hr
-				sources(v-bind:content='idea.sources')
 				hr(v-if='idea.sources.length > 0')
+				sources(v-bind:content='idea.sources')
 				footer-x
-
-
 </template>
 
 <script>
@@ -44,21 +41,21 @@ import Navigation from '../generics/Navigation.vue'
 
 export default {
   computed: {
-    idea() {
-      return this.$store.state.idea.content
-    },
+	idea() {
+	  return this.$store.state.idea.content
+	},
   },
   components: {
 		Navigation,
-    VariableBody,
-    Heading,
-    Who,
-    ThankYou,
+	VariableBody,
+	Heading,
+	Who,
+	ThankYou,
 		Privacy,
-    FooterX,
-    Sources,
-    Application,
-    Values,
+	FooterX,
+	Sources,
+	Application,
+	Values,
   },
 	beforeMount(){
 		this.$store.dispatch("SET_IMAGINE_X_BY_URL", window.location.pathname )
@@ -70,11 +67,11 @@ export default {
   @import "../../styles/main"
 
 	main
-    font-family: Arial, san-serif;
+	font-family: Arial, san-serif;
 
-  @media (min-width: breakpoint) {
-    .hr--hide-lg {
-        display: none;
-    }
-  }
+@media (min-width: breakpoint) {
+	.hr--hide-lg {
+		display: none;
+	}
+}
 </style>
