@@ -11,7 +11,7 @@
         .eight.columns.layout__main
             variable-body(:content='variableContent')
             div.u-align--center
-              button Nominate someone today &nbsp; >
+              button Nominate now &nbsp; >
             //nomination
             hr
             #nominees
