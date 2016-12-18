@@ -166,6 +166,10 @@ export default {
 <style lang="stylus" scoped>
   @import "../../styles/main"
 
+  .application {
+    margin-top: 3rem;
+  }
+
   @media (min-width: smBreakpoint) {
     .application {
         width: 50%
