@@ -1,7 +1,7 @@
 <template>
 <div class='application'>
   <h1>Nomination Form</h1>
-  <p>We're thrilled that you want to nominate someone to run in the upcoming BC provincial election. Fill in the form below to submit a nomination. If you submit the nominee's contact information below, we will reach out to them to notify them about their nomination. This nomination process is to encourage nominess to consider candidacy in the election and is not associated with any procedures required by Elections BC.</p>
+  <p>We're thrilled that you want to nominate someone to run in the upcoming BC provincial election as an indepedent. Fill in the form below to submit a nomination. Please do not submit names of individuals who are running on behalf of an existing party. If you submit the nominee's contact information below, we will reach out to them to notify them about their nomination. This nomination process is to encourage nominess to consider candidacy in the election and does not replace with any nomination procedures required by Elections BC.</p>
   <form class="form" id='form'>
     <fieldset>
         <legend>NOMINEE'S INFO</legend>
