@@ -69,6 +69,11 @@ export default {
     border-top: 1px solid black;
 }
 
+.nominee-card:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
 .nominee-card__name {
     margin-bottom: 0.75rem;
 }

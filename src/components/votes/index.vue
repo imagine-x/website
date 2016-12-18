@@ -3,13 +3,15 @@
     popup
     heading(:content='headingContent')
     .row.container
-        .four.columns.layout__sidebar
+        .four.columns.layout__sidebar.u-hide-at-sm
             navigation
+            application
         .eight.columns.layout__main
             p Think your MLA represents your voice in the BC legislature in Victoria? Think again. The BC legislature voting data shows that unless your MLA is an independent member, their votes are usually whipped to party lines – meaning that your MLA is most likely representing party politics in Victoria back to you. Use the interactive app below to discover your MLA's voting record.
             instructions
             statistics
             footer-x
+    hr
     .row.container--full
       .six.columns
         filters.u-margin-bottom--large
@@ -34,8 +36,9 @@ import WhipCanvas from './whipCanvas/index.vue'
 import Popup from './popup'
 import Navigation from '../generics/Navigation'
 import Heading from '../generics/Heading'
+import Application from '../generics/Application'
 
-let headingContent = ['MLA VOTING RECORDS APP']
+let headingContent = ['MLA Voting Records App']
 
 export default {
   data(){
@@ -49,7 +52,8 @@ export default {
     Filters,
     WhipCanvas,
     Statistics,
-    Popup
+    Popup,
+    Application
   },
   methods: {
     changeMode(){

@@ -24,6 +24,8 @@ export default {
 
 #footer {
     margin-top: 5rem;
+    padding: 5rem 0 6rem 0;
+    border-top: 1px solid lightgray;
 }
 
 .footer__link {

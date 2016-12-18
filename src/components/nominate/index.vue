@@ -4,7 +4,7 @@
     privacy
     heading(:content='headingContent')
     .row.container
-        .four.columns.layout__sidebar
+        .four.columns.layout__sidebar.u-hide-at-sm
             navigation
             application
         .eight.columns.layout__main
@@ -20,7 +20,7 @@
                     .six.columns
                         label.form__label Sort by:
                         select.select
-                            option Last submitted
+                            option Most recent
                             option Endorsements
                             option Alphabetically
                             option Region / Riding

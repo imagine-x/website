@@ -6,7 +6,7 @@
       src='../../../static/images/imaginex.svg',
       @click='next'
       )
-    a.btn.btn--header.header-container__block(href="#form") Take Action
+    //a.btn.btn--header.header-container__block(href="#form") Take Action
   .eight.columns.header-container__block
       h1.heading__text(v-for='x in content')
         {{ x }}

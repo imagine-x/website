@@ -5,10 +5,10 @@
       <router-link to="home">HOME</router-link>
     </li>
     <li>
-      <router-link to="votes">MLA VOTING RECORDS APP</router-link>
+      <router-link to="nominate">NOMINATE AN INDEPEDENT CANDIDATE</router-link>
     </li>
     <li>
-      <router-link to="nominate">INDEPENDENT GALLERY</router-link>
+      <router-link to="votes">MLA VOTING RECORDS APP</router-link>
     </li>
     <li>
       <router-link to="press">PRESS RELEASES</router-link>
