@@ -11,6 +11,7 @@
     "serve": "node build/build.js; node app.js"
   },
   "dependencies": {
+    "babel-polyfill": "^6.20.0",
     "jade": "^1.11.0",
     "vue": "^2.1.0"
   },
