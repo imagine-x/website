@@ -14,11 +14,11 @@ import Votes from './components/votes'
 import Press from './components/press'
 
 const routes = [
-  { path: '/', component: Imaginex },
   { path: '/home', component: Imaginex },
-  { path: '/nominate', component: Nominate , name:'nominate' },
+  { path: '/nominate', component: Nominate },
   { path: '/votes', component: Votes },
-  { path: '/press', component: Press , name:'press' },
+  { path: '/press', component: Press },
+  { path: '/*', component: Imaginex },
 ]
 const router = new VueRouter({
   routes
