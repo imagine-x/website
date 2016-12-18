@@ -1,6 +1,7 @@
 <template>
 
 <div>
+    <thank-you></thank-you>
     <privacy></privacy>
 	<heading v-bind:content="headingContent"></heading>
 	<div class="row container">
@@ -66,6 +67,7 @@ import Heading from '../generics/Heading.vue'
 import FooterX from '../generics/FooterX.vue'
 import Privacy from '../generics/Privacy.vue'
 import Application from '../generics/Application.vue'
+import ThankYou from '../generics/ThankYou.vue'
 
 export default {
     components: {
@@ -74,6 +76,7 @@ export default {
         FooterX,
         Privacy,
         Application,
+        ThankYou
     },
     data() {
         return {

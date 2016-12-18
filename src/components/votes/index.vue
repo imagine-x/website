@@ -1,5 +1,6 @@
 <template lang="jade">
 #votes
+    thank-you
     popup
     heading(:content='headingContent')
     .row.container
@@ -37,6 +38,7 @@ import Popup from './popup'
 import Navigation from '../generics/Navigation'
 import Heading from '../generics/Heading'
 import Application from '../generics/Application'
+import ThankYou from '../generics/ThankYou.vue'
 
 let headingContent = ['MLA Voting Records App']
 
@@ -53,7 +55,8 @@ export default {
     WhipCanvas,
     Statistics,
     Popup,
-    Application
+    Application,
+    ThankYou
   },
   methods: {
     changeMode(){

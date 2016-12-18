@@ -2,10 +2,9 @@
 
 #heading.container.container--header
   .four.columns.header-container
-    img.logo.header-container__block(
-      src='../../../static/images/imaginex.svg',
-      @click='next'
-      )
+    router-link(to="home")
+      img.logo.header-container__block(
+      src='../../../static/images/imaginex.svg')
     //a.btn.btn--header.header-container__block(href="#form") Take Action
   .eight.columns.header-container__block
       h1.heading__text(v-for='x in content')

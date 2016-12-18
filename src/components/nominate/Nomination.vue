@@ -5,9 +5,11 @@
   <form class="form" id='form'>
     <fieldset>
         <legend>NOMINEE'S INFO</legend>
-        <label class="form__label" for="nominee-name">Nominee full name</label>
+        <label class="form__label" for="nominee-name">Nominee's full name</label>
         <input type='text' id="nominee-name" name='name' v-model='nominee.name' v-bind:style='nameInputStyle'/>
-        <label class="form__label" for="nominee-email">Nominee email <span class="help-text">(Optional. For contact purposes only to notify nominee. Will not be published)</span></label>
+        <label class="form__label" for="nominee-occupation">Nominee's current occupation</label>
+        <input type='text' id="nominee-occupation" name='occupation'/>
+        <label class="form__label" for="nominee-email">Nominee's email <span class="help-text">(Optional. For contact purposes only to notify nominee. Will not be published)</span></label>
         <input type='email' name='mail' id="nominee-email" v-model='nominee.contact' v-bind:style='mailInputStyle'/>
         <label class="form__label" for="region">Region where nominee should run</label>
         <select id="region" class="select">

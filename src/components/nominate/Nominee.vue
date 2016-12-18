@@ -2,7 +2,10 @@
 
 <div class="nominee-card">
     <h3 class="nominee-card__name">{{nominee.name}}</h3>
-    <p>Region/Riding: Some place cool<p>
+    <ul class="list--clean">
+        <li>Current occupation: Boss</li>
+        <li>Region or riding: Some place cool<li>
+    </ul>
     <p class="why-block">{{nominee.why}}</p>
     <a href="#">More information ></a>
     <p></p>

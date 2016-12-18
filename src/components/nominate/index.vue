@@ -1,6 +1,7 @@
 <template lang="jade">
 
 #nominate
+    thank-you
     privacy
     heading(:content='headingContent')
     .row.container
@@ -44,6 +45,7 @@ import FooterX from '../generics/FooterX.vue'
 import Privacy from '../generics/Privacy.vue'
 import Navigation from '../generics/Navigation.vue'
 import Application from '../generics/Application.vue'
+import ThankYou from '../generics/ThankYou.vue'
 
 import Nominee from './Nominee'
 import Nomination from './Nomination'
@@ -79,6 +81,7 @@ export default {
             Privacy,
             Navigation,
             Application,
+            ThankYou
         },
         beforeMount() {
             this.$store.dispatch("SET_IMAGINE_X_BY_URL", window.location.pathname)
