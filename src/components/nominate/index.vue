@@ -1,16 +1,37 @@
 <template lang="jade">
 
 #nominate
+    privacy
     heading(:content='headingContent')
     .row.container
         .four.columns.layout__sidebar
             navigation
+            application
         .eight.columns.layout__main
             variable-body(:content='variableContent')
-            nomination
+            div.u-align--center
+              button Nominate someone today &nbsp; >
+            //nomination
             hr
             #nominees
-                h2 Nominees
+                h1 Current Nominees
+                p Check out the current nominees. Endorse an existing nominees to encourage them to run for the upcoming BC provincial election.
+                .row
+                    .six.columns
+                        label.form__label Sort by:
+                        select.select
+                            option Last submitted
+                            option Endorsements
+                            option Alphabetically
+                            option Region / Riding
+                    .six.columns
+                        label.form__label Filter by Riding/Region:
+                        select.select
+                            option All
+                            option Riding 1
+                            option Riding 2
+                            option Riding 3
+                            option Riding 4
                 nominee(v-for='(nominee, i) in nominees', :nominee='nominee')
             footer-x
 
@@ -22,15 +43,16 @@ import Heading from '../generics/Heading.vue'
 import FooterX from '../generics/FooterX.vue'
 import Privacy from '../generics/Privacy.vue'
 import Navigation from '../generics/Navigation.vue'
+import Application from '../generics/Application.vue'
 
 import Nominee from './Nominee'
 import Nomination from './Nomination'
 
-let headingContent = ['Nominate an Independent']
+let headingContent = ['Nominate an indepedent candidate for BC']
 let variableContent = [
-    'Do you know someone you trust? Someone competent and hard-working, who has a deep understanding of one or more areas of provincial activity. Someone who understands the situation in health, in education, in social services, in energy, in housing... and has the will to enact solutions. We want to know we they are.',
-    'It\'s not simply saying no to the status quo, it\'s filling the legislature with motivated and intellegent people who will make an effort to improve and reform Government. We are experiencing drastic economic and demographic transitions.',
-    'Do you know someone who you think should run as an independent? Then let us know and we will reach out and encourage them. Nominate them today:',
+    'Do you know someone who should be running for office in the upcoming BC provincial election in May 2017? Maybe they’re a friend or family member you know. Perhaps they’re a community leader, your neighbour, an old boss, your professor, your doctor, a highschool teacher, that activist in the local newspaper, that colleague at work or the small business owner down the street. Maybe that person is you.',
+    'BC needs exceptional people in provincial government who put citizens first over party interests. We need new voices and talent for good governance for the challenges we face today and in the future. We need independent-thinkers who truly stand for British Columbians.',
+    'Take the first step by nominating someone to run as an independent candidate. We hope that with enough public endorsement, your nominee will consider to run in the upcoming election. We will even try to contact them to encourage them to run.'
 ]
 
 export default {
@@ -55,7 +77,8 @@ export default {
             Heading,
             FooterX,
             Privacy,
-            Navigation
+            Navigation,
+            Application,
         },
         beforeMount() {
             this.$store.dispatch("SET_IMAGINE_X_BY_URL", window.location.pathname)

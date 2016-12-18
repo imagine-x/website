@@ -3,9 +3,11 @@
 <div class="nominee-card">
     <h3 class="nominee-card__name">{{nominee.name}}</h3>
     <p>Region/Riding: Some place cool<p>
-	<p>{{nominee.why}}</p>
-	<div class="btn--endorse" @click='endorse(nominee.name)'><i class="fa fa-thumbs-up thumbs-up"></i>Endorse</div>
-	<span>+{{nominee.support}}</span>
+    <p class="why-block">{{nominee.why}}</p>
+    <a href="#">More information ></a>
+    <p></p>
+    <div class="btn--endorse" @click='endorse(nominee.name)'><i class="fa fa-thumbs-up thumbs-up"></i>Endorse</div>
+    <span>+{{nominee.support}}</span>
 </div>
 
 </template>
@@ -14,12 +16,12 @@
 <script>
 
 export default {
-		props: ['nominee'],
-		computed: {
-			firstName(){
-				return this.nominee.name.split(' ')[0]
-			}
-		},
+        props: ['nominee'],
+        computed: {
+            firstName(){
+                return this.nominee.name.split(' ')[0]
+            }
+        },
 }
 
 </script>
@@ -45,7 +47,7 @@ export default {
 }
 
 .nominee-card {
-    padding: 5rem 0;
+    padding: 4rem 0;
     border-bottom: 1px solid black;
 }
 
@@ -55,5 +57,9 @@ export default {
 
 .nominee-card__name {
     margin-bottom: 0.75rem;
+}
+
+.why-block {
+    margin-bottom: 1rem;
 }
 </style>
