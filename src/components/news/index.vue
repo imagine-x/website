@@ -13,10 +13,10 @@
             <h2>In the News</h2>
             <ul class="list--clean">
                 <li>
-                    <a href="http://www.thenownewspaper.com/news/406603106.html">Surrey Imagine-X spokesman says app puts power in voters' hands (December 15, 2016)</a>
+                    <a href="http://www.thenownewspaper.com/news/406603106.html" target="_blank">Surrey Imagine-X spokesman says app puts power in voters' hands (December 15, 2016)</a>
                 </li>
                 <li>
-                    <a href="http://cirh.streamon.fm/listen-pl-6720">Roundhouse Radio - Business in Vancouver @ 39:00 mark (December 9, 2016)</a>
+                    <a href="http://cirh.streamon.fm/listen-pl-6720" target="_blank">Roundhouse Radio - Business in Vancouver @ 39:00 mark (December 9, 2016)</a>
                 </li>
             <hr/>
             <h2>Press Releases</h2>
@@ -63,6 +63,7 @@
             <ul class="list--clean">
                 <li>MLA Voting Records App <a href="/votes">www.imagine-x.ca/votes</a></li>
                 <li>Imagine X: <a href="/">www.imagine-x.ca</a></li>
+                <li>Sean Holman’s documentary, <i>Whipped: the secret world of party discipline</i>: <a href="https://seanholman.com/whipped/" target="_blank">www.seanholman.com/whipped</a></li>
             </ul>
 			<footer-x></footer-x>
 		</div>
