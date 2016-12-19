@@ -1,6 +1,6 @@
 <template>
   <Modal v-bind:visible="visible" v-bind:close="closeModal" v-bind:sm="true">
-    <h1>Terms of Use Agreement</label>
+    <h1>Terms of Use Agreement</h1>
     <p>Please read these Terms of Use ("Terms") carefully before using the <router-link to="/home">www.imagine-x.ca</router-link> website and Imagine X Apps (the "Service") operated by Imagine X and its participants.</p>
     <p>The apps that Imagine X operates includes but not limited to:</p>
     <ul>
