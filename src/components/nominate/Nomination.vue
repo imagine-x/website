@@ -75,6 +75,11 @@ export default {
         contact: '',
         why: '',
       },
+      submitter: {
+        name: '',
+        contact: '',
+        postal: '',
+      },
       submitAttempted: false,
       success: false,
     }

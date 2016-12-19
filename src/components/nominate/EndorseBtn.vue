@@ -1,34 +1,39 @@
 <template>
 
-<div class="nominee-card">
-    <h3 class="nominee-card__name">
-        {{nominee.name}}
-        <div class="official-mark-container u-inline-block" title="Official nominee with Elections BC">
-            <i class="fa fa-check-circle official-mark"></i>
-        </div>
-    </h3>
-    <ul class="list--clean">
-        <li>Current occupation: Boss</li>
-        <li>Region or riding: Some place cool<li>
-    </ul>
-    <p class="why-block">{{nominee.why}}</p>
-    <a href="#">More information ></a>
-    <p></p>
-    <endorse-btn :_id="nominee._id"></endorse-btn>
-    <span>+{{nominee.support}}</span>
+<div role="button" :class="c" @click='endorse(_id)'>
+  <i class="fa fa-thumbs-up thumbs-up"></i>
+  {{ text }}
 </div>
 
 </template>
 
 
 <script>
-import EndorseBtn from './EndorseBtn'
 
 export default {
-        props: ['nominee'],
-        components: {
-          EndorseBtn
-        },
+  props: ['_id'],
+  computed: {
+    c(){
+      return {
+        endorse: true,
+        'is-endorsed':this.endorsed
+      }
+    }
+  },
+  methods: {
+    endorse(id){
+      // TODO: Post Req // Auth
+      this.endorsed = true
+      this.text = "Endorsed"
+      // TODO: Update vuex store
+    }
+  },
+  data(){
+    return {
+      endorsed: false,
+      text: "Endorse"
+    }
+  }
 }
 
 </script>
