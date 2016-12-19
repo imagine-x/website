@@ -63,7 +63,9 @@ export default {
     Popup,
     Application,
     ThankYou,
-    FooterX
+    FooterX,
+    TermsOfUse,
+    Privacy
   },
   methods: {
     changeMode(){
