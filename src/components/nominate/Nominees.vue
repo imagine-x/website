@@ -1,43 +1,52 @@
-<template lang="jade">
-
-#nominees
-	h1 Current Nominees
-	p Check out the current nominees. Endorse an existing nominees to encourage them to run for the upcoming BC provincial election. Nominees listed are submitted by users and are not endorsed by Imagine X in any way.
-	.row
-		.six.columns
-			label.form__label Sort by:
-			select.select
-				option Most recent
-				option Endorsements
-				option Alphabetically
-				option Region / Riding
-		.six.columns
-			label.form__label Filter by Riding/Region:
-			select.select
-				option All
-				option Riding 1
-				option Riding 2
-				option Riding 3
-				option Riding 4
-	nominee(v-for='(nominee, i) in nominees', :nominee='nominee')
-
+<template>
+	<div id="nominees">
+		<h1>Current Nominees</h1>
+		<p>Check out the current nominees. Endorse an existing nominees to encourage them to run for the upcoming BC provincial election. Nominees listed are submitted by users and are not endorsed by Imagine X in any way.</p>
+		<div class="row">
+			<div class="six columns">
+				<label class="form__label">Sort by:</label>
+				<select class="select">
+					<option>Most recent</option>
+					<option>Endorsements</option>
+					<option>Alphabetically</option>
+					<option>Region / Riding</option>
+				</select>
+			</div>
+			<div class="six columns">
+				<label class="form__label">Filter by Riding/Region:</label>
+				<select class="select">
+					<option>All</option>
+					<optgroup v-model="regions" label="Region">
+						<option v-for="r in regions">{{ r }}</option>
+					</optgroup>
+					<optgroup v-model="ridings" label="Riding">Riding
+						<option v-for="r in ridings">{{ r }}</option>
+					</optgroup>
+				</select>
+			</div>
+		</div>
+		<nominee v-for='(nominee, i) in nominees' :nominee='nominee'></nominee>
+	</div>
 </template>
 
 <script>
 import Nominee from './Nominee'
+import { regions, ridings } from './data'
 
 export default {
   data() {
-    return {
-    }
+	return {
+	  regions,
+	  ridings
+	}
   },
   computed: {
-    nominees() {
-      return this.$store.state.nomination.nominees
-    },
+	nominees() {
+	  return this.$store.state.nomination.nominees
+	},
   },
   components: {
-    Nominee,
+	Nominee,
   },
 }
 </script>
