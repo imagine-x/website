@@ -11,18 +11,14 @@
         <label class="form__label" for="nominee-email">Nominee's email <span class="help-text">(Optional. For contact purposes only to notify nominee. Will not be published)</span></label>
         <input type='email' name='mail' id="nominee-email" v-model='nominee.contact' v-bind:style='mailInputStyle'/>
         <label class="form__label" for="region">Region where nominee should run / is running</label>
-        <select id="region" class="select">
+        <select id="region" class="select" v-model="nominee.region">
             <option></option>
-            <option>Region 1</option>
-            <option>Region 2</option>
-            <option>Region 3</option>
+            <option v-for="r in regions">{{ r }}</option>
         </select>
         <label class="form__label" for="riding">Riding where nominee should run / is running <span class="help-text"> (Optional)</span></label>
-        <select id="riding" class="select">
+        <select id="riding" class="select" v-model="nominee.riding">
             <option></option>
-            <option>Riding 1</option>
-            <option>Riding 2</option>
-            <option>Riding 3</option>
+            <option v-for="r in ridings">{{ r }}</option>
         </select>
         <label class="form__label" for="whybox">Tell us why the nominee would be a good candidate <span class="help-text">(Max 600 characters)</span></label>
         <textarea class="why-area" rows="5" id="whybox" name="why" maxlength="600" v-model='nominee.why'></textarea>
@@ -36,15 +32,15 @@
     <fieldset>
         <legend>YOUR INFO<span class="help-text"> (Will not be published)</span></legend>
         <label class="form__label" for="your-name">Your full name</label>
-        <input type='text' id="your-name" name='yourname'/>
+        <input type='text' id="your-name" name='yourname' v-model="submitter.name"/>
         <label class="form__label" for="your-email">Your email <span class="help-text"> (For contact purposes only. Will not be published)</span></label>
-        <input type='email' name='yourmail' id="your-email"></input>
+        <input type='email' name='yourmail' id="your-email" v-model="submitter.mail"></input>
         <label class="form__label" for="your-postal">Your postal code <span class="help-text"> (Will not be published)</span></label>
-        <input type='text' id="your-postal" name='yourpostal'/>
-        <input type="checkbox" id="tou"/>
+        <input type='text' id="your-postal" name='yourpostal' v-model="submitter.postal"/>
+        <input type="checkbox" id="tou" v-model="submitter.terms"/>
         <label for="tou" class="checkbox__label">Yes, I accept the <a href="#">Terms of Use</a></label>
         <br/>
-        <input type="checkbox" id="mail-list"/>
+        <input type="checkbox" id="mail-list" v-model="submitter.list"/>
         <label for="mail-list" class="checkbox__label">Yes, I want to subscribe to the Imagine X mailing list for updates.</label>
     </fieldset>
         <!-- <input type='text' placeholder='Your Name' name='your' v-model='info.name' v-bind:style='nameInputStyle'></input>
@@ -58,6 +54,7 @@
 <script>
 import request from 'superagent'
 import _ from 'lodash'
+import { regions, ridings } from './data'
 
 const invalidStyle = {
   'border-color': '#da0505',
@@ -70,15 +67,22 @@ const validStyle = {
 export default {
   data() {
     return {
+      regions,
+      ridings,
       nominee: {
         name: '',
+        occupation: '',
+        region: '',
+        riding: '',
         contact: '',
         why: '',
       },
       submitter: {
         name: '',
-        contact: '',
+        mail: '',
         postal: '',
+        terms:false,
+        list:false,
       },
       submitAttempted: false,
       success: false,
