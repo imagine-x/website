@@ -16,8 +16,6 @@ import Nomination from './components/nominate/Nomination'
 import Votes from './components/votes'
 import News from './components/news'
 
-
-
 const routes = [{
   path: '/home',
   component: Imaginex
@@ -42,18 +40,10 @@ const routes = [{
   component: Imaginex
 }, ]
 const router = new VueRouter({
-  mode:'history',
+  mode: 'history',
   routes
 })
 const app = new Vue({
   router,
   store,
 }).$mount('#app')
-
-//
-// /* eslint-disable no-new */
-// new Vue({
-//   el: '#app',
-//   template: '<App/>',
-//   components: { App }
-// })
