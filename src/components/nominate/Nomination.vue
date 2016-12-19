@@ -1,5 +1,6 @@
 <template>
 <div class='application'>
+  <submitted></submitted>
   <p>We're thrilled that you want to nominate someone to run in the upcoming BC provincial election as an indepedent. Fill in the form below to submit a nomination. Please do not submit names of individuals who are running on behalf of an existing party. If you submit the nominee's contact information below, we will reach out to them to notify them about their nomination. This nomination process is to encourage nominess to consider candidacy in the election and does not replace with any official nomination procedures required by Elections BC.</p>
   <form class="form" id='form'>
     <fieldset>
@@ -43,8 +44,6 @@
         <input type="checkbox" id="mail-list" v-model="submitter.list"/>
         <label for="mail-list" class="checkbox__label">Yes, I want to subscribe to the Imagine X mailing list for updates</label>
     </fieldset>
-        <!-- <input type='text' placeholder='Your Name' name='your' v-model='info.name' v-bind:style='nameInputStyle'></input>
-        <input type='text' name='mail' placeholder='Your Email' v-model='info.contact' v-bind:style='mailInputStyle'></input> -->
     <br>
     <button class="btn" @click.prevent='nominate'>Submit</button>
   </form>
@@ -54,6 +53,7 @@
 <script>
 import request from 'superagent'
 import _ from 'lodash'
+import Submitted from './Submitted'
 import { regions, ridings } from './data'
 
 const invalidStyle = {
@@ -99,7 +99,9 @@ export default {
       this.$store.dispatch('TOGGLE_TOU')
     }
   },
-  computed: {}
+  components: {
+    Submitted
+  }
 }
 </script>
 

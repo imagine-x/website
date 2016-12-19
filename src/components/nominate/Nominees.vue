@@ -14,12 +14,12 @@
 			</div>
 			<div class="six columns">
 				<label class="form__label">Filter by Riding/Region:</label>
-				<select class="select">
+				<select class="select" v-model="area" >
 					<option>All</option>
-					<optgroup v-model="regions" label="Region">
+					<optgroup label="Region">
 						<option v-for="r in regions">{{ r }}</option>
 					</optgroup>
-					<optgroup v-model="ridings" label="Riding">Riding
+					<optgroup label="Riding">Riding
 						<option v-for="r in ridings">{{ r }}</option>
 					</optgroup>
 				</select>
@@ -36,6 +36,7 @@ import { regions, ridings } from './data'
 export default {
   data() {
 	return {
+		area: '',
 	  regions,
 	  ridings
 	}

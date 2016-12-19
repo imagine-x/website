@@ -1,10 +1,12 @@
 import _ from 'lodash'
 
+
 const mutations = {
   newNominee(nomination, newNominee) {
     console.log({
       newNominee
     })
+    newNominee._id = Date.now()
     newNominee.support = 0
     nomination.nominees.unshift(newNominee)
   },
