@@ -9,10 +9,14 @@
     </h3>
     <ul class="list--clean nominee-card__list">
         <li v-if="nominee.occupation">Current occupation: {{nominee.occupation}}</li>
-        <li v-if="nominee.riding || nominee.region">Region or riding: {{ nominee.riding || nominee.region }}<li>
+        <li v-if="nominee.region || nominee.riding">Region or riding:
+            <span v-if="nominee.region">{{nominee.region}}</span>
+            <span v-if="nominee.region && nominee.riding">, </span>
+            <span v-if="nominee.riding">{{nominee.riding}}</span>
+        <li>
     </ul>
-    <p class="why-block">{{nominee.why}}</p>
-    <a href="#" target="_blank">More information ></a>
+    <p v-if="nominee.why" class="why-block">{{nominee.why}}</p>
+    <a v-if="nominee.link" v-bind:href="nominee.link" target="_blank">More information ></a>
     <p></p>
     <endorse-btn :_id="nominee._id"></endorse-btn>
     <span>+{{nominee.support}}</span>
