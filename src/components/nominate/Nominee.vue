@@ -8,8 +8,8 @@
         </div>
     </h3>
     <ul class="list--clean nominee-card__list">
-        <li>Current occupation: {{nominee.occupation}}</li>
-        <li>Region or riding: {{ nominee.riding || nominee.region }}<li>
+        <li v-if="nominee.occupation">Current occupation: {{nominee.occupation}}</li>
+        <li v-if="nominee.riding || nominee.region">Region or riding: {{ nominee.riding || nominee.region }}<li>
     </ul>
     <p class="why-block">{{nominee.why}}</p>
     <a href="#" target="_blank">More information ></a>
