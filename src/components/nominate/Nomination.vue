@@ -7,7 +7,7 @@
         <label class="form__label" for="nominee-name">Nominee's full name</label>
         <input type='text' id="nominee-name" name='name' v-model='nominee.name' v-bind:style='nameInputStyle'/>
         <label class="form__label" for="nominee-occupation">Nominee's current occupation</label>
-        <input type='text' id="nominee-occupation" name='occupation'/>
+        <input type='text' id="nominee-occupation" name='occupation' v-model="nominee.occupation"/>
         <label class="form__label" for="nominee-email">Nominee's email <span class="help-text">(Optional. For contact purposes only to notify nominee. Will not be published)</span></label>
         <input type='email' name='mail' id="nominee-email" v-model='nominee.contact' v-bind:style='mailInputStyle'/>
         <label class="form__label" for="region">Region where nominee should run / is running</label>
@@ -21,10 +21,10 @@
             <option v-for="r in ridings">{{ r }}</option>
         </select>
         <label class="form__label" for="whybox">Tell us why the nominee would be a good candidate <span class="help-text">(Max 600 characters)</span></label>
-        <textarea class="why-area" rows="5" id="whybox" name="why" maxlength="600" v-model='nominee.why'></textarea>
+        <textarea class="why-area" rows="5" id="whybox" name="why" maxlength="600" v-model="nominee.why"></textarea>
         <label class="form__label" for="nominee-link">Link to more information about nominee<span class="help-text"> (Optional. This can be a link to a wikipedia entry, a news article, writing or a biography of the nominee)</span></label>
-        <input type='text' id="nominee-link" name='link'/>
-        <input type="checkbox" id="official-status"/>
+        <input type='text' id="nominee-link" name='link' v-model="nominee.link"/>
+        <input type="checkbox" id="official-status" v-model="nominee.official"/>
         <label for="official-status" class="checkbox__label">Nominee is officially registered with Elections BC<span class="help-text"> (Optional)</span></label>
     </fieldset>
 
@@ -75,6 +75,8 @@ export default {
         region: '',
         riding: '',
         contact: '',
+        link: '',
+        official: false,
         why: '',
       },
       submitter: {
