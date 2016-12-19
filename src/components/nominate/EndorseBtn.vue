@@ -1,6 +1,6 @@
 <template>
 
-<div role="button" :class="c" @click='endorse(_id)'>
+<div role="button" :class="c" @click='showEndorseModal'>
   <i class="fa fa-thumbs-up thumbs-up"></i>
   {{ text }}
 </div>
@@ -27,6 +27,9 @@ export default {
       this.text = "Endorsed"
       this.$store.commit('endorseNominee', id)
       // TODO: Update vuex store
+    },
+    showEndorseModal(){
+      this.$store.dispatch('TOGGLE_ENDORSE')
     }
   },
   data(){

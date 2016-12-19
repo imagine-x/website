@@ -12,6 +12,9 @@ const mutations = {
     },
     setTou(director, mode){
         director.tou = mode
+    },
+    setEndorse(director, mode) {
+        director.endorse = mode
     }
 }
 
@@ -19,7 +22,8 @@ const state = {
   mode:"imagine",
   thankYou: false,
   privacy: false,
-  tou: false
+  tou: false,
+  endorse: false
 }
 
 let j = 1
@@ -43,6 +47,9 @@ const actions = {
   },
   TOGGLE_TOU({ commit, state}){
     commit('setTou', !state.tou)
+  },
+  TOGGLE_ENDORSE({ commit, state}){
+    commit('setEndorse', !state.endorse)
   }
 }
 
