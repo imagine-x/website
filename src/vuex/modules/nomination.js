@@ -38,7 +38,13 @@ const state = {
     _id: 2,
     name: 'Vicki Huntington',
     why: 'A very rare two term independent, lets make it three.',
-    support: 15,
+    support: 9,
+    contact: "",
+    link: "www.test.com",
+    occupation: "MLA",
+    official: true,
+    region: "Delta",
+    riding: ""
   }, {
     _id: 3,
     name: 'David Bond',
@@ -50,6 +56,7 @@ const state = {
     why: 'Running in politics is a very big burden. Then you have to get shit done. High level of responsibility. I wouldn\'t mind running if I was closer to death.'
   }, {
     why: 'A very rare two term independent, lets make it three.',
+    official:true,
     support: 0
   }, ]
 }

@@ -3,7 +3,7 @@
 <div class="nominee-card">
     <h3 class="nominee-card__name">
         {{nominee.name}}
-        <div class="official-mark-container u-inline-block" title="Official nominee with Elections BC">
+        <div v-if="nominee.official" class="official-mark-container u-inline-block" title="Official nominee with Elections BC">
             <i class="fa fa-check-circle official-mark"></i>
         </div>
     </h3>
