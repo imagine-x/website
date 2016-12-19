@@ -40,7 +40,7 @@
     <p>By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the Service.</p>
 
     <label>CONTACT US</label>
-    <p>If you have any questions about these Terms, please contact us at hello@Imagine X.ca.</p>
+    <p>If you have any questions about these Terms, please contact us at hello@imagine-x.ca.</p>
 
     <button class="btn--full" @click.prevent="closeModal">OK</button>
   </Modal>
