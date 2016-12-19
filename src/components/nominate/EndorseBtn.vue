@@ -25,6 +25,7 @@ export default {
       // TODO: Post Req // Auth
       this.endorsed = true
       this.text = "Endorsed"
+      this.$store.commit('endorseNominee', id)
       // TODO: Update vuex store
     }
   },
