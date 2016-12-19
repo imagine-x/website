@@ -11,7 +11,6 @@
             p Think your MLA represents your voice in the BC legislature in Victoria? Think again. The BC legislature voting data shows that unless your MLA is an independent member, their votes are usually whipped to party lines – meaning that your MLA is most likely representing party politics in Victoria back to you. Use the interactive app below to discover your MLA's voting record.
             instructions
             statistics
-            footer-x
     hr
     .row.container--full
       .six.columns
@@ -26,6 +25,8 @@
     span.rotate.rotate--bottom.rotate--right NAY
     .row.container--full
       whip-canvas
+      footer-x
+
 </template>
 
 <script>

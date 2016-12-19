@@ -7,12 +7,12 @@
             <i class="fa fa-check-circle official-mark"></i>
         </div>
     </h3>
-    <ul class="list--clean">
+    <ul class="list--clean nominee-card__list">
         <li>Current occupation: Boss</li>
         <li>Region or riding: Some place cool<li>
     </ul>
     <p class="why-block">{{nominee.why}}</p>
-    <a href="#">More information ></a>
+    <a href="#" target="_blank">More information ></a>
     <p></p>
     <endorse-btn :_id="nominee._id"></endorse-btn>
     <span>+{{nominee.support}}</span>
@@ -92,6 +92,10 @@ export default {
 
 .nominee-card__name {
     margin-bottom: 0.75rem;
+}
+
+.nominee-card__list {
+    margin-bottom: 1.5rem;
 }
 
 .why-block {
