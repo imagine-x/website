@@ -2,6 +2,7 @@
 
 #nominate
     thank-you
+    terms-of-use
     privacy
     heading(:content='headingContent')
     .row.container
@@ -21,6 +22,7 @@ import Privacy from '../generics/Privacy.vue'
 import Navigation from '../generics/Navigation.vue'
 import Application from '../generics/Application.vue'
 import ThankYou from '../generics/ThankYou.vue'
+import TermsOfUse from '../generics/TermsOfUse.vue'
 
 let headingContent = ['Nominate an Independent Candidate for BC']
 
@@ -37,7 +39,8 @@ export default {
             Privacy,
             Navigation,
             Application,
-            ThankYou
+            ThankYou,
+            TermsOfUse
         },
         beforeMount() {
             this.$store.dispatch("SET_IMAGINE_X_BY_URL", window.location.pathname)

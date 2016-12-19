@@ -1,6 +1,7 @@
 <template lang="jade">
 #imaginex
 	thank-you
+	terms-of-use
 	privacy
 	main
 		heading(v-bind:content='idea.heading')
@@ -38,6 +39,7 @@ import FooterX from '../generics/FooterX.vue'
 import Sources from '../generics/Sources.vue'
 import Application from '../generics/Application.vue'
 import Navigation from '../generics/Navigation.vue'
+import TermsOfUse from '../generics/TermsOfUse.vue'
 
 export default {
   computed: {
@@ -56,6 +58,7 @@ export default {
 	Sources,
 	Application,
 	Values,
+	TermsOfUse
   },
 	beforeMount(){
 		this.$store.dispatch("SET_IMAGINE_X_BY_URL", window.location.pathname )

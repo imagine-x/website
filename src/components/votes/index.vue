@@ -1,6 +1,8 @@
 <template lang="jade">
 #votes
     thank-you
+    terms-of-use
+    privacy
     popup
     heading(:content='headingContent')
     .row.container
@@ -41,6 +43,8 @@ import Heading from '../generics/Heading'
 import Application from '../generics/Application'
 import ThankYou from '../generics/ThankYou.vue'
 import FooterX from '../generics/FooterX.vue'
+import Privacy from '../generics/Privacy.vue'
+import TermsOfUse from '../generics/TermsOfUse.vue'
 
 let headingContent = ['MLA Voting Records App']
 

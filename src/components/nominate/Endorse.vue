@@ -8,10 +8,10 @@
     <label class="form__label" for="login-pw">Your Postal Code <span class="help-text">(This is your password)</span></label>
     <input type="text" id="login-pw"/>
     <input type="checkbox" id="tou"/>
-    <label for="tou" class="checkbox__label">Yes, I accept the <a href="#">Terms of Use</a></label>
+    <label for="tou" class="checkbox__label">Yes, I accept the <a href="#" @click.prevent="showTouModal">Terms of Use</a></label>
     <br/>
     <input type="checkbox" id="mail-list"/>
-    <label for="mail-list" class="checkbox__label">Yes, I want to subscribe to the mailing list for occasional updates.</label>
+    <label for="mail-list" class="checkbox__label">Yes, I want to subscribe to the Imagine X mailing list for updates</label>
     <button class="btn--full" @click.prevent='closeModal'>Sign in & Endorse nominee</button>
 </Modal>
 </template>
@@ -32,6 +32,9 @@ export default {
     closeModal() {
       this.$store.dispatch('TOGGLE_THANKYOU')
     },
+    showTouModal(){
+      this.$store.dispatch('TOGGLE_TOU')
+    }
   },
 }
 </script>

@@ -38,10 +38,10 @@
         <label class="form__label" for="your-postal">Your postal code <span class="help-text"> (Will not be published)</span></label>
         <input type='text' id="your-postal" name='yourpostal' v-model="submitter.postal"/>
         <input type="checkbox" id="tou" v-model="submitter.terms"/>
-        <label for="tou" class="checkbox__label">Yes, I accept the <a href="#">Terms of Use</a></label>
+        <label for="tou" class="checkbox__label">Yes, I accept the  <a href="#" @click.prevent="showTouModal">Terms of Use</a></label>
         <br/>
         <input type="checkbox" id="mail-list" v-model="submitter.list"/>
-        <label for="mail-list" class="checkbox__label">Yes, I want to subscribe to the Imagine X mailing list for updates.</label>
+        <label for="mail-list" class="checkbox__label">Yes, I want to subscribe to the Imagine X mailing list for updates</label>
     </fieldset>
         <!-- <input type='text' placeholder='Your Name' name='your' v-model='info.name' v-bind:style='nameInputStyle'></input>
         <input type='text' name='mail' placeholder='Your Email' v-model='info.contact' v-bind:style='mailInputStyle'></input> -->
@@ -94,6 +94,9 @@ export default {
   methods: {
     nominate() {
       this.$store.commit('newNominee', this.nominee)
+    },
+    showTouModal(){
+      this.$store.dispatch('TOGGLE_TOU')
     }
   },
   computed: {}

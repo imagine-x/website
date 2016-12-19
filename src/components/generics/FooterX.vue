@@ -3,6 +3,8 @@
 #footer
   a(href="#", @click.prevent='showPrivacyModal').footer__link Privacy Policy
   span  |  
+  a(href="#", @click.prevent="showTouModal").footer__link Terms of Use
+  span  |  
   a.footer__link(href='mailto:hello@imagine-x.ca') Contact Us
   img.logo.logo--footer(src='../../../static/images/imaginex.svg')
 
@@ -14,6 +16,9 @@ export default {
     methods: {
       showPrivacyModal(){
         this.$store.dispatch('TOGGLE_PRIVACY')
+      },
+      showTouModal(){
+        this.$store.dispatch('TOGGLE_TOU')
       }
     }
 }

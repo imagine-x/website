@@ -2,7 +2,7 @@
 
 #nominees
 	h1 Current Nominees
-	p Check out the current nominees. Endorse an existing nominees to encourage them to run for the upcoming BC provincial election.
+	p Check out the current nominees. Endorse an existing nominees to encourage them to run for the upcoming BC provincial election. Nominees listed are submitted by users and are not endorsed by Imagine X in any way.
 	.row
 		.six.columns
 			label.form__label Sort by:

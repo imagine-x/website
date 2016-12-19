@@ -9,13 +9,17 @@ const mutations = {
     },
     setPrivacy(director, thanks){
       director.privacy = thanks
+    },
+    setTou(director, mode){
+        director.tou = mode
     }
 }
 
 const state = {
   mode:"imagine",
   thankYou: false,
-  privacy: false
+  privacy: false,
+  tou: false
 }
 
 let j = 1
@@ -36,6 +40,9 @@ const actions = {
   },
   TOGGLE_PRIVACY({ commit, state }){
     commit('setPrivacy', !state.privacy)
+  },
+  TOGGLE_TOU({ commit, state}){
+    commit('setTou', !state.tou)
   }
 }
 

@@ -2,6 +2,7 @@
 
 <div>
     <thank-you></thank-you>
+    <terms-of-use></terms-of-use>
     <privacy></privacy>
 	<heading v-bind:content="headingContent"></heading>
 	<div class="row container">
@@ -80,6 +81,7 @@ import FooterX from '../generics/FooterX.vue'
 import Privacy from '../generics/Privacy.vue'
 import Application from '../generics/Application.vue'
 import ThankYou from '../generics/ThankYou.vue'
+import TermsOfUse from '../generics/TermsOfUse.vue'
 
 export default {
     components: {
@@ -88,7 +90,8 @@ export default {
         FooterX,
         Privacy,
         Application,
-        ThankYou
+        ThankYou,
+        TermsOfUse
     },
     data() {
         return {
