@@ -1,18 +1,18 @@
 <template>
 <nav class="navigation">
   <ul class="list--clean">
-    <li >
-      <router-link to="/home">HOME</router-link>
-    </li>
-    <li>
-      <router-link to="/nominate">NOMINATE AN INDEPEDENT CANDIDATE</router-link>
-    </li>
-    <li>
-      <router-link to="/votes">MLA VOTING RECORDS APP</router-link>
-    </li>
-    <li>
-      <router-link to="/news">NEWS</router-link>
-    </li>
+    <router-link to="/home">
+        <li>HOME</li>
+    </router-link>
+    <router-link to="/nominate">
+        <li>NOMINATE AN INDEPEDENT CANDIDATE</li>
+    </router-link>
+    <router-link to="/votes">
+        <li>MLA VOTING RECORDS APP</li>
+    </router-link>
+    <router-link to="/news">
+        <li>NEWS</li>
+    </router-link>
   </ul>
 </nav>
 </template>
@@ -28,18 +28,27 @@ export default {
 .router-link-active
   font-weight: bold;
 
+.navigation__link {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
 li {
     border-bottom: 1px solid lightgray;
     margin-bottom: 0;
-    padding: 0.65rem 0;
+    padding: 0.65rem 20px;
+    list-style: none;
+    display: inline-block;
+    width: 100%;
 }
+
 a {
     text-decoration: none;
 }
 
 .navigation--offcanvas {
     li {
-        padding: 0.65rem 2rem;
+        padding: 0.65rem 20px;
     }
 }
 .navigation--offcanvas.is-open {
@@ -59,6 +68,16 @@ a {
 
     .navigation--header{
       display:none
+    }
+
+    .navigation__link {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    li {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 

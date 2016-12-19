@@ -5,11 +5,12 @@
     router-link(to="home").link
       img.logo.header-container__block(
       src='../../../static/images/imaginex.svg')
+    a(class="btn btn--header", href="#", @click.prevent='toggleHeaderNav') MENU
+  navigation(v-show="showHeaderNav").navigation--header
   .eight.columns.header-container__block
       h1.heading__text(v-for='x in content')
-        button(@click='toggleHeaderNav') MENU
         p {{ x }}
-  navigation(v-show="showHeaderNav").navigation--header
+
 
 </template>
 
@@ -57,7 +58,6 @@ img
 .header-container
   border-bottom: 1px solid #E0E1DC;
   padding: 0;
-  margin-bottom: 5rem;
   display: flex;
   display: -webkit-box;
   display: -moz-box;
@@ -67,6 +67,7 @@ img
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 0;
 
 .header-container__block {
     padding-left: 20px;
@@ -89,8 +90,15 @@ img
     padding-left: 0;
     padding-right: 0;
 }
-.navigation--header
-  display:block
+
+.navigation--header {
+  display: block;
+}
+
+.heading__text {
+    margin-top: 5rem;
+    margin-bottom: 4rem;
+}
 
 @media (min-width: breakpoint) {
     button{
@@ -118,6 +126,7 @@ img
     }
 
     .heading__text {
+        margin-top: 0;
         margin-bottom: 4rem;
     }
 
