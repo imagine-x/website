@@ -42,6 +42,7 @@ const routes = [{
   component: Imaginex
 }, ]
 const router = new VueRouter({
+  mode:'history',
   routes
 })
 const app = new Vue({
