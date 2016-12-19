@@ -7,7 +7,7 @@ const mutations = {
       newNominee
     })
     newNominee._id = Date.now()
-    newNominee.support = 0
+    newNominee.support = 1
     nomination.nominees.unshift(newNominee)
   },
   endorseNominee(nomination, _id) {
@@ -57,7 +57,7 @@ const state = {
   }, {
     why: 'A very rare two term independent, lets make it three.',
     official:true,
-    support: 0
+    support: 1
   }, ]
 }
 
