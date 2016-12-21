@@ -14,15 +14,18 @@
             <h2>In the News</h2>
             <ul class="list--clean">
                 <li>
-                    <a href="http://www.thenownewspaper.com/news/406603106.html" target="_blank">Surrey Imagine-X spokesman says app puts power in voters' hands (December 15, 2016)</a>
+                    <a href="http://www.burnabynow.com/news/politics-there-s-an-app-for-that-1.5083300" target="_blank">Politics? There's an app for that (Burnaby Now - December 20, 2016)</a>
                 </li>
                 <li>
-                    <a href="http://cirh.streamon.fm/listen-pl-6720" target="_blank">Roundhouse Radio - Business in Vancouver @ 39:00 mark (December 9, 2016)</a>
+                    <a href="http://www.thenownewspaper.com/news/406603106.html" target="_blank">Surrey Imagine-X spokesman says app puts power in voters' hands (Surrey Now - December 15, 2016)</a>
+                </li>
+                <li>
+                    <a href="http://cirh.streamon.fm/listen-pl-6720" target="_blank">Business in Vancouver @ 39:00 mark (Roundhouse Radio - December 9, 2016)</a>
                 </li>
             <hr/>
             <h2>Press Releases</h2>
             <br>
-            <p>December 19, 2016</p>
+<!--             <p>December 19, 2016</p>
             <h3>Imagine X issues a callout for independent candidates to run in the upcoming B.C. provincial election</h3>
             <p><i>Citizen political group, Imagine X launches new candidate nomination website for British Columbians to publically nominate independent candidates</i></p>
             <p>December 19, 2016 (VANCOUVER, BC) - Imagine X, a political group in B.C., today issues a callout for British Columbians to nominate independent candidates to run in the upcoming B.C. provincial election in May 2017. British Columbians are encouraged to submit suggestions of potential candidates through Imagine X’s new online nomination platform at <a href="/nominate">www.imagine-x.ca/nominate</a>.</p>
@@ -36,7 +39,7 @@
                 <li>Candidate nomination website: <a href="/nominate">www.imagine-x.ca/nominate</a></li>
                 <li>Imagine X: <a href="/">www.imagine-x.ca</a></li>
             </ul>
-            <hr>
+            <hr> -->
             <p>December 7, 2016</p>
             <h3>First ever B.C. MLA voting records web app shows that B.C. legislature is deeply politically polarized</h3>
             <p><i>Citizen political group, Imagine X launches new interactive app for public to discover MLA voting records</i></p>

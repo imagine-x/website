@@ -1,12 +1,12 @@
 <template>
 <nav class="navigation">
   <ul class="list--clean">
-    <router-link to="/home">
+    <router-link to="/" exact>
         <li>HOME</li>
     </router-link>
-    <router-link to="/nominate">
+<!--     <router-link to="/nominate">
         <li>NOMINATE AN INDEPEDENT CANDIDATE</li>
-    </router-link>
+    </router-link> -->
     <router-link to="/votes">
         <li>MLA VOTING RECORDS APP</li>
     </router-link>

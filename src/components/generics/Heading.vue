@@ -2,7 +2,7 @@
 
 #heading.container.container--header
   .four.columns.header-container
-    router-link(to="home").link
+    router-link(to="/").link
       img.logo.header-container__block(
       src='../../../static/images/imaginex.svg')
     a(class="btn btn--header", href="#", @click.prevent='toggleHeaderNav') MENU
