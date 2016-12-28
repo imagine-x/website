@@ -14,6 +14,9 @@
             <h2>In the News</h2>
             <ul class="list--clean">
                 <li>
+                    <a href="http://www.vancourier.com/news/new-app-whips-up-attention-towards-how-mlas-vote-in-the-legislature-1.5588169" target="_blank">New app whips up attention towards how MLAs vote in the Legislature (Vancouver Courier - December 26, 2016)</a>
+                </li>
+                <li>
                     <a href="http://www.burnabynow.com/news/politics-there-s-an-app-for-that-1.5083300" target="_blank">Politics? There's an app for that (Burnaby Now - December 20, 2016)</a>
                 </li>
                 <li>
