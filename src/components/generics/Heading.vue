@@ -52,7 +52,7 @@ img
   cursor:pointer
 
 .link {
-    display: inherit;
+    display: inline-flex;
 }
 
 .header-container

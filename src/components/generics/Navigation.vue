@@ -40,6 +40,7 @@ li {
     list-style: none;
     display: inline-block;
     width: 100%;
+    font-size: 15px;
 }
 
 a {
