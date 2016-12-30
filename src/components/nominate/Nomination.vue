@@ -1,7 +1,10 @@
 <template>
 <div class='application'>
   <submitted></submitted>
-  <p>We're thrilled that you want to nominate someone to run in the upcoming BC provincial election as an indepedent. Fill in the form below to submit a nomination. Please do not submit names of individuals who are running on behalf of an existing political party. If you submit the nominee's contact information below, we will reach out to them to notify them about their nomination. This nomination process is to encourage nominess to consider candidacy in the election and does not replace with any official nomination procedures required by Elections BC.</p>
+  <h2>Nomination Form</h2>
+  <p>We're thrilled that you want to nominate someone to run in the upcoming BC provincial election as an indepedent. Fill in the form below to submit a nomination. Please do not submit names of individuals who are running on behalf of an existing political party. If you submit the nominee's contact information below, we will try reach out to them to notify them about their nomination. This nomination process is to encourage nominess to consider candidacy in the election and does not replace with any official nomination procedures required by Elections BC.</p>
+  <p>Note: All fields are mandatory unless indicated as optional.</p>
+  <br>
   <form class="form" id='form'>
     <fieldset>
         <legend>NOMINEE'S INFO</legend>
@@ -40,12 +43,10 @@
             v-model="nominee.location"
             :style="nomineeLocationInputStyle"
         >
-            <optgroup>
-                <option>--------REGIONS-----------</option>
+            <optgroup label="Region">
                 <option v-for="r in regions">{{ r }}</option>
             </optgroup>
-            <optgroup>
-                <option>--------RIDINGS-----------</option>
+            <optgroup label="Riding">
                 <option v-for="r in ridings">{{ r }}</option>
             </optgroup>
         </select>

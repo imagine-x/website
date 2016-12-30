@@ -1,7 +1,8 @@
 <template>
 	<div id="nominees">
-		<h1>Current Nominees</h1>
-		<p>Check out the current nominees. Endorse an existing nominees to encourage them to run for the upcoming BC provincial election. Nominees listed are submitted by users and are not endorsed by Imagine X in any way.</p>
+		<p>This is a list of independent candidate nominees for the upcoming BC provincial election. These nominees were nominated by citizens like you. If you like an existing nominee, show your support and enthusiam by endorsing their nomination! If we can, we'll even try to contact the nominees to let them know about their public endorsement. Nominees listed are submitted by users and are not endorsed by Imagine X in any way.</p>
+		<p>Don't see a nominee below whom you'd like to run? <router-link to="/nominate"><b>Nominate someone today</b></router-link>.</p>
+		<hr>
 		<div class="row">
 			<div class="six columns">
 				<label class="form__label">Sort by:</label>
@@ -36,7 +37,7 @@ import { regions, ridings } from './data'
 export default {
   data() {
 	return {
-		area: '',
+		area: 'All',
 	  regions,
 	  ridings
 	}

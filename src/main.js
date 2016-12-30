@@ -26,9 +26,9 @@ const routes = [{
   children: [{
     path: '',
     component: MainNominees
-  }, {
-    path: 'form',
-    component: Nomination
+  // }, {
+  //   path: 'form',
+  //   component: Nomination
   }, {
     path: 'gallery',
     component: Gallery
