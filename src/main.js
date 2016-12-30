@@ -19,16 +19,16 @@ import News from './components/news'
 const routes = [{
   path: '/',
   component: Imaginex
-// }, {
-//   path: '/nominate',
-//   component: Nominate,
-//   children: [{
-//     path: '',
-//     component: MainNominees
-//   }, {
-//     path: 'form',
-//     component: Nomination
-//   }]
+}, {
+  path: '/nominate',
+  component: Nominate,
+  children: [{
+    path: '',
+    component: MainNominees
+  }, {
+    path: 'form',
+    component: Nomination
+  }]
 }, {
   path: '/votes',
   component: Votes

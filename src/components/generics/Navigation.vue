@@ -4,9 +4,9 @@
     <router-link to="/" exact>
         <li>HOME</li>
     </router-link>
-<!--     <router-link to="/nominate">
+    <router-link to="/nominate">
         <li>NOMINATE AN INDEPEDENT CANDIDATE</li>
-    </router-link> -->
+    </router-link>
     <router-link to="/votes">
         <li>MLA VOTING RECORDS APP</li>
     </router-link>
@@ -50,6 +50,7 @@ a {
 .navigation--offcanvas {
     li {
         padding: 0.65rem 20px;
+        font-size: 15px;
     }
 }
 .navigation--offcanvas.is-open {
