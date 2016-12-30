@@ -36,7 +36,7 @@ export default {
 li {
     border-bottom: 1px solid lightgray;
     margin-bottom: 0;
-    padding: 0.65rem 20px;
+    padding: 0.65rem 1rem;
     list-style: none;
     display: inline-block;
     width: 100%;
@@ -49,7 +49,7 @@ a {
 
 .navigation--offcanvas {
     li {
-        padding: 0.65rem 20px;
+        padding: 0.65rem 1rem;
         font-size: 15px;
     }
 }

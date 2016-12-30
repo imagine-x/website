@@ -1,7 +1,7 @@
 <template>
 <div class='application'>
   <submitted></submitted>
-  <p>We're thrilled that you want to nominate someone to run in the upcoming BC provincial election as an indepedent. Fill in the form below to submit a nomination. Please do not submit names of individuals who are running on behalf of an existing party. If you submit the nominee's contact information below, we will reach out to them to notify them about their nomination. This nomination process is to encourage nominess to consider candidacy in the election and does not replace with any official nomination procedures required by Elections BC.</p>
+  <p>We're thrilled that you want to nominate someone to run in the upcoming BC provincial election as an indepedent. Fill in the form below to submit a nomination. Please do not submit names of individuals who are running on behalf of an existing political party. If you submit the nominee's contact information below, we will reach out to them to notify them about their nomination. This nomination process is to encourage nominess to consider candidacy in the election and does not replace with any official nomination procedures required by Elections BC.</p>
   <form class="form" id='form'>
     <fieldset>
         <legend>NOMINEE'S INFO</legend>
@@ -10,7 +10,9 @@
         <label class="form__label" for="nominee-occupation">Nominee's current occupation</label>
         <input type='text' id="nominee-occupation" name='occupation' v-model="nominee.occupation" required/>
         <label class="form__label" for="nominee-email">Nominee's email <span class="help-text">(Optional. For contact purposes only to notify nominee. Will not be published)</span></label>
-        <input type='email' name='mail' id="nominee-email" v-model='nominee.contact'/>
+        <input type='email' name='contact' id="nominee-email" v-model='nominee.contact' />
+        <label class="form__label" for="nominee-twitter">Nominee's Twitter handle <span class="help-text">(Optional. For contact purposes only to notify nominee. Will not be published)</span></label>
+        <input type='text' name='twitter' id="nominee-twitter" v-model='nominee.twitter' />
         <label class="form__label" for="region">Region where nominee should run / is running</label>
         <select id="region" class="select" v-model="nominee.region" required>
             <option></option>
@@ -75,6 +77,7 @@ export default {
         region: '',
         riding: '',
         contact: '',
+        twitter: '@',
         link: '',
         official: false,
         why: '',
