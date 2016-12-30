@@ -4,8 +4,11 @@
     <router-link to="/" exact>
         <li>HOME</li>
     </router-link>
-    <router-link to="/nominate">
-        <li>NOMINATE AN INDEPEDENT CANDIDATE</li>
+    <router-link to="/nominate" exact>
+        <li>NOMINATE A CANDIDATE</li>
+    </router-link>
+    <router-link to="/nominate/gallery">
+        <li>INDEPEDENT GALLERY</li>
     </router-link>
     <router-link to="/votes">
         <li>MLA VOTING RECORDS APP</li>

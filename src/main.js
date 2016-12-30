@@ -12,6 +12,7 @@ import Imaginex from './components/imagineX'
 import Nominate from './components/nominate'
 import MainNominees from './components/nominate/MainNominees'
 import Nomination from './components/nominate/Nomination'
+import Gallery from './components/nominate/Nominees'
 
 import Votes from './components/votes'
 import News from './components/news'
@@ -28,8 +29,11 @@ const routes = [{
   }, {
     path: 'form',
     component: Nomination
-  }]
-}, {
+  }, {
+    path: 'gallery',
+    component: Gallery
+  },]
+},{
   path: '/votes',
   component: Votes
 }, {
