@@ -3,24 +3,19 @@ import _ from 'lodash'
 
 const mutations = {
   newNominee(nomination, newNominee) {
-    console.log({
-      newNominee
-    })
-    newNominee._id = Date.now()
     newNominee.support = 1
     nomination.nominees.unshift(newNominee)
   },
-  endorseNominee(nomination, _id) {
-    console.log({
-      _id
-    })
+  endorseNominee(nomination, name) {
     nomination.nominees.forEach(nominee => {
-      if (nominee._id === _id) {
+      if (nominee.name === name) {
         nominee.support++
       }
     })
   }
 }
+
+const actions = {}
 
 const state = {
   nominees: [{
@@ -61,7 +56,6 @@ const state = {
   }, ]
 }
 
-const actions = {}
 
 export default {
   state,

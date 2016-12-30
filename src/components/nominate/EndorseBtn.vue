@@ -1,6 +1,6 @@
 <template>
 
-<div role="button" :class="c" @click='showEndorseModal'>
+<div role="button" :class="c" @click="endorse(name)">
   <i class="fa fa-thumbs-up thumbs-up"></i>
   {{ text }}
 </div>
@@ -11,7 +11,7 @@
 <script>
 
 export default {
-  props: ['_id'],
+  props: ['name'],
   computed: {
     c(){
       return {
@@ -21,12 +21,14 @@ export default {
     }
   },
   methods: {
-    endorse(id){
+    endorse(name){
       // TODO: Post Req // Auth
+      if (!this.$store.state.director.login.mail){
+          return this.showEndorseModal()
+      }
       this.endorsed = true
       this.text = "Endorsed"
-      this.$store.commit('endorseNominee', id)
-      // TODO: Update vuex store
+      this.$store.commit('endorseNominee', name)
     },
     showEndorseModal(){
       this.$store.dispatch('TOGGLE_ENDORSE')

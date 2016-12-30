@@ -6,7 +6,6 @@
       router-link(to="nominate/form")
         button Nominate now &nbsp; >
     hr
-    nominees
 
 </template>
 

@@ -18,7 +18,7 @@
     <p v-if="nominee.why" class="why-block">{{nominee.why}}</p>
     <a v-if="nominee.link" v-bind:href="nominee.link" target="_blank">More information ></a>
     <p></p>
-    <endorse-btn :_id="nominee._id"></endorse-btn>
+    <endorse-btn :name="nominee.name"></endorse-btn>
     <span>+{{nominee.support}}</span>
 </div>
 

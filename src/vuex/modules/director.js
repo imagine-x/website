@@ -15,6 +15,9 @@ const mutations = {
     },
     setEndorse(director, mode) {
         director.endorse = mode
+    },
+    login(director, mail){
+        director.login.mail = mail
     }
 }
 
@@ -23,7 +26,10 @@ const state = {
   thankYou: false,
   privacy: false,
   tou: false,
-  endorse: false
+  endorse: false,
+  login: {
+      mail: false,
+  }
 }
 
 let j = 1
