@@ -105,7 +105,7 @@
         <input type="checkbox" id="tou" v-model="submitter.terms" rquired/>
         <label for="tou" class="checkbox__label">Yes, I accept the
             <a href="#" @click.prevent="showTouModal">Terms of Use</a>
-            <span class="required-checkbox" :style="submitterTouInputStyle">  REQUIRED </span>
+            <span class="required-checkbox" :style="submitterTouInputStyle"> REQUIRED </span>
         </label>
         <br/>
         <input type="checkbox" id="mail-list" v-model="submitter.list"/>

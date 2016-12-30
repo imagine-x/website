@@ -17,7 +17,6 @@
         :style="mailInputStyle" />
     <label class="form__label" for="login-pw">Your Postal Code
       <span class="help-text"> (This is your password)</span>
-      <span :style="touInputStyle"> &#8656; REQUIRED </span>
     </label>
     <input
         type="text"
@@ -27,7 +26,7 @@
     <input type="checkbox" id="tou" v-model="info.tou" />
     <label for="tou" class="checkbox__label">Yes, I accept the
        <a href="#" @click.prevent="showTouModal">Terms of Use</a>
-       <span class="required-checkbox" :style="touInputStyle"> &#8656; REQUIRED </span>
+       <span class="required-checkbox" :style="touInputStyle"> REQUIRED </span>
      </label>
      <br/>
      <input type="checkbox" id="mail-list" v-model="info.list" />
