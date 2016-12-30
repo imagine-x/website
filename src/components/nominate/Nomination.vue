@@ -132,6 +132,25 @@ const validStyle = {
   'border-color': '',
 }
 
+let emptyNominee = {
+  name: '',
+  occupation: '',
+  location: '',
+  contact: '',
+  twitter: '@',
+  link: '',
+  official: false,
+  why: '',
+}
+
+let emptySubmitter = {
+  name: '',
+  mail: '',
+  postal: '',
+  terms:false,
+  list:false,
+}
+
 export default {
   components: {
     Submitted
@@ -140,45 +159,40 @@ export default {
   data() {
     return {
       submitAttempted:false,
+      success: false,
       regions,
       ridings,
-      nominee: {
-        name: '',
-        occupation: '',
-        location: '',
-        contact: '',
-        twitter: '@',
-        link: '',
-        official: false,
-        why: '',
-      },
-      submitter: {
-        name: '',
-        mail: '',
-        postal: '',
-        terms:false,
-        list:false,
-      },
-      submitAttempted: false,
-      success: false,
+      nominee: _.clone(emptyNominee),
+      submitter: _.clone(emptySubmitter),
     }
   },
   methods: {
     nominate() {
       this.submitAttempted = true
       if ( this.isValid() ){
-        console.log('valid submitter INFO!!')
+        let info = {
+          nominee: this.nominee,
+          submitter: this.submitter
+        }
+        request
+          .post('/nomination')
+          .send(info)
+          .then(console.log)
+          .catch(console.log)
+
+        this.nominee = _.clone(emptyNominee)
+        this.submitter = _.clone(emptySubmitter)
+        this.$store.dispatch('TOGGLE_THANKYOU')
+        this.$router.push('/nominate')
         this.$store.commit('newNominee', this.nominee)
+        this.submitAttempted = false
       }
     },
     showTouModal(){
       this.$store.dispatch('TOGGLE_TOU')
     },
     isValid(){
-        return (
-            this.isValidSubmitterInfo() &&
-            this.isValidNomineeInfo()
-        )
+        return( this.isValidSubmitterInfo() && this.isValidNomineeInfo() )
     },
     isValidNomineeInfo(){
       this.nominee.name = this.nominee.name.replace(/^\s/, '')
