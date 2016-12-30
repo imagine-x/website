@@ -30,6 +30,7 @@
             name='contact'
             id="nominee-email"
             v-model='nominee.contact'
+            :style="nomineeContactInputStyle"
             />
         <label class="form__label" for="nominee-twitter">Nominee's Twitter handle <span class="help-text">(Optional. For contact purposes only to notify nominee. Will not be published)</span></label>
         <input
@@ -104,7 +105,7 @@
         <input type="checkbox" id="tou" v-model="submitter.terms" rquired/>
         <label for="tou" class="checkbox__label">Yes, I accept the
             <a href="#" @click.prevent="showTouModal">Terms of Use</a>
-            <span class="required-checkbox" :style="submitterTouInputStyle"> &#8656; REQUIRED </span>
+            <span class="required-checkbox" :style="submitterTouInputStyle">  REQUIRED </span>
         </label>
         <br/>
         <input type="checkbox" id="mail-list" v-model="submitter.list"/>
@@ -204,7 +205,8 @@ export default {
         this.isValidNomineeOccupation() &&
         this.isValidNomineeLocation() &&
         this.isValidNomineeWhy() &&
-        this.isValidNomineeLink()
+        this.isValidNomineeLink() &&
+        this.isValidNomineeContact()
       )
     },
     isValidNomineeName() {
@@ -212,6 +214,14 @@ export default {
     },
     isValidNomineeOccupation() {
       return this.nominee.occupation.length > 3
+    },
+    isValidNomineeContact() {
+        if (this.nominee.contact.length > 0) {
+            let mailRegex = /^\w+\.?\w+?\@\w+\.(\w+\.)?\w+$/
+            return mailRegex.test(this.nominee.contact)
+        } else {
+            return true
+        }
     },
     isValidNomineeLink() {
         if (this.nominee.link.length > 0) {
@@ -276,6 +286,14 @@ export default {
         }
         return invalidStyle
       }
+    },
+    nomineeContactInputStyle() {
+        if (this.submitAttempted) {
+            if (this.isValidNomineeContact()) {
+              return validStyle
+            }
+            return invalidStyle
+          }
     },
     nomineeWhyInputStyle(){
       if (this.submitAttempted) {

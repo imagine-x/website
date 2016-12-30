@@ -2,9 +2,9 @@
 
 #mainnominees
     variable-body(:content='variableContent')
-    p Want to see who has been nominated?
+    p Want to see who's been nominated? 
       router-link(to="gallery")
-        b Click here to see current list of nominees
+        b Click here to see the current list of nominees
       span .
     hr
     nomination

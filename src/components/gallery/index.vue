@@ -27,7 +27,7 @@ import ThankYou from '../generics/ThankYou.vue'
 import TermsOfUse from '../generics/TermsOfUse.vue'
 import Endorse from './Endorse.vue'
 
-let headingContent = ['Independent Gallery']
+let headingContent = ['Independent Nominees Gallery']
 
 export default {
     data() {
