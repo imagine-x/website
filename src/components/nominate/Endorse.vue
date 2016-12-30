@@ -2,7 +2,7 @@
 
 <Modal v-bind:visible="visible" v-bind:close="closeModal">
     <h1>Sign Up / Sign In to Endorse</h1>
-    <p>Sign up for an account or sign in to endorse nominees.</p>
+    <p>Let's publically show our collective support for our favourite nominees to encourage them to run. If we can, we'll even try to reach out to the nominee and let them know about the public support for their nomination. Sign up for an account or sign in to endorse nominees. </p>
     <label class="form__label" for="login-name">Your Name</label>
     <input type="text" id="login-name"/>
     <label class="form__label" for="login-email">Your Email</label>
