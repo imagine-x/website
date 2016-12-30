@@ -123,7 +123,7 @@
 import request from 'superagent'
 import _ from 'lodash'
 import Submitted from './Submitted'
-import { regions, ridings } from './data'
+import { regions, ridings } from '../../assets/locationData'
 
 const invalidStyle = {
   'border-color': '#da0505',

@@ -32,7 +32,7 @@
 
 <script>
 import Nominee from './Nominee'
-import { regions, ridings } from './data'
+import { regions, ridings } from '../../assets/locationData'
 
 export default {
   data() {
