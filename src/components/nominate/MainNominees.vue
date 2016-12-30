@@ -2,8 +2,8 @@
 
 #mainnominees
     variable-body(:content='variableContent')
-    p Want to see who has been nominated? 
-      router-link(to="nominate/gallery")
+    p Want to see who has been nominated?
+      router-link(to="gallery")
         b Click here to see current list of nominees
       span .
     hr
@@ -13,7 +13,6 @@
 
 <script>
 import VariableBody from '../generics/VariableBody.vue'
-import Nominees from './Nominees'
 import Nomination from './Nomination'
 
 let variableContent = [
@@ -30,7 +29,6 @@ export default {
     },
     computed: { },
         components: {
-            Nominees,
             VariableBody,
             Nomination
         },

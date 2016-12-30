@@ -7,7 +7,7 @@
     <router-link to="/nominate" exact>
         <li>NOMINATE AN INDEPEDENT CANDIDATE</li>
     </router-link>
-    <router-link to="/nominate/gallery">
+    <router-link to="/gallery">
         <li>INDEPEDENT NOMINEE GALLERY</li>
     </router-link>
     <router-link to="/votes">
