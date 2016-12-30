@@ -59,13 +59,14 @@
             maxlength="600"
             v-model="nominee.why"
             :style="nomineeWhyInputStyle"
-            >
-        </textarea>
-        <label class="form__label" for="nominee-link">Link to more information about nominee<span class="help-text"> (Optional. This can be a link to a wikipedia entry, a news article, writing or a biography of the nominee)</span></label>
+            />
+        <label class="form__label" for="nominee-link">Link to more information about nominee<span class="help-text"> (Optional. This can be a link to a wikipedia entry, a news article, writing or a biography of the nominee. Link must start with http:// or https://)</span></label>
         <input
             type="url" id="nominee-link"
             name='link'
-            v-model="nominee.link"/>
+            v-model="nominee.link"
+            :style="nomineeLinkInputStyle"
+        />
         <input
             type="checkbox"
             id="official-status"
@@ -202,7 +203,8 @@ export default {
         this.isValidNomineeName() &&
         this.isValidNomineeOccupation() &&
         this.isValidNomineeLocation() &&
-        this.isValidNomineeWhy()
+        this.isValidNomineeWhy() &&
+        this.isValidNomineeLink()
       )
     },
     isValidNomineeName() {
@@ -210,6 +212,14 @@ export default {
     },
     isValidNomineeOccupation() {
       return this.nominee.occupation.length > 3
+    },
+    isValidNomineeLink() {
+        if (this.nominee.link.length > 0) {
+            let urlRegex = /https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}/
+            return urlRegex.test(this.nominee.link)
+        } else {
+            return true
+        }
     },
     isValidNomineeLocation() {
       return this.nominee.location
@@ -270,6 +280,14 @@ export default {
     nomineeWhyInputStyle(){
       if (this.submitAttempted) {
         if (this.isValidNomineeWhy()) {
+          return validStyle
+        }
+        return invalidStyle
+      }
+    },
+    nomineeLinkInputStyle(){
+      if (this.submitAttempted) {
+        if (this.isValidNomineeLink()) {
           return validStyle
         }
         return invalidStyle
