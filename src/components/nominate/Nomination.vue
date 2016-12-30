@@ -183,7 +183,7 @@ export default {
         this.nominee = _.clone(emptyNominee)
         this.submitter = _.clone(emptySubmitter)
         this.$store.dispatch('TOGGLE_THANKYOU')
-        this.$router.push('/nominate')
+        this.$router.push('/nominate/gallery')
         this.$store.commit('newNominee', this.nominee)
         this.submitAttempted = false
       }
