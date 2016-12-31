@@ -112,7 +112,8 @@
         </label>
         <br/>
         <input type="checkbox" id="mail-list" v-model="submitter.list"/>
-        <label for="mail-list" class="checkbox__label">Yes, I want to subscribe to the Imagine X mailing list for updates</label>
+        <label for="mail-list" class="checkbox__label">Yes, I want to subscribe to the Imagine X mailing list for updates
+        <span class="help-text"> (If you've already subscribed, you will not be subscribed again)</span></label>
     </fieldset>
     <br>
     <button
@@ -197,7 +198,7 @@ export default {
         this.nominee = _.clone(emptyNominee)
         this.submitter = _.clone(emptySubmitter)
         this.$store.dispatch('TOGGLE_SUBMITTED')
-        this.$router.push('/gallery')
+        this.$router.push('/nominees')
         this.$store.commit('newNominee', this.nominee)
         this.submitAttempted = false
       }
@@ -221,7 +222,8 @@ export default {
       )
     },
     isValidNomineeName() {
-      return this.nominee.name.length > 3
+        let nameRegex = /^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/
+        return nameRegex.test(this.nominee.name)
     },
     isValidNomineeOccupation() {
       return this.nominee.occupation.length > 3
@@ -259,7 +261,8 @@ export default {
       )
     },
     isValidSubmitterName() {
-      return this.submitter.name.length > 3
+      let nameRegex = /^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/
+        return nameRegex.test(this.submitter.name)
     },
     isValidSubmitterMail() {
       let mailRegex = /^\w+\.?\w+?\@\w+\.(\w+\.)?\w+$/
@@ -395,4 +398,7 @@ export default {
     color:red
     display:none
 
+#mail-list {
+    margin: 0;
+}
 </style>

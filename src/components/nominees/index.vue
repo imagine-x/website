@@ -29,7 +29,7 @@ import TermsOfUse from '../generics/TermsOfUse.vue'
 import Endorse from './Endorse.vue'
 import Submitted from '../nominate/Submitted.vue'
 
-let headingContent = ['Independent Nominees Gallery']
+let headingContent = ['BC Independent Nominees Gallery']
 
 export default {
     mounted(){

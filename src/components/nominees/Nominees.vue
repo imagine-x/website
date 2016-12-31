@@ -11,6 +11,7 @@
 					<option value="recent">Most recent</option>
 					<option value="endorsement">Endorsements</option>
 					<option value="alpha">Alphabetically</option>
+                    <option value="regionriding">Region / Riding</option>
 				</select>
 			</div>
 			<div class="six columns">
@@ -25,6 +26,9 @@
 					</optgroup>
 				</select>
 			</div>
+            <div>
+                <a href="#" class="text--small" @click.prevent="clearFilters">Clear all filters</a>
+            </div>
 		</div>
 		<label class="legend-label">LEGEND</label>
 		<i class="fa fa-check-circle official-mark"></i>
@@ -48,11 +52,18 @@ import { locations } from '../../assets/locationData'
 export default {
   data() {
 	return {
+      locations,
 	  area: 'All',
-	  locations,
       sortBy: 'recent',
       noNominees: false
 	}
+  },
+  methods: {
+    clearFilters() {
+        this.area = 'All';
+        this.sortBy = 'recent';
+        this.noNominees = false;
+    }
   },
   computed: {
     nomineesList() {
@@ -72,6 +83,9 @@ export default {
             case 'alpha':
                 nomineesList = _.sortBy(nomineesList, 'name');
                 break;
+            case 'regionriding':
+                nomineesList = _.sortBy(nomineesList, 'location');
+                nomineesList = _.sortBy(nomineesList, 'riding');
         }
 
         nomineesList = _.filter(nomineesList, (item) => {
