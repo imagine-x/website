@@ -65,7 +65,7 @@ export default {
     width: 3rem;
     height: 110%;
     z-index: z-index-1;
-    margin-right: 1rem;
+    margin-right: 2rem;
     transform: translateY(-100%);
     right: 0;
     background: linear-gradient(to right,rgba(255,255,255,0), white);
@@ -78,7 +78,7 @@ export default {
     width: 3rem;
     height: 110%;
     z-index: z-index-1;
-    margin-left: 2.5rem;
+    margin-left: 2rem;
     left: 0;
     background: linear-gradient(to left,rgba(255,255,255,0), white);
 }
