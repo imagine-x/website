@@ -27,7 +27,7 @@ const state = {
     link: "www.test.com",
     occupation: "Mayor",
     official: false,
-    region: "The North",
+    location: "The North",
     riding: ""
   }, {
     _id: 2,
@@ -38,8 +38,8 @@ const state = {
     link: "www.test.com",
     occupation: "MLA",
     official: true,
-    region: "Delta",
-    riding: ""
+    location: "Delta",
+    riding: "Delta South"
   }, {
     _id: 3,
     name: 'David Bond',

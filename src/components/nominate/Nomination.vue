@@ -37,7 +37,7 @@
             name='twitter'
             id="nominee-twitter"
             v-model='nominee.twitter' />
-        <label class="form__label" for="location">District where nominee should run / is running</label>
+        <label class="form__label" for="location">Region where nominee should run / is running</label>
         <select id="location"
             class="select"
             v-model="nominee.location"
@@ -128,7 +128,7 @@
 import request from 'superagent'
 import _ from 'lodash'
 import Submitted from './Submitted'
-import { locations, regions, ridings } from '../../assets/locationData'
+import { locations } from '../../assets/locationData'
 
 const invalidStyle = {
   'border-color': '#da0505',
