@@ -2,19 +2,19 @@
 <Modal v-bind:visible="visible" v-bind:close="closeModal">
   <h1>Sign Up / Sign In to Endorse</h1>
   <p>Let's publically show our support for our favourite nominees to encourage them to run. We'll even try to reach out to the nominee and let them know about the public support for their nomination. Sign up for an account or sign in to endorse nominees.</p>
-    <label class="form__label" for="login-name" >Your Name</label>
+    <label class="form__label" for="login-name" >Your full name</label>
     <input
         type="text"
         id="login-name"
         v-model="info.name"
         :style="nameInputStyle"/>
-    <label class="form__label" for="login-email">Your Email</label>
+    <label class="form__label" for="login-email">Your email</label>
     <input
         type="email"
         id="login-email"
         v-model="info.mail"
         :style="mailInputStyle" />
-    <label class="form__label" for="login-pw">Your Postal Code
+    <label class="form__label" for="login-pw">Postal code
       <span class="help-text"> (This is your password)</span>
     </label>
     <input
@@ -177,6 +177,6 @@ export default {
     display:none
 
 #mail-list {
-    margin: 0;
+    margin-bottom: 0;
 }
 </style>

@@ -399,6 +399,6 @@ export default {
     display:none
 
 #mail-list {
-    margin: 0;
+    margin-bottom: 0;
 }
 </style>

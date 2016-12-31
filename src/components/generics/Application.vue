@@ -7,7 +7,7 @@
 		div
 			input(
 				type='text',
-				placeholder='Your Name',
+				placeholder='Your full name',
 				name='name',
 				v-model='info.name',
 		    v-bind:style='nameInputStyle'
@@ -16,14 +16,14 @@
 			input(
 				type='text',
 				name='mail',
-				placeholder='Your Email',
+				placeholder='Your email',
 				v-model='info.mail',
 		    v-bind:style='mailInputStyle'
 			)
 		div
 			input(
 				type='text',
-				placeholder='Postal Code',
+				placeholder='Postal code',
 				name='postal',
 				v-model='info.postal'
 		    v-bind:style='postalInputStyle'
