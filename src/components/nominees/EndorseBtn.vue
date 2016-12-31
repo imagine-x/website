@@ -27,14 +27,20 @@ export default {
       if (!this.$store.state.director.login.mail){
           return this.showEndorseModal()
       }
-      this.endorsed = true
-      this.text = "Endorsed"
-      this.$store.commit('endorseNominee', name)
-      request
+      if (this.endorsed) {
+        this.text = "Endorse"
+        this.$store.commit('endorseNominee', { name: name, endorse: false })
+        this.endorsed = false
+      } else {
+        this.text = "Endorsed"
+        this.$store.commit('endorseNominee', { name: name, endorse: true })
+        this.endorsed = true
+        request
           .post('/endorse')
           .send({name})
           .then(console.log)
           .catch(console.log)
+      }
     },
     showEndorseModal(){
       this.$store.dispatch('TOGGLE_ENDORSE')
@@ -85,7 +91,13 @@ export default {
     color: gray;
     background-color: lightgray;
     border: lightgray;
-    cursor: initial;
+    cursor: pointer;
+}
+
+.endorse.is-endorsed:hover {
+    color: black;
+    background-color: darkgray;
+    border: darkgray;
 }
 
 .thumbs-up {

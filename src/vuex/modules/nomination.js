@@ -6,15 +6,23 @@ const mutations = {
     newNominee.support = 1
     nomination.nominees.unshift(newNominee)
   },
-  endorseNominee(nomination, name) {
-    nomination.nominees.forEach(nominee => {
-      if (nominee.name === name) {
-        nominee.support++
-      }
-    })
-  },
   clearNominees(nomination){
     nomination.nominees = []
+  },
+  endorseNominee(nomination, options) {
+    if (options.endorse) {
+        nomination.nominees.forEach(nominee => {
+            if (nominee.name === options.name) {
+                nominee.support++
+            }
+        })
+    } else {
+        nomination.nominees.forEach(nominee => {
+            if (nominee.name === options.name && nominee.support >= 1) {
+                nominee.support--
+            }
+        })
+    }
   }
 }
 
