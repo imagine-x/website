@@ -11,6 +11,7 @@
 					<option value="recent">Most recent</option>
 					<option value="endorsement">Endorsements</option>
 					<option value="alpha">Alphabetically</option>
+                    <option value="regionriding">Region / Riding</option>
 				</select>
 			</div>
 			<div class="six columns">
@@ -72,6 +73,9 @@ export default {
             case 'alpha':
                 nomineesList = _.sortBy(nomineesList, 'name');
                 break;
+            case 'regionriding':
+                nomineesList = _.sortBy(nomineesList, 'location');
+                nomineesList = _.sortBy(nomineesList, 'riding');
         }
 
         nomineesList = _.filter(nomineesList, (item) => {
