@@ -112,7 +112,8 @@
         </label>
         <br/>
         <input type="checkbox" id="mail-list" v-model="submitter.list"/>
-        <label for="mail-list" class="checkbox__label">Yes, I want to subscribe to the Imagine X mailing list for updates</label>
+        <label for="mail-list" class="checkbox__label">Yes, I want to subscribe to the Imagine X mailing list for updates
+        <span class="help-text"> (If you've already subscribed, you will not be subscribed again)</span></label>
     </fieldset>
     <br>
     <button
@@ -395,4 +396,7 @@ export default {
     color:red
     display:none
 
+#mail-list {
+    margin: 0;
+}
 </style>
