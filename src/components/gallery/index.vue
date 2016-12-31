@@ -32,6 +32,9 @@ import Submitted from '../nominate/Submitted.vue'
 let headingContent = ['Independent Nominees Gallery']
 
 export default {
+    mounted(){
+        this.$store.dispatch('GET_NOMINEES')
+    },
     data() {
         return {
             headingContent,

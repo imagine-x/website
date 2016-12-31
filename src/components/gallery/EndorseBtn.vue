@@ -9,6 +9,7 @@
 
 
 <script>
+import request from 'superagent'
 
 export default {
   props: ['name'],
@@ -29,6 +30,11 @@ export default {
       this.endorsed = true
       this.text = "Endorsed"
       this.$store.commit('endorseNominee', name)
+      request
+          .post('/endorse')
+          .send({name})
+          .then(console.log)
+          .catch(console.log)
     },
     showEndorseModal(){
       this.$store.dispatch('TOGGLE_ENDORSE')
