@@ -37,19 +37,23 @@
             name='twitter'
             id="nominee-twitter"
             v-model='nominee.twitter' />
-        <label class="form__label" for="region">Location where nominee should run / is running</label>
+        <label class="form__label" for="location">District where nominee should run / is running</label>
         <select id="location"
             class="select"
             v-model="nominee.location"
             :style="nomineeLocationInputStyle"
+            @change="getRidings"
         >
-            <optgroup label="Region">
-                <option v-for="r in regions">{{ r }}</option>
-            </optgroup>
-            <optgroup label="Riding">
-                <option v-for="r in ridings">{{ r }}</option>
-            </optgroup>
+            <option disabled="">- Select -</option>
+            <option v-for="l in locations">{{l.name}}</option>
         </select>
+        <div v-show="nominee.location">
+            <label class="form__label" for="riding">Riding where nominee should run / is running<span class="help-text"> (Optional)</span></label>
+            <select id="riding" class="select" v-model="nominee.riding">
+                <option disabled="">- Select -</option>
+                <option v-for="r in districtRidings">{{ r }}</option>
+            </select>
+        </div>
         <label class="form__label" for="whybox">Tell us why the nominee would be a good candidate <span class="help-text">(Max 600 characters)</span></label>
         <textarea
             class="why-area"
@@ -124,7 +128,7 @@
 import request from 'superagent'
 import _ from 'lodash'
 import Submitted from './Submitted'
-import { regions, ridings } from '../../assets/locationData'
+import { locations, regions, ridings } from '../../assets/locationData'
 
 const invalidStyle = {
   'border-color': '#da0505',
@@ -138,6 +142,7 @@ let emptyNominee = {
   name: '',
   occupation: '',
   location: '',
+  riding: '',
   contact: '',
   twitter: '@',
   link: '',
@@ -162,13 +167,20 @@ export default {
     return {
       submitAttempted:false,
       success: false,
-      regions,
-      ridings,
+      locations,
       nominee: _.clone(emptyNominee),
       submitter: _.clone(emptySubmitter),
+      districtRidings: ''
     }
+    districtRidings: ''
   },
   methods: {
+    getRidings() {
+        let district = _.find(locations, (item) => {
+            return item.name === this.nominee.location
+        });
+        this.districtRidings = district.ridings;
+    },
     nominate() {
       this.submitAttempted = true
       if ( this.isValid() ){
