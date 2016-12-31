@@ -30,6 +30,14 @@
 		<i class="fa fa-check-circle official-mark"></i>
 		<span>&nbsp; Official nominee registered with Elections BC</span>
 		<nominee v-for='(nominee, i) in nomineesList' :nominee='nominee'></nominee>
+        <div v-show="noNominees" class="nothing container">
+            <p><b>There are currently no nominees for this region / riding. Nominate someone today.</b></p>
+            <div class="u-align--center">
+                <router-link to="/nominate">
+                    <button>Nominate now &nbsp;></button>
+                </router-link>
+            </div>
+        </div>
 	</div>
 </template>
 
@@ -43,6 +51,7 @@ export default {
 	  area: 'All',
 	  locations,
       sortBy: 'recent',
+      noNominees: false
 	}
   },
   computed: {
@@ -75,6 +84,8 @@ export default {
             }
         });
 
+        this.noNominees = nomineesList.length > 0 ? false : true;
+
         return nomineesList;
     },
 	ridings() {
@@ -98,5 +109,8 @@ export default {
   @import "../../styles/main"
   .legend-label {
 	margin-top: 2.5rem;
+  }
+  .nothing {
+    margin-top: 5rem;
   }
 </style>
