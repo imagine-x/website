@@ -1,6 +1,7 @@
 <template lang="jade">
 
 #nominate
+    submitted
     thank-you
     endorse
     terms-of-use
@@ -26,6 +27,7 @@ import Application from '../generics/Application.vue'
 import ThankYou from '../generics/ThankYou.vue'
 import TermsOfUse from '../generics/TermsOfUse.vue'
 import Endorse from './Endorse.vue'
+import Submitted from '../nominate/Submitted.vue'
 
 let headingContent = ['Independent Nominees Gallery']
 
@@ -45,7 +47,8 @@ export default {
             ThankYou,
             TermsOfUse,
             Nominees,
-            Endorse
+            Endorse,
+            Submitted
         },
         beforeMount() {
             this.$store.dispatch("SET_IMAGINE_X_BY_URL", window.location.pathname)

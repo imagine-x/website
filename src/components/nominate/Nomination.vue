@@ -1,6 +1,5 @@
 <template>
 <div class='application'>
-  <submitted></submitted>
   <h2>Nomination Form</h2>
   <p>We're thrilled that you want to nominate someone to run in the upcoming BC provincial election as an indepedent. Fill in the form below to submit a nomination. Please do not submit names of individuals who are running on behalf of an existing political party. If you submit the nominee's contact information below, we will try reach out to them to notify them about their nomination. This nomination process is to encourage nominess to consider candidacy in the election and does not replace with any official nomination procedures required by Elections BC.</p>
   <p>Note: All fields are mandatory unless indicated as optional.</p>
@@ -185,7 +184,7 @@ export default {
 
         this.nominee = _.clone(emptyNominee)
         this.submitter = _.clone(emptySubmitter)
-        this.$store.dispatch('TOGGLE_THANKYOU')
+        this.$store.dispatch('TOGGLE_SUBMITTED')
         this.$router.push('/gallery')
         this.$store.commit('newNominee', this.nominee)
         this.submitAttempted = false
