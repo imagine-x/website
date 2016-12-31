@@ -1,8 +1,7 @@
 <template>
 <Modal v-bind:visible="visible" v-bind:close="closeModal">
   <h1>Sign Up / Sign In to Endorse</h1>
-  <p>Let's publically show our collective support for our favourite nominees to encourage them to run. If we can, we'll even try to reach out to the nominee and let them know about the public support for their nomination. Sign up for an account or sign in
-    to endorse nominees. </p>
+  <p>Let's publically show our support for our favourite nominees to encourage them to run. We'll even try to reach out to the nominee and let them know about the public support for their nomination. Sign up for an account or sign in to endorse nominees.</p>
     <label class="form__label" for="login-name" >Your Name</label>
     <input
         type="text"
@@ -32,7 +31,9 @@
      <input type="checkbox" id="mail-list" v-model="info.list" />
      <label for="mail-list" class="checkbox__label">
        Yes, I want to subscribe to the Imagine X mailing list
+       <span class="help-text"> (If you've already subscribed, you will not be subscribed again)</span></label>
      </label>
+     <p></p>
      <button class="btn--full u-margin--top" @click.prevent='login'>
        Sign in & Endorse nominee
      </button>
@@ -175,4 +176,7 @@ export default {
     color:red
     display:none
 
+#mail-list {
+    margin: 0;
+}
 </style>
