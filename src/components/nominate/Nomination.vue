@@ -222,7 +222,8 @@ export default {
       )
     },
     isValidNomineeName() {
-      return this.nominee.name.length > 3
+        let nameRegex = /^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/
+        return nameRegex.test(this.nominee.name)
     },
     isValidNomineeOccupation() {
       return this.nominee.occupation.length > 3
@@ -260,7 +261,8 @@ export default {
       )
     },
     isValidSubmitterName() {
-      return this.submitter.name.length > 3
+      let nameRegex = /^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/
+        return nameRegex.test(this.submitter.name)
     },
     isValidSubmitterMail() {
       let mailRegex = /^\w+\.?\w+?\@\w+\.(\w+\.)?\w+$/

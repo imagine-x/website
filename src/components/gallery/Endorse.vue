@@ -94,7 +94,8 @@ export default {
         )
     },
     isValidName() {
-      return this.info.name.length > 3
+      let nameRegex = /^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/
+      return nameRegex.test(this.info.name)
     },
     isValidMail() {
       let mailRegex = /^\w+\.?\w+?\@\w+\.(\w+\.)?\w+$/
