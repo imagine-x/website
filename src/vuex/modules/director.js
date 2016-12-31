@@ -10,11 +10,17 @@ const mutations = {
     setPrivacy(director, thanks){
       director.privacy = thanks
     },
-    setTou(director, mode){
-        director.tou = mode
+    setTou(director, state){
+        director.tou = state
     },
-    setEndorse(director, mode) {
-        director.endorse = mode
+    setEndorse(director, state) {
+        director.endorse = state
+    },
+    login(director, mail){
+        director.login.mail = mail
+    },
+    setSubmitted(director, state){
+        director.submitted = state
     }
 }
 
@@ -23,7 +29,11 @@ const state = {
   thankYou: false,
   privacy: false,
   tou: false,
-  endorse: false
+  endorse: false,
+  submitted: false,
+  login: {
+      mail: false,
+  }
 }
 
 let j = 1
@@ -50,6 +60,9 @@ const actions = {
   },
   TOGGLE_ENDORSE({ commit, state}){
     commit('setEndorse', !state.endorse)
+  },
+  TOGGLE_SUBMITTED({ commit, state}) {
+    commit('setSubmitted', !state.submitted)
   }
 }
 

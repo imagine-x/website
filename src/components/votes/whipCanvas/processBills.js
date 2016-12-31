@@ -41,5 +41,3 @@ let failedBadly = failed.filter(bill => {
 })
 
 export const ynSorted = _.concat(passedOverwhelmingly, passedPartisan, failedPartisan, failedBadly);
-
-console.log(_.difference(rawbillsSorted, ynSorted));

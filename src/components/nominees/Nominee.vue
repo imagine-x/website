@@ -9,16 +9,13 @@
     </h3>
     <ul class="list--clean nominee-card__list">
         <li v-if="nominee.occupation">Current occupation: {{nominee.occupation}}</li>
-        <li v-if="nominee.region || nominee.riding">Region or riding:
-            <span v-if="nominee.region">{{nominee.region}}</span>
-            <span v-if="nominee.region && nominee.riding">, </span>
-            <span v-if="nominee.riding">{{nominee.riding}}</span>
-        <li>
+        <li v-if=" nominee.location">Region: {{nominee.location}}<li>
+        <li v-if=" nominee.riding">Riding: {{nominee.riding}}<li>
     </ul>
     <p v-if="nominee.why" class="why-block">{{nominee.why}}</p>
     <a v-if="nominee.link" v-bind:href="nominee.link" target="_blank">More information ></a>
     <p></p>
-    <endorse-btn :_id="nominee._id"></endorse-btn>
+    <endorse-btn :name="nominee.name"></endorse-btn>
     <span>+{{nominee.support}}</span>
 </div>
 
@@ -40,16 +37,6 @@ export default {
 
 <style lang="stylus" scoped>
 @import "../../styles/main"
-
-.official-mark {
-    font-size: 20px;
-    color: #4CAF50;
-}
-
-.official-mark-container {
-    width: 3rem;
-    cursor: pointer;
-}
 
 .endorse {
     display: inline-block;

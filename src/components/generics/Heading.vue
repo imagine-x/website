@@ -57,7 +57,7 @@ img
 
 .header-container
   border-bottom: 1px solid #E0E1DC;
-  padding: 0;
+  padding: 1rem 0;
   display: flex;
   display: -webkit-box;
   display: -moz-box;
@@ -101,8 +101,8 @@ img
 }
 
 @media (min-width: breakpoint) {
-    button{
-      display:none
+    button {
+      display: none;
     }
 
     #heading {
