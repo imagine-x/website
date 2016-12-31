@@ -1,6 +1,6 @@
 <template>
 
-<div role="button" :class="c" @click="endorse(name)">
+<div role="button" :class="c" @click="endorse(name)" tabindex="0">
   <i class="fa fa-thumbs-up thumbs-up"></i>
   {{ text }}
 </div>
