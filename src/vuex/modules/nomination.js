@@ -1,6 +1,5 @@
 import _ from 'lodash'
 
-
 const mutations = {
   newNominee(nomination, newNominee) {
     newNominee.support = 1
@@ -15,7 +14,9 @@ const mutations = {
   }
 }
 
-const actions = {}
+const actions = {
+}
+
 
 const state = {
   nominees: [{
@@ -44,15 +45,18 @@ const state = {
     _id: 3,
     name: 'David Bond',
     why: 'Binge watches Game of Thrones once a month, former banker. Always dreamed of being a dancer.',
-    support: 0,
+    support: 1,
   }, {
     _id: 4,
     name: 'Kenta Otani',
-    why: 'Running in politics is a very big burden. Then you have to get shit done. High level of responsibility. I wouldn\'t mind running if I was closer to death.'
+    why: 'Running in politics is a very big burden. Then you have to get shit done. High level of responsibility. I wouldn\'t mind running if I was closer to death.',
+    support: 4
   }, {
-    why: 'A very rare two term independent, lets make it three.',
+    _id: 5,
+    name: 'Goldilocks',
+    why: 'Just right.',
     official:true,
-    support: 1
+    support: 3
   }, ]
 }
 

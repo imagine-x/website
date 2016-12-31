@@ -7,16 +7,15 @@
 		<div class="row">
 			<div class="six columns">
 				<label class="form__label">Sort by:</label>
-				<select class="select">
-					<option>Most recent</option>
-					<option>Endorsements</option>
-					<option>Alphabetically</option>
-					<option>Region / Riding</option>
+				<select class="select" v-model="sortBy">
+					<option value="recent">Most recent</option>
+					<option value="endorsement">Endorsements</option>
+					<option value="alpha">Alphabetically</option>
 				</select>
 			</div>
 			<div class="six columns">
 				<label class="form__label">Filter by Region/Riding:</label>
-				<select class="select" v-model="area" >
+				<select class="select" v-model="area">
 					<option>All</option>
 					<optgroup label="Region">
 						<option v-for="l in locations">{{ l.name }}</option>
@@ -30,7 +29,7 @@
 		<label class="legend-label">LEGEND</label>
 		<i class="fa fa-check-circle official-mark"></i>
 		<span>&nbsp; Official nominee registered with Elections BC</span>
-		<nominee v-for='(nominee, i) in nominees' :nominee='nominee'></nominee>
+		<nominee v-for='(nominee, i) in nomineesList' :nominee='nominee'></nominee>
 	</div>
 </template>
 
@@ -42,13 +41,42 @@ export default {
   data() {
 	return {
 	  area: 'All',
-	  locations
+	  locations,
+      sortBy: 'recent',
 	}
   },
   computed: {
-	nominees() {
-	  return this.$store.state.nomination.nominees
-	},
+    nomineesList() {
+        let nomineesList = _.clone(this.$store.state.nomination.nominees);
+        let area = this.area;
+        let sortBy = this.sortBy;
+
+        nomineesList = _.sortBy(nomineesList, '_id').reverse();
+
+        switch (sortBy) {
+            case 'recent':
+                nomineesList = _.sortBy(nomineesList, '_id').reverse();
+                break;
+            case 'endorsement':
+                nomineesList = _.sortBy(nomineesList, 'support').reverse();
+                break;
+            case 'alpha':
+                nomineesList = _.sortBy(nomineesList, 'name');
+                break;
+        }
+
+        nomineesList = _.filter(nomineesList, (item) => {
+            if (item.location === area) {
+                return item.location === area;
+            } else if (item.riding === area ) {
+                return item.riding === area;
+            } else if (area === 'All') {
+                return nomineesList;
+            }
+        });
+
+        return nomineesList;
+    },
 	ridings() {
 		let ridingsArray = [];
 
