@@ -67,7 +67,8 @@ export default {
   },
   methods: {
     closeModal() {
-      this.$store.dispatch('TOGGLE_ENDORSE')
+      this.$store.dispatch('TOGGLE_ENDORSE');
+      this.submitAttempted = false;
     },
     showTouModal() {
       this.$store.dispatch('TOGGLE_TOU')
