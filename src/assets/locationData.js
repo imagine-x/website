@@ -1,15 +1,15 @@
 export const locations = [{
         id: '1',
         name: 'Burnaby',
-        ridings: ["Burnaby North","Burnaby-Willingdon","Burnaby-Edmonds"]
+        ridings: ["Burnaby North","Burnaby-Lougheed","Burnaby-Edmonds", "Burnaby-Deer Lake"]
     }, {
         id: '2',
         name: 'Cariboo-Thompson',
-        ridings: ["Cariboo North","Cariboo South","Yale-Lillooet","Kamloops","Kamloops–North Thompson"]
+        ridings: ["Cariboo North","Fraser-Nicola","Cariboo-Chilcotin","Kamloops-North Thompson","Kamloops-South Thompson"]
     }, {
         id: '3',
         name: 'Columbia-Kootenay',
-        ridings:["Columbia River–Revelstoke","East Kootenay","Nelson-Creston","West Kootenay–Boundary"]
+        ridings:["Columbia River–Revelstoke","Kootenay East","Kootenay West","Nelson-Creston","Boundary-Similkameen"]
     }, {
         id: '4',
         name: 'Delta',
@@ -17,7 +17,7 @@ export const locations = [{
     },  {
         id: '5',
         name: 'Fraser Valley',
-        ridings: ["Maple Ridge–Pitt Meadows","Maple Ridge–Mission","Langley","Fort Langley–Aldergrove","Abbotsford–Mount Lehman","Abbotsford-Clayburn","Chilliwack-Sumas","Chilliwack-Kent"]
+        ridings: ["Maple Ridge–Pitt Meadows","Maple Ridge–Mission","Langley","Langley East","Abbotsford South","Abbotsford West","Abbotsford-Mission","Chilliwack","Chilliwack-Kent"]
     }, {
         id: '6',
         name: 'New Westminster',
@@ -25,34 +25,34 @@ export const locations = [{
     }, {
         id: '7',
         name: 'North Shore',
-        ridings: ["North Vancouver–Seymour","North Vancouver–Lonsdale","West Vancouver–Capilano","West Vancouver–Garibaldi"]
+        ridings: ["North Vancouver–Seymour","North Vancouver–Lonsdale","West Vancouver–Capilano","West Vancouver–Sea to Sky"]
     }, {
         id: '8',
         name: 'Okanagan',
-        ridings: ["Shuswap","Okanagan-Vernon","Kelowna–Lake Country","Kelowna-Mission","Okanagan-Westside","Penticton–Okanagan Valley"]
+        ridings: ["Shuswap","Vernon-Monashee","Kelowna–Lake Country","Kelowna-Mission","Kelowna West","Penticton"]
     }, {
         id: '9',
         name: 'Richmond',
-        ridings: ["Richmond Centre","Richmond-Steveston","Richmond East"]
+        ridings: ["Richmond North Centre","Richmond South Centre","Richmond-Steveston","Richmond Queensborough"]
     }, {
         id: '10',
         name: 'Surrey',
-        ridings: ["Surrey-Whalley","Surrey-Green Timbers","Surrey-Tynehead","Surrey-Newton","Surrey–Panorama Ridge","Surrey-Cloverdale","Surrey–White Rock"]
+        ridings: ["Surrey-South","Surrey-Cloverdale","Surrey-Fleetwoord","Surrey-Green Timbers","Surrey-Guildford","Surrey-Newton","Surrey–Panorama","Surrey-Whalley","Surrey–White Rock"]
     }, {
         id: '11',
         name: 'The North',
-        ridings: ['North Coast','Skeena','Bulkley Valley–Stikine','Prince George–Omineca','Prince George North','Prince George–Mount Robson','Peace River South','Peace River North']
+        ridings: ["North Coast",'Skeena',"Nechako Lakes",'Stikine','Prince George-Mackenzie','Prince George-Valemount','Peace River South','Peace River North']
     }, {
         id: '12',
         name: 'Tri-Cities',
-        ridings: ["Port Moody–Westwood","Burquitlam","Coquitlam-Maillardville","Port Coquitlam–Burke Mountain"]
+        ridings: ["Port Moody–Coquitlam","Port Coquitlam","Coquitlam-Maillardville","Coquitlam–Burke Mountain"]
     }, {
         id: '13',
         name: 'Vancouver',
-        ridings: ["Vancouver-Hastings","Vancouver-Kingsway","Vancouver-Fraserview","Vancouver–Mount Pleasant","Vancouver-Kensington","Vancouver-Burrard","Vancouver-Fairview","Vancouver-Langara","Vancouver–Point Grey","Vancouver-Quilchena"]
+        ridings: ["Vancouver-False Creek","Vancouver-Hastings","Vancouver-Kingsway","Vancouver-Fraserview","Vancouver–Mount Pleasant","Vancouver-Kensington","Vancouver-Burrard","Vancouver-Fairview","Vancouver-Langara","Vancouver–Point Grey","Vancouver-Quilchena"]
     }, {
         id: '14',
         name: 'Vancouver Island and South Coast',
-        ridings: ["Powell River–Sunshine Coast","North Island","Comox Valley","Alberni-Qualicum","Nanaimo-Parksville","Nanaimo","Cowichan-Ladysmith","Malahat–Juan de Fuca","Saanich North and the Islands","Saanich South","Oak Bay–Gordon Head","Victoria–Beacon Hill","Victoria-Hillside","Esquimalt-Metchosin"]
+        ridings: ["Powell River–Sunshine Coast","Mid Island-Pacific Rim","North Island","Courtenay-Comox","Parksville-Qualicum","Nanaimo-North Cowichan","Nanaimo","Cowichan Valley","Langford–Juan de Fuca","Saanich North and the Islands","Saanich South","Oak Bay–Gordon Head","Victoria–Beacon Hill","Victoria-Swan Lake","Esquimalt-Metchosin"]
     }
 ]
