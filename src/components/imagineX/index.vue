@@ -11,7 +11,7 @@
 				b Join us and together let's Reimagine Politics, Reimagine BC.
 				hr
 			.four.columns.layout__sidebar
-				navigation
+				navigation.nav--side
 				application
 				hr.hr--hide-lg
 			.eight.columns.layout__main
@@ -75,7 +75,7 @@ main
 
 
 @media (max-width: breakpoint) {
-	.layout__sidebar {
+	.nav--side {
 		display:none
 	}
 }

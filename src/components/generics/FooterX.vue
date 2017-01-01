@@ -39,7 +39,7 @@ export default {
 }
 
 .footer__link {
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 0.75rem;
     display: inline-block;
 }

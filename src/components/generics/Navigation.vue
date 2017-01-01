@@ -43,7 +43,6 @@ li {
     list-style: none;
     display: inline-block;
     width: 100%;
-    font-size: 15px;
 }
 
 a {
@@ -53,7 +52,6 @@ a {
 .navigation--offcanvas {
     li {
         padding: 0.65rem 1rem;
-        font-size: 15px;
     }
 }
 .navigation--offcanvas.is-open {
