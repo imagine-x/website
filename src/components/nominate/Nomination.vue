@@ -173,10 +173,10 @@ export default {
       submitter: _.clone(emptySubmitter),
       districtRidings: ''
     }
-    districtRidings: ''
   },
   methods: {
     getRidings() {
+        this.nominee.riding = null;
         let district = _.find(locations, (item) => {
             return item.name === this.nominee.location
         });
