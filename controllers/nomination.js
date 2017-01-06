@@ -8,6 +8,7 @@ module.exports = (app, db)=>{
       console.log('GET /x/nominees')
       nominees.find({}).toArray(function(err, nominees) {
         // TODO - strip contact details and anything else not for client
+        console.log(nominees)
         res.json(nominees)
       });
   })

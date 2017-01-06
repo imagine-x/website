@@ -3,7 +3,9 @@ import request from 'superagent'
 
 const mutations = {
   newNominee(nomination, newNominee) {
-    newNominee.support = 1
+    if (!newNominee.support){
+        newNominee.support = 1
+    }
     nomination.nominees.unshift(newNominee)
   },
   clearNominees(nomination){
@@ -32,10 +34,9 @@ const actions = {
             .get('/x/nominees')
             .then( res => {
                 let nominees = JSON.parse(res.text)
+                console.log('GOT NOMINEES:', {nominees})
                 commit('clearNominees')
-                nominees.forEach(nominee => {
-                    commit('newNominee',nominee)
-                })
+                nominees.forEach( nominee => commit('newNominee', nominee) )
             })
     },
     ENDORSE_NOMINEE( {commit, state}, endorseData ){
