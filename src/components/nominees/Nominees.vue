@@ -103,13 +103,11 @@ export default {
         return nomineesList;
     },
 	ridings() {
-		let ridingsArray = [];
-
+		let ridingsArray = []
 		for (let i = 0; i < locations.length; i++) {
 			let locationRidings = locations[i].ridings;
 			ridingsArray = ridingsArray.concat(locationRidings);
 		}
-
 		return ridingsArray.sort();
 	}
   },

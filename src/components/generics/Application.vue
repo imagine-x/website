@@ -74,6 +74,9 @@ export default {
 				}
 				console.log(info)
 				this.$store.dispatch('TOGGLE_THANKYOU')
+				this.$store.dispatch('LOGIN', info)
+
+				// TODO this should be in action / depricated ^
 				request
           .post('/post')
           .send(info)

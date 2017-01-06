@@ -23,7 +23,9 @@ const actions = {
         request
             .post('/x/login')
             .send(login)
-            .then(console.log)
+            .then(res => {
+                console.log("success response!", {res})
+            })
             .catch(console.log)
     }
 }

@@ -12,6 +12,7 @@ var slackController = new(require('./controllers/slackController'))(databaseServ
 const DB_URL = 'mongodb://localhost:27017/imaginex'
 const Mongo = require('mongodb').MongoClient
 const NominationRouter = require('./controllers/nomination')
+const UsersRouter = require('./controllers/users')
 
 // HTTP handlers
 var bodyParser = require('body-parser');
@@ -32,6 +33,7 @@ Mongo.connect(DB_URL, (err, db) => {
     // route for slack bot that dumps whole list
     app.post('/slackCommand', (req, res) => slackController.slackCommand(req, res));
     // route to serve static vue app
+    UsersRouter(app,db)
     NominationRouter(app,db)
 
     app.get('/*', function(req, res) {
