@@ -22,28 +22,28 @@ export default {
     }
   },
   methods: {
-    endorse(name){
-      // TODO: Post Req // Auth
-      if (!this.$store.state.director.login.mail){
+    endorse(nominee){
+      let login = _.pick(this.$store.state.user.login, [ 'name', 'mail', 'postal'] )
+      if (!login.mail){
           return this.showEndorseModal()
       }
+      let endorseData = {
+          nominee,
+          login
+      }
+
       if (this.endorsed) {
-        this.text = "Endorse"
-        this.$store.commit('endorseNominee', { name: name, endorse: false })
-        this.endorsed = false
+          this.text = "Endorse"
+          this.$store.dispatch('UNENDORSE_NOMINEE', endorseData)
+          this.endorsed = false
       } else {
-        this.text = "Endorsed"
-        this.$store.commit('endorseNominee', { name: name, endorse: true })
-        this.endorsed = true
-        request
-          .post('/endorse')
-          .send({name})
-          .then(console.log)
-          .catch(console.log)
+          this.text = "Endorsed"
+          this.$store.dispatch('ENDORSE_NOMINEE', endorseData)
+          this.endorsed = true
       }
     },
     showEndorseModal(){
-      this.$store.dispatch('TOGGLE_ENDORSE')
+        this.$store.dispatch('TOGGLE_ENDORSE')
     }
   },
   data(){

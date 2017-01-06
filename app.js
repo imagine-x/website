@@ -18,32 +18,26 @@ var bodyParser = require('body-parser');
 var multer = require('multer');
 var upload = multer();
 
-
 Mongo.connect(DB_URL, (err, db) => {
+    console.log('Connected to db')
+    // outbound http client
+    app.use(express.static('dist'));
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({
+      extended: true
+    }))
 
+    // route to save contacts, send welcome message
+    app.post('/post', (req, res) => contactsController.submit(req, res));
+    // route for slack bot that dumps whole list
+    app.post('/slackCommand', (req, res) => slackController.slackCommand(req, res));
+    // route to serve static vue app
+    NominationRouter(app,db)
 
-  // outbound http client
-  app.use(express.static('dist'));
-  app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({
-    extended: true
-  }));
+    app.get('/*', function(req, res) {
+      console.log('Serving index.html')
+      res.sendFile(path.join(__dirname, '/dist/index.html'))
+    })
 
-  // route to save contacts, send welcome message
-  app.post('/post', (req, res) => contactsController.submit(req, res));
-  // route for slack bot that dumps whole list
-  app.post('/slackCommand', (req, res) => slackController.slackCommand(req, res));
-  // route to serve static vue app
-  NominationRouter(app,db)
-
-
-  app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname, '/dist/index.html'));
-  })
-
-  // Nomination Data and Auth
-
-  // App Start
-  app.listen(process.env.PORT || 8003);
-
+    app.listen(process.env.PORT || 8003)
 })

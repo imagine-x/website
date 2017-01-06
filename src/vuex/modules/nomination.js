@@ -27,17 +27,40 @@ const mutations = {
 }
 
 const actions = {
-  GET_NOMINEES( {commit} ){
-    request
-        .get('/nominees')
-        .then( res => {
-            let nominees = JSON.parse(res.text)
-            commit('clearNominees')
-            nominees.forEach(nominee => {
-              commit('newNominee',nominee)
+    GET_NOMINEES( {commit} ){
+        request
+            .get('/x/nominees')
+            .then( res => {
+                let nominees = JSON.parse(res.text)
+                commit('clearNominees')
+                nominees.forEach(nominee => {
+                    commit('newNominee',nominee)
+                })
             })
+    },
+    ENDORSE_NOMINEE( {commit, state}, endorseData ){
+        commit('endorseNominee', {
+            endorse:true,
+            name: endorseData.nominee,
         })
-  }
+        request
+            .post('/x/endorse')
+            .send(endorseData)
+            .then(console.log)
+            .catch(console.log)
+    },
+    UNENDORSE_NOMINEE( {commit, state}, endorseData ){
+        commit('endorseNominee', {
+            name: endorseData.nominee,
+            endorse:false,
+        })
+        request
+            .post('/x/unendorse')
+            .send(endorseData)
+            .then(console.log)
+            .catch(console.log)
+    },
+
 }
 
 const state = {

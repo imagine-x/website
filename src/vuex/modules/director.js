@@ -16,9 +16,6 @@ const mutations = {
     setEndorse(director, state) {
         director.endorse = state
     },
-    login(director, mail){
-        director.login.mail = mail
-    },
     setSubmitted(director, state){
         director.submitted = state
     }
@@ -31,9 +28,6 @@ const state = {
   tou: false,
   endorse: false,
   submitted: false,
-  login: {
-      mail: false,
-  }
 }
 
 let j = 1
@@ -46,7 +40,6 @@ const actions = {
     }
   },
   CHANGE_MODE({ commit }, mode){
-    console.log({mode})
     if (mode) commit('setMode', mode)
   },
   TOGGLE_THANKYOU({ commit, state }){

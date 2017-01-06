@@ -189,8 +189,9 @@ export default {
           nominee: this.nominee,
           submitter: this.submitter
         }
+        
         request
-          .post('/nomination')
+          .post('/x/nomination')
           .send(info)
           .then(console.log)
           .catch(console.log)

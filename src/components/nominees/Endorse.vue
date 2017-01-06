@@ -76,11 +76,10 @@ export default {
     },
     login() {
       this.submitAttempted = true
+      let login = _.pick(this.info, ['name', 'mail', 'postal'])
       if (this.isValidInfo()) {
-        request.post('/login').send(this.info).then(console.log).catch(console.log)
-          // TODO handle in response from serve
-        this.$store.commit('login', this.info.mail)
-        this.closeModal()
+          this.$store.dispatch('LOGIN', login)
+          this.closeModal()
       }
     },
     isValidInfo() {
