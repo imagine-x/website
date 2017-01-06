@@ -7,16 +7,16 @@ module.exports = (app, db)=>{
         let mail = req.body.mail
         let postal = req.body.postal
         console.log('attempting login:', {body: req.body})
-
         users.find({mail,postal}, {_id:1}).toArray( function(err, allMatchedUsers) {
             console.log({allMatchedUsers})
             if ( !allMatchedUsers.length ){
-                users.insert(req.body, {},function(err, newUser){
-                    console.log({err, newUser})
-                    res.send(newUser._id)
+                users.insert(req.body, function(err, newUser){
+                    console.log("Returning new user", newUser.insertedIds)
+                    res.send(newUser.insertedIds[0])
                 })
-            } else{
-              res.send(allMatchedUsers[0])        
+            } else {
+                console.log("Returning existing User ID", allMatchedUsers[0]._id)
+                res.send(allMatchedUsers[0]._id)
             }
         })
     })

@@ -102,17 +102,17 @@ export default {
 
         return nomineesList;
     },
-	ridings() {
-		let ridingsArray = []
-		for (let i = 0; i < locations.length; i++) {
-			let locationRidings = locations[i].ridings;
-			ridingsArray = ridingsArray.concat(locationRidings);
+		ridings() {
+			let ridingsArray = []
+			for (let i = 0; i < locations.length; i++) {
+				let locationRidings = locations[i].ridings;
+				ridingsArray = ridingsArray.concat(locationRidings);
+			}
+			return ridingsArray.sort();
 		}
-		return ridingsArray.sort();
-	}
   },
   components: {
-	Nominee,
+		Nominee,
   },
 }
 </script>

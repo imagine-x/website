@@ -3,18 +3,21 @@ import request from 'superagent'
 
 const mutations = {
     login(user, login){
-        console.log('Now logged in', login)
         user.login = login
     },
+    serverLogin(user, serverId){
+        user.serverId = serverId
+    }
 }
 
 
 const state = {
     login: {
+        mail:'',
+        postal:'',
         name:'',
-        mail: '',
-        postal: '',
-    }
+    },
+    serverId: ''
 }
 
 const actions = {
@@ -24,7 +27,7 @@ const actions = {
             .post('/x/login')
             .send(login)
             .then(res => {
-                console.log("success response!", {res})
+                commit('serverLogin', res)
             })
             .catch(console.log)
     }

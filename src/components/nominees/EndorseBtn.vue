@@ -24,6 +24,7 @@ export default {
   methods: {
     endorse(nominee){
       let login = _.pick(this.$store.state.user.login, [ 'name', 'mail', 'postal'] )
+
       if (!login.mail){
           return this.showEndorseModal()
       }
