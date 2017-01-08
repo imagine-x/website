@@ -23,14 +23,15 @@ export default {
   },
   methods: {
     endorse(nominee){
-      let login = _.pick(this.$store.state.user.login, [ 'name', 'mail', 'postal'] )
+      let serverId = this.$store.state.user.serverId
 
-      if (!login.mail){
+      if (!serverId){
           return this.showEndorseModal()
       }
+
       let endorseData = {
           nominee,
-          login
+          serverId
       }
 
       if (this.endorsed) {

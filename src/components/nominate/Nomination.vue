@@ -185,23 +185,14 @@ export default {
     nominate() {
       this.submitAttempted = true
       if ( this.isValid() ){
-        let info = {
-          nominee: this.nominee,
-          submitter: this.submitter
-        }
-        
-        request
-          .post('/x/nomination')
-          .send(info)
-          .then(console.log)
-          .catch(console.log)
-
+        this.$store.dispatch('LOGIN', this.submitter)
+        this.$store.dispatch('NOMINATE', this.nominee)
+        this.$store.commit('newNominee', this.nominee)
         this.nominee = _.clone(emptyNominee)
         this.submitter = _.clone(emptySubmitter)
-        this.$store.dispatch('TOGGLE_SUBMITTED')
         this.$router.push('/nominees')
-        this.$store.commit('newNominee', this.nominee)
         this.submitAttempted = false
+        this.$store.dispatch('TOGGLE_SUBMITTED')
       }
     },
     showTouModal(){

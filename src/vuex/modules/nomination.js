@@ -2,6 +2,14 @@ import _ from 'lodash'
 import request from 'superagent'
 
 const mutations = {
+  setEndorseWithServerId(nomination, serverId){
+      nomination.nominees.forEach(nominee => {
+          if ( _.indexOf(nominee.supporters, serverId) > -1 ){
+              nominee.endorsed = true
+          }
+      })
+
+  },
   newNominee(nomination, newNominee) {
     if (!newNominee.support){
         newNominee.support = 1
@@ -29,6 +37,13 @@ const mutations = {
 }
 
 const actions = {
+    NOMINATE({commit}, info){
+          request
+            .post('/x/nomination')
+            .send(info)
+            .then(console.log)
+            .catch(console.log)
+    },
     GET_NOMINEES( {commit} ){
         request
             .get('/x/nominees')

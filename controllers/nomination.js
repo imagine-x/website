@@ -22,9 +22,7 @@ module.exports = (app, db)=>{
   })
 
   app.post('/x/nomination', (req,res)=>{
-      console.log('POST /x/nomination')
-      users.insert(req.body.submitter)
-      nominees.insert(req.body.nominee)
+      nominees.insert(req.body)
   })
 
   app.post('/x/endorse', (req,res)=>{
@@ -32,9 +30,9 @@ module.exports = (app, db)=>{
       let name = req.body.nominee
       nominees.update({name}, {
           $inc : { support: 1 },
-          $push: { supporters: 'TODO ID HERE'},
+          $push: { supporters: req.body.serverId },
       })
-      res.send('Todo Return Update Results')
+      res.send()
   })
 
   app.post('/x/unendorse', (req,res)=>{
@@ -42,9 +40,9 @@ module.exports = (app, db)=>{
       let name = req.body.nominee
       nominees.update({name}, {
           $inc : { support: -1 },
-          $pull: { supporters: 'TODO ID HERE' },
+          $pull: { supporters: req.body.serverId },
       })
-      res.send('Todo Return Update Results')
+      res.send()
   })
 
 }
