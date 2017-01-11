@@ -13,8 +13,7 @@ const mutations = {
 }
 
 
-let serverId = window.localStorage.getItem('_id')
-console.log({serverId})
+let serverId = window.localStorage.getItem('_id') || '5'
 const state = {
     login: {
         mail:'',
@@ -27,6 +26,7 @@ const state = {
 const actions = {
     LOGIN({commit, dispatch}, login){
         commit('login', login)
+        commit( 'serverLogin', '5' )
         request
             .post('/x/login')
             .send(login)
@@ -36,8 +36,6 @@ const actions = {
                 commit( 'serverLogin', serverId )
                 commit('setEndorseWithServerId', serverId)
             })
-            .catch(console.log)
-
     }
 }
 

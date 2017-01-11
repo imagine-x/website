@@ -2,56 +2,52 @@
 
 <div role="button" :class="c" @click="endorse(name)" tabindex="0">
   <i class="fa fa-thumbs-up thumbs-up"></i>
-  {{ text }}
+  <span v-if="userEndorsed">Endorsed</span>
+  <span v-else>Endorse</span>
 </div>
 
 </template>
 
 
 <script>
+import _ from 'lodash'
 import request from 'superagent'
 
 export default {
   props: ['name'],
   computed: {
-    c(){
-      return {
-        endorse: true,
-        'is-endorsed':this.endorsed
+      c(){
+          return {
+              endorse: true,
+              'is-endorsed':this.userEndorsed
+          }
+      },
+      userEndorsed(){
+          let userEndorsed
+          let serverId = this.$store.state.user.serverId
+          let supporters = []
+          this.$store.state.nomination.nominees.forEach(nominee => {
+              if (this.name === nominee.name){
+                  userEndorsed = _.indexOf(nominee.supporters, serverId) > -1
+              }
+          })
+          return userEndorsed
       }
-    }
   },
   methods: {
     endorse(nominee){
-      let serverId = this.$store.state.user.serverId
+        let serverId = this.$store.state.user.serverId
+        if (!serverId){
+            return this.showEndorseModal()
+        }
 
-      if (!serverId){
-          return this.showEndorseModal()
-      }
-
-      let endorseData = {
-          nominee,
-          serverId
-      }
-
-      if (this.endorsed) {
-          this.text = "Endorse"
-          this.$store.dispatch('UNENDORSE_NOMINEE', endorseData)
-          this.endorsed = false
-      } else {
-          this.text = "Endorsed"
-          this.$store.dispatch('ENDORSE_NOMINEE', endorseData)
-          this.endorsed = true
-      }
+        this.$store.dispatch('TOGGLE_NOMINEE_ENDORSEMENT', {
+            name: nominee,
+            supporterId:serverId
+        })
     },
     showEndorseModal(){
         this.$store.dispatch('TOGGLE_ENDORSE')
-    }
-  },
-  data(){
-    return {
-      endorsed: false,
-      text: "Endorse"
     }
   }
 }

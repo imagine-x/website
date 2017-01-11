@@ -15,7 +15,7 @@ module.exports = (app, db)=>{
           official:1,
           twitter:1,
           link:1,
-          support:1,
+          supporters:1,
       }).toArray(function(err, nominees) {
           res.json(nominees)
       })
@@ -27,20 +27,20 @@ module.exports = (app, db)=>{
 
   app.post('/x/endorse', (req,res)=>{
       console.log('POST rec /x/endorse', req.body)
-      let name = req.body.nominee
+      let name = req.body.name
       nominees.update({name}, {
           $inc : { support: 1 },
-          $push: { supporters: req.body.serverId },
+          $push: { supporters: req.body.supporterId },
       })
       res.send()
   })
 
   app.post('/x/unendorse', (req,res)=>{
       console.log('POST rec /x/endorse', req.body)
-      let name = req.body.nominee
+      let name = req.body.name
       nominees.update({name}, {
           $inc : { support: -1 },
-          $pull: { supporters: req.body.serverId },
+          $pull: { supporters: req.body.supporterId },
       })
       res.send()
   })

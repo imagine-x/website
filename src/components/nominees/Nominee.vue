@@ -1,6 +1,7 @@
 <template>
 
 <div class="nominee-card">
+
     <h3 class="nominee-card__name">
         {{nominee.name}}
         <div v-if="nominee.official" class="official-mark-container u-inline-block" title="Official nominee with Elections BC">
@@ -16,7 +17,8 @@
     <a v-if="nominee.link" v-bind:href="nominee.link" target="_blank">More information ></a>
     <p></p>
     <endorse-btn :name="nominee.name"></endorse-btn>
-    <span>+{{nominee.support}}</span>
+    <span>+{{support}}</span>
+
 </div>
 
 </template>
@@ -30,6 +32,14 @@ export default {
         components: {
           EndorseBtn
         },
+        computed: {
+            support(){
+                if(this.nominee.supporters){
+                    return this.nominee.supporters.length
+                }
+                return '0'
+            }
+        }
 }
 
 </script>
