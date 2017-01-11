@@ -185,8 +185,8 @@ export default {
     nominate() {
       this.submitAttempted = true
       if ( this.isValid() ){
-        this.$store.dispatch('LOGIN', this.submitter)
         this.$store.dispatch('NOMINATE', this.nominee)
+        this.$store.dispatch('LOGIN', this.submitter)
         this.$store.commit('newNominee', this.nominee)
         this.nominee = _.clone(emptyNominee)
         this.submitter = _.clone(emptySubmitter)

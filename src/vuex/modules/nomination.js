@@ -38,12 +38,11 @@ const mutations = {
 }
 
 const actions = {
-  NOMINATE({
-    commit
-  }, info) {
+  NOMINATE({commit}, info) {
     request
       .post('/x/nomination')
       .send(info)
+      .then(console.log)
   },
 
   GET_NOMINEES({commit}) {
