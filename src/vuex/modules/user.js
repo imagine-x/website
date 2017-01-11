@@ -13,13 +13,15 @@ const mutations = {
 }
 
 
+let serverId = window.localStorage.getItem('_id')
+console.log({serverId})
 const state = {
     login: {
         mail:'',
         postal:'',
         name:'',
     },
-    serverId: null
+    serverId
 }
 
 const actions = {
@@ -29,7 +31,8 @@ const actions = {
             .post('/x/login')
             .send(login)
             .then(res => {
-                let serverId = res.text.replace("\"", "")
+                let serverId = res.text.replace(/\"/, "").replace(/\"/, "")
+                window.localStorage.setItem('_id', serverId)
                 commit( 'serverLogin', serverId )
                 commit('setEndorseWithServerId', serverId)
             })

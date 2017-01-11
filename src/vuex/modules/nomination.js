@@ -38,12 +38,11 @@ const mutations = {
 
 const actions = {
     NOMINATE({commit}, info){
-          request
+        request
             .post('/x/nomination')
             .send(info)
-            .then(console.log)
-            .catch(console.log)
     },
+
     GET_NOMINEES( {commit} ){
         request
             .get('/x/nominees')
@@ -54,29 +53,9 @@ const actions = {
                 nominees.forEach( nominee => commit('newNominee', nominee) )
             })
     },
-    ENDORSE_NOMINEE( {commit, state}, endorseData ){
-        commit('endorseNominee', {
-            endorse:true,
-            name: endorseData.nominee,
-        })
-        request
-            .post('/x/endorse')
-            .send(endorseData)
-            .then(console.log)
-            .catch(console.log)
-    },
-    UNENDORSE_NOMINEE( {commit, state}, endorseData ){
-        commit('endorseNominee', {
-            name: endorseData.nominee,
-            endorse:false,
-        })
-        request
-            .post('/x/unendorse')
-            .send(endorseData)
-            .then(console.log)
-            .catch(console.log)
-    },
+    TOGGLE_NOMINEE_ENDORSEMENT({commit}, nominee){
 
+    }
 }
 
 const state = {
