@@ -22,6 +22,7 @@ module.exports = (app, db)=>{
   })
 
   app.post('/x/nomination', (req,res)=>{
+      req.body.supporters = ['todoSubmittingUserId']
       nominees.insert(req.body)
   })
 
