@@ -1,4 +1,7 @@
 
+var SlackService = require('../services/slackService');
+var slack = new SlackService()
+
 module.exports = (app, db)=>{
   console.log('Setting up nomination backend')
   const nominees = db.collection('nominees')
@@ -23,6 +26,7 @@ module.exports = (app, db)=>{
 
   app.post('/x/nomination', (req,res)=>{
       req.body.supporters = []
+      slack.nomineeNotify(req.body.name)
       nominees.insert(req.body)
   })
 

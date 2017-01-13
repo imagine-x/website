@@ -26,6 +26,7 @@ const state = {
 const actions = {
     LOGIN({commit, dispatch}, login){
         commit('login', login)
+        commit( 'serverLogin', serverId )
         request
             .post('/x/login')
             .send(login)
