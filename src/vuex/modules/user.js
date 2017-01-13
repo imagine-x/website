@@ -13,7 +13,7 @@ const mutations = {
 }
 
 
-let serverId = window.localStorage.getItem('_id') || '5'
+let serverId = window.localStorage.getItem('_id')
 const state = {
     login: {
         mail:'',
@@ -26,7 +26,6 @@ const state = {
 const actions = {
     LOGIN({commit, dispatch}, login){
         commit('login', login)
-        commit( 'serverLogin', '5' )
         request
             .post('/x/login')
             .send(login)
@@ -34,7 +33,6 @@ const actions = {
                 let serverId = res.text.replace(/\"/, "").replace(/\"/, "")
                 window.localStorage.setItem('_id', serverId)
                 commit( 'serverLogin', serverId )
-                commit('setEndorseWithServerId', serverId)
             })
     }
 }

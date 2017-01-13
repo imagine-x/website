@@ -91,18 +91,7 @@ const actions = {
 }
 
 const state = {
-  nominees: [{
-    "_id": "5872bf6b9d7ad4406fc33cdd",
-    "name": "Test Person",
-    "occupation": "Tester",
-    "location": "Cariboo-Thompson",
-    "contact": "",
-    "twitter": "@",
-    "link": "",
-    "official": false,
-    "why": "asddddddddddddddddddddddddd asddddddddddddddd asdddddddddddddddd",
-    "supporters": ['1', '2', '3']
-  }]
+  nominees: []
 }
 
 
