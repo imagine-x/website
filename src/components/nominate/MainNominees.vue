@@ -1,35 +1,16 @@
 <template lang="jade">
 
 #mainnominees
-    variable-body(:content='variableContent')
-    p Want to see who's been nominated? 
-      router-link(to="nominees")
-        b Click here to see the current list of nominees
-      span .
-    hr
     nomination
 
 </template>
 
 <script>
-import VariableBody from '../generics/VariableBody.vue'
 import Nomination from './Nomination'
 
-let variableContent = [
-    'Are you frustrated with the current political options in BC? Then let\'s start creating an alternative by nominating someone to run as an indepedent candidate in the upcoming BC provincial election in May 2017. Maybe that person is a friend or family member you know. Perhaps they’re a community leader, your neighbour, an old boss, your professor, your doctor, a highschool teacher, that activist in the local newspaper, that colleague at work or the small business owner down the street. Maybe that person is you.',
-    'BC needs exceptional people in provincial government who put citizens first over party interests. We need new voices and talent to lead us through the challenges we face today and in the future. We need independent thinkers who truly stand for interests of British Columbians and simply good governance.',
-    'Take the first step by nominating someone to run as an independent candidate. We hope that with public endorsement, your nominee will consider to run in the upcoming election. If we can, we\'ll even try to reach out to the nominee and let them know about the public support for their nomination. Go ahead, submit a nomination today.',
-]
-
 export default {
-    data() {
-        return {
-            variableContent,
-        }
-    },
     computed: { },
         components: {
-            VariableBody,
             Nomination
         },
         beforeMount() {

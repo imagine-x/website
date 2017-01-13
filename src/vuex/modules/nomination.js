@@ -11,8 +11,8 @@ const mutations = {
 
   },
   newNominee(nomination, newNominee) {
-    if (!newNominee.support) {
-      newNominee.support = 1
+    if (!newNominee.supporters) {
+      newNominee.supporters = []
     }
     nomination.nominees.unshift(newNominee)
   },
@@ -38,10 +38,11 @@ const mutations = {
 }
 
 const actions = {
-  NOMINATE({commit}, info) {
+  NOMINATE({commit}, nominee) {
+    commit('newNominee', nominee)
     request
       .post('/x/nomination')
-      .send(info)
+      .send(nominee)
       .then(console.log)
   },
 
