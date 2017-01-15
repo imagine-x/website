@@ -16,7 +16,7 @@ export const itsPossible = [{
     url:'/',
     values,
     variable:[
-      `Imagine X is a political platform. We are a group of passionate citizens starting a political movement to reimagine politics and reimagine BC. We stand for a good government with principles and policies that meet our core values. We simply want a better government for an even better BC - just like you.`
+      `Imagine X is a political platform. We are a group of passionate citizens starting a political movement to reimagine politics and reimagine BC. We stand for a good government with principles and policies that meet our core values. And no, we are not affiliated with the BC Liberals, NDPs, Greens, any other existing party or interest group. We are 100% self-funded and self-motivated. We simply want a better government for an even better BC - just like you.`
     ],
     heading:[
         `Let's Reimagine Politics, Reimagine BC.`

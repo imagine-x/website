@@ -9,7 +9,7 @@ module.exports = (app, db)=>{
   app.get('/x/nominees', (req,res)=>{
       console.log('GET /x/nominees')
       // find all
-      nominees.find({approved:true}, {
+      nominees.find({}, {
           // This is the projection (fields being returned)
           name: 1,
           occupation:1,
