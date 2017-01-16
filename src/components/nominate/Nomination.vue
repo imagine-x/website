@@ -1,6 +1,6 @@
 <template>
 <div class='application'>
-  <p>Frustrated with BC politics and current political options? Take the first step for change by publicly nominating someone as an independent candidate for the May 2017 provincial election.</p>
+  <p>Frustrated with BC politics and the current political options? Take the first step for change by publicly nominating someone as an independent candidate for the May 2017 provincial election.</p>
   <p>BC needs exceptional independent thinkers who will put citizens first over party interests. Perhaps that person is a neighbour, colleague, activist or business owner. Maybe that person is a friend or family member. Or many that person is you.</p>
   <p>We hope that with public endorsement, your nominee will consider to running. Go ahead, submit your nomination today.</p>
   <p>View the list of current nominees <router-link to="/nominees"><b>here</b></router-link>.</p>
