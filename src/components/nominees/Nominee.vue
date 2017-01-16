@@ -10,8 +10,8 @@
     </h3>
     <ul class="list--clean nominee-card__list">
         <li v-if="nominee.occupation">Current occupation: {{nominee.occupation}}</li>
-        <li v-if=" nominee.location">Region: {{nominee.location}}<li>
-        <li v-if=" nominee.riding">Riding: {{nominee.riding}}<li>
+        <li v-if="nominee.location">Region: {{nominee.location}}<li>
+        <li v-if="nominee.riding">Riding: {{nominee.riding}}<li>
     </ul>
     <p v-if="nominee.why" class="why-block">{{nominee.why}}</p>
     <a v-if="nominee.link" v-bind:href="nominee.link" target="_blank">More information ></a>
