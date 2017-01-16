@@ -42,3 +42,11 @@ slackService.prototype.notify = (contact) => {
                                     });
     return slackAPI(post_data);
 };
+
+slackService.prototype.nomineeNotify = (nomineeName) => {
+    var post_data = JSON.stringify({
+        "text": "New Nominee: " + nomineeName,
+        "username" : isProduction ? "ProdBot" : "DevBot"
+    });
+    return slackAPI(post_data);
+};

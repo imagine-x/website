@@ -4,9 +4,12 @@
     <router-link to="/" exact>
         <li>HOME</li>
     </router-link>
-<!--     <router-link to="/nominate">
+    <router-link to="/nominate">
         <li>NOMINATE AN INDEPEDENT CANDIDATE</li>
-    </router-link> -->
+    </router-link>
+    <router-link to="/nominees">
+        <li>INDEPEDENT NOMINEES GALLERY</li>
+    </router-link>
     <router-link to="/votes">
         <li>MLA VOTING RECORDS APP</li>
     </router-link>
@@ -36,11 +39,10 @@ export default {
 li {
     border-bottom: 1px solid lightgray;
     margin-bottom: 0;
-    padding: 0.65rem 20px;
+    padding: 0.65rem 1rem;
     list-style: none;
     display: inline-block;
     width: 100%;
-    font-size: 15px;
 }
 
 a {
@@ -49,7 +51,7 @@ a {
 
 .navigation--offcanvas {
     li {
-        padding: 0.65rem 20px;
+        padding: 0.65rem 1rem;
     }
 }
 .navigation--offcanvas.is-open {

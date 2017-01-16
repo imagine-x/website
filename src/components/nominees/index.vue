@@ -1,7 +1,9 @@
 <template lang="jade">
 
 #nominate
+    submitted
     thank-you
+    endorse
     terms-of-use
     privacy
     heading(:content='headingContent')
@@ -10,12 +12,13 @@
             navigation
             application
         .eight.columns.layout__main
-            router-view
+            nominees
             footer-x
 
 </template>
 
 <script>
+import Nominees from './Nominees'
 import Heading from '../generics/Heading.vue'
 import FooterX from '../generics/FooterX.vue'
 import Privacy from '../generics/Privacy.vue'
@@ -23,10 +26,15 @@ import Navigation from '../generics/Navigation.vue'
 import Application from '../generics/Application.vue'
 import ThankYou from '../generics/ThankYou.vue'
 import TermsOfUse from '../generics/TermsOfUse.vue'
+import Endorse from './Endorse.vue'
+import Submitted from '../nominate/Submitted.vue'
 
-let headingContent = ['Nominate an Independent Candidate for BC']
+let headingContent = ['BC Independent Nominees Gallery']
 
 export default {
+    mounted(){
+        this.$store.dispatch('GET_NOMINEES')
+    },
     data() {
         return {
             headingContent,
@@ -41,6 +49,9 @@ export default {
             Application,
             ThankYou,
             TermsOfUse,
+            Nominees,
+            Endorse,
+            Submitted
         },
         beforeMount() {
             this.$store.dispatch("SET_IMAGINE_X_BY_URL", window.location.pathname)

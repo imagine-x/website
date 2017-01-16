@@ -31,6 +31,8 @@
     width: minBreakpoint;
     height: auto;
     min-height: 0;
+    max-height: 75%;
+    overflow: auto;
   }
 
   .content.content--sm {
@@ -51,4 +53,9 @@
   }
 }
 
+@media (min-height: 700px) {
+    .content {
+        max-height: 100%;
+    }
+}
 

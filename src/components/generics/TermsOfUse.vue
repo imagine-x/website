@@ -5,7 +5,7 @@
     <p>The apps that Imagine X operates includes but not limited to:</p>
     <ul>
       <li>MLA Voting Records App</li>
-      <!-- <li>Nominate a Candidate App</li> -->
+      <li>Nominate a Candidate App</li>
     </ul>
     <p>The Service contains information, web pages, materials and hypertext links to websites that are of interest to Imagine X and the general public (the “Content”). The Content is offered in good faith and for informational purposes only. The Imagine X website and Imagine X Apps are provided as a service and Imagine X may, at any time and from time to time, delete, modify or supplement the Content without notice or liability to you.</p>
     <p>Imagine X and its participants may, at its discretion, add additional apps and content which will be governed by the Terms set forth in this agreement. Apps and links to apps may be removed from the website at Imagine X’s sole discretion.</p>

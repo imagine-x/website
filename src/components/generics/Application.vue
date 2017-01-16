@@ -7,7 +7,7 @@
 		div
 			input(
 				type='text',
-				placeholder='Your Name',
+				placeholder='Your full name',
 				name='name',
 				v-model='info.name',
 		    v-bind:style='nameInputStyle'
@@ -16,14 +16,14 @@
 			input(
 				type='text',
 				name='mail',
-				placeholder='Your Email',
+				placeholder='Your email',
 				v-model='info.mail',
 		    v-bind:style='mailInputStyle'
 			)
 		div
 			input(
 				type='text',
-				placeholder='Postal Code',
+				placeholder='Postal code',
 				name='postal',
 				v-model='info.postal'
 		    v-bind:style='postalInputStyle'
@@ -74,6 +74,9 @@ export default {
 				}
 				console.log(info)
 				this.$store.dispatch('TOGGLE_THANKYOU')
+				this.$store.dispatch('LOGIN', info)
+
+				// TODO this should be in action / depricated ^
 				request
           .post('/post')
           .send(info)
@@ -102,7 +105,8 @@ export default {
       )
     },
     isValidName() {
-      return this.info.name.length > 3
+        let nameRegex = /^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/
+        return nameRegex.test(this.info.name)
     },
     isValidMail() {
       let mailRegex = /^\w+\.?\w+?\@\w+\.(\w+\.)?\w+$/

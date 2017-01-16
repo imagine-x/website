@@ -1,67 +1,99 @@
 import _ from 'lodash'
-
+import request from 'superagent'
 
 const mutations = {
-  newNominee(nomination, newNominee) {
-    console.log({
-      newNominee
-    })
-    newNominee._id = Date.now()
-    newNominee.support = 1
-    nomination.nominees.unshift(newNominee)
-  },
-  endorseNominee(nomination, _id) {
-    console.log({
-      _id
-    })
+  setEndorseWithServerId(nomination, serverId) {
     nomination.nominees.forEach(nominee => {
-      if (nominee._id === _id) {
-        nominee.support++
+      if (_.indexOf(nominee.supporters, serverId) > -1) {
+        nominee.endorsed = true
       }
     })
+
+  },
+  newNominee(nomination, newNominee) {
+    if (!newNominee.supporters) {
+      newNominee.supporters = []
+    }
+    nomination.nominees.unshift(newNominee)
+  },
+  clearNominees(nomination) {
+    nomination.nominees = []
+  },
+  endorseNominee(nomination, nameSupporterId) {
+      nomination.nominees.forEach(nominee => {
+        if (nominee.name === nameSupporterId.name) {
+          nominee.supporters.push(nameSupporterId.supporterId)
+        }
+      })
+  },
+  unendorseNominee(nomination, nameSupporterId) {
+      nomination.nominees.forEach(nominee => {
+        if (nominee.name === nameSupporterId.name) {
+            nominee.supporters.splice(
+                _.indexOf(nominee.supporters, nameSupporterId.supporterId)
+            )
+        }
+      })
+  }
+}
+
+const actions = {
+  NOMINATE({commit}, nominee) {
+    commit('newNominee', nominee)
+    request
+      .post('/x/nomination')
+      .send(nominee)
+      .then(console.log)
+  },
+
+  GET_NOMINEES({commit}) {
+    request
+      .get('/x/nominees')
+      .then(res => {
+          let nominees
+          try {
+             nominees = JSON.parse(res.text)
+          }catch(err) {}
+          if (nominees){
+              commit('clearNominees')
+              nominees.forEach(nominee => commit('newNominee', nominee))
+          }
+      })
+  },
+  TOGGLE_NOMINEE_ENDORSEMENT({state, commit}, endorseObj) {
+      let done = false
+      console.log('TOGGLE_NOMINEE_ENDORSEMENT', state)
+      state.nominees.forEach(nominee => {
+          if (nominee.name === endorseObj.name){
+              nominee.supporters.forEach(supporterId => {
+                  console.log(supporterId, endorseObj)
+                  if (supporterId === endorseObj.supporterId){
+                      done = true
+                      commit('unendorseNominee', endorseObj)
+                      console.log('POST /x/unendorse')
+                      request
+                          .post('/x/unendorse')
+                          .send(endorseObj)
+                          .then(console.log)
+                  }
+              })
+              if (!done){
+                  commit('endorseNominee', endorseObj)
+                  console.log('POST /x/endorse')
+                  request
+                      .post('/x/endorse')
+                      .send(endorseObj)
+                      .then(console.log)
+              }
+          }
+      })
   }
 }
 
 const state = {
-  nominees: [{
-    _id: 1,
-    name: 'Darcy Repen',
-    why: 'Mayor Darcy Repen plans to file a human rights case over the structure of ICBC\'s rates, which he says punishes his community for traffic problems more than 300 km away from his village of Telkwa.',
-    support: 9,
-    contact: "",
-    link: "www.test.com",
-    occupation: "Mayor",
-    official: false,
-    region: "The North",
-    riding: ""
-  }, {
-    _id: 2,
-    name: 'Vicki Huntington',
-    why: 'A very rare two term independent, lets make it three.',
-    support: 9,
-    contact: "",
-    link: "www.test.com",
-    occupation: "MLA",
-    official: true,
-    region: "Delta",
-    riding: ""
-  }, {
-    _id: 3,
-    name: 'David Bond',
-    why: 'Binge watches Game of Thrones once a month, former banker. Always dreamed of being a dancer.',
-    support: 0,
-  }, {
-    _id: 4,
-    name: 'Kenta Otani',
-    why: 'Running in politics is a very big burden. Then you have to get shit done. High level of responsibility. I wouldn\'t mind running if I was closer to death.'
-  }, {
-    why: 'A very rare two term independent, lets make it three.',
-    official:true,
-    support: 1
-  }, ]
+  nominees: []
 }
 
-const actions = {}
 
 export default {
   state,

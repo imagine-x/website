@@ -10,11 +10,14 @@ const mutations = {
     setPrivacy(director, thanks){
       director.privacy = thanks
     },
-    setTou(director, mode){
-        director.tou = mode
+    setTou(director, state){
+        director.tou = state
     },
-    setEndorse(director, mode) {
-        director.endorse = mode
+    setEndorse(director, state) {
+        director.endorse = state
+    },
+    setSubmitted(director, state){
+        director.submitted = state
     }
 }
 
@@ -23,7 +26,8 @@ const state = {
   thankYou: false,
   privacy: false,
   tou: false,
-  endorse: false
+  endorse: false,
+  submitted: false,
 }
 
 let j = 1
@@ -36,7 +40,6 @@ const actions = {
     }
   },
   CHANGE_MODE({ commit }, mode){
-    console.log({mode})
     if (mode) commit('setMode', mode)
   },
   TOGGLE_THANKYOU({ commit, state }){
@@ -50,6 +53,9 @@ const actions = {
   },
   TOGGLE_ENDORSE({ commit, state}){
     commit('setEndorse', !state.endorse)
+  },
+  TOGGLE_SUBMITTED({ commit, state}) {
+    commit('setSubmitted', !state.submitted)
   }
 }
 
