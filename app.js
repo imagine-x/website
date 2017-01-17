@@ -9,7 +9,7 @@ var contactsController = new(require('./controllers/contactsController'))(databa
 var slackController = new(require('./controllers/slackController'))(databaseService);
 
 // MongoDB
-const DB_URL = 'mongodb://localhost:27017/imaginex'
+const DB_URL = 'mongodb://localhost:27017/' + (process.env.MONGO_NAME || 'imaginex')
 const Mongo = require('mongodb').MongoClient
 const NominationRouter = require('./controllers/nomination')
 const UsersRouter = require('./controllers/users')
@@ -20,7 +20,7 @@ var multer = require('multer');
 var upload = multer();
 
 Mongo.connect(DB_URL, (err, db) => {
-    console.log('Connected to db')
+    console.log('Connected to ' + DB_URL)
     // outbound http client
     app.use(express.static('dist'));
     app.use(bodyParser.json());

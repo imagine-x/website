@@ -8,6 +8,19 @@ module.exports = (app, db)=>{
 
   app.get('/x/nominees', (req,res)=>{
       console.log('GET /x/nominees')
+      nominees.find({approved:true},{
+          name: 1,
+          occupation:1,
+          location:1,
+          why:1,
+          official:1,
+          twitter:1,
+          link:1,
+          supporters:1,
+          riding:1
+      }).toArray(function(err, nominees) {
+          console.log(nominees);
+      })
       // find all
       nominees.find({approved:true}, {
           // This is the projection (fields being returned)
@@ -19,6 +32,7 @@ module.exports = (app, db)=>{
           twitter:1,
           link:1,
           supporters:1,
+          riding:1
       }).toArray(function(err, nominees) {
           res.json(nominees)
       })
