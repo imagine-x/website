@@ -19,6 +19,7 @@ module.exports = (app, db)=>{
           twitter:1,
           link:1,
           supporters:1,
+          riding:1
       }).toArray(function(err, nominees) {
           res.json(nominees)
       })
