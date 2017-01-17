@@ -28,10 +28,10 @@
             <hr/>
             <h2>Press Releases</h2>
             <br>
-<!--             <p>December 19, 2016</p>
-            <h3>Imagine X issues a callout for independent candidates to run in the upcoming B.C. provincial election</h3>
+            <p>January 17, 2016</p>
+            <h3>Imagine X issues a callout for British Columbians to crowdsource independent candidates to run in the upcoming B.C. provincial election</h3>
             <p><i>Citizen political group, Imagine X launches new candidate nomination website for British Columbians to publically nominate independent candidates</i></p>
-            <p>December 19, 2016 (VANCOUVER, BC) - Imagine X, a political group in B.C., today issues a callout for British Columbians to nominate independent candidates to run in the upcoming B.C. provincial election in May 2017. British Columbians are encouraged to submit suggestions of potential candidates through Imagine X’s new online nomination platform at <a href="/nominate">www.imagine-x.ca/nominate</a>.</p>
+            <p>January 17, 2016 (VANCOUVER, BC) - Imagine X, a political group in B.C., today issues a callout for British Columbians to nominate independent candidates to run in the upcoming B.C. provincial election in May 2017. British Columbians are encouraged to submit suggestions of potential candidates through Imagine X’s new online nomination platform at: <a href="/nominate">www.imagine-x.ca/nominate</a> and view a list of crowdsourced nominees at: <a href="/nominees">www.imagine-x.ca/nominees</a></p>
             <p>“British Columbia is stuck in a divisive two-party system with MLAs who prioritize party-interests over constituents’ interest. However, we strongly believe that there are frustrated voters and potentially exceptional candidates in B.C. do not find their values reflected in the current partisan options and want an alternative.” says Fred Bantados, spokesperson for Imagine X. “This is why Imagine X is issuing a callout for all British Columbians to publically nominate leaders in their communities or even themselves to run as independent candidates in the upcoming provincial election. It is time that British Columbians collectively step up to bring democracy back to the people.”</p>
             <p>Starting today, anyone can submit new nominees and endorse existing nominees on the website. Nominees must not already be affiliated with an existing political party. Submissions do not reflect the electoral intentions of the person nominated or the stage of their official nomination with Elections BC. The nomination platform is not affiliated with Elections BC and does not replace any nomination procedures required by Elections BC. The sole intention of this website is to facilitate a dialogue with the general public to encourage more people to participate in British Columbia’s democracy by running for a seat in the legislature.</p>
             <p>Over the next few months leading up to the next provincial election, Imagine X will be releasing series of initiatives that will continue to highlight and challenge the partisan polarization in B.C. politics.</p>
@@ -40,9 +40,10 @@
             <b>Learn More</b>
             <ul class="list--clean">
                 <li>Candidate nomination website: <a href="/nominate">www.imagine-x.ca/nominate</a></li>
+                <li>Crowdsourced list of nominees: <a href="/nominees">www.imagine-x.ca/nominees</a></li>
                 <li>Imagine X: <a href="/">www.imagine-x.ca</a></li>
             </ul>
-            <hr> -->
+            <hr>
             <p>December 7, 2016</p>
             <h3>First ever B.C. MLA voting records web app shows that B.C. legislature is deeply politically polarized</h3>
             <p><i>Citizen political group, Imagine X launches new interactive app for public to discover MLA voting records</i></p>
