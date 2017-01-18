@@ -78,7 +78,9 @@ export default {
                 nomineesList = _.sortBy(nomineesList, '_id').reverse();
                 break;
             case 'endorsement':
-                nomineesList = _.sortBy(nomineesList, 'support').reverse();
+                nomineesList = _.sortBy(nomineesList, nominee => {
+										return nominee.supporters.length
+								}).reverse();
                 break;
             case 'alpha':
                 nomineesList = _.sortBy(nomineesList, 'name');
