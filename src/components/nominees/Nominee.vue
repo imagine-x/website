@@ -17,7 +17,7 @@
         <li v-if="nominee.location"><b>Region:</b> {{nominee.location}}<li>
         <li v-if="nominee.riding"><b>Riding:</b> {{nominee.riding}}<li>
     </ul>
-    <p v-if="nominee.why" class="why-block">{{nominee.why}}</p>
+    <expand-why :why="nominee.why"> </expand-why>
     <a v-if="nominee.link" v-bind:href="nominee.link" target="_blank">More information ></a>
     <p></p>
 
@@ -28,11 +28,12 @@
 
 <script>
 import EndorseBtn from './EndorseBtn'
+import ExpandWhy from './ExpandWhy'
 
 export default {
         props: ['nominee'],
         components: {
-          EndorseBtn
+          EndorseBtn, ExpandWhy
         },
         computed: {
             support(){
