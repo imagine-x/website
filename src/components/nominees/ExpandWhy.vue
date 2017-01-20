@@ -6,8 +6,8 @@
     </p>
     <p v-else>
       {{ beginWhy }}
-      <span @click="toggleShowAll">
-        ... show all
+      <span v-if="isLong" @click="toggleShowAll">
+        ...show all
       </span>
     </p>
 </div>
@@ -20,6 +20,9 @@
 export default {
     props: ['why'],
     computed: {
+        isLong(){
+            return this.why.length > 160
+        },
         beginWhy(){
             return this.why.slice(0,160)
         }
