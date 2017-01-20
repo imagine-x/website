@@ -53,6 +53,9 @@ export default {
 
 .top-endorse
     float:right
+    span
+        font-size: .8em
+
 
 .endorse {
     display: inline-block;
