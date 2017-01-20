@@ -177,7 +177,7 @@ export default {
     },
     isValidNomineeContact() {
         if (this.nominee.contact.length > 0) {
-            let mailRegex = /^\w+\.?\w+?\@\w+\.(\w+\.)?\w+$/
+            let mailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             return mailRegex.test(this.nominee.contact)
         } else {
             return true

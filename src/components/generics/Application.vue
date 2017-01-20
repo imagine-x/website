@@ -109,7 +109,7 @@ export default {
         return nameRegex.test(this.info.name)
     },
     isValidMail() {
-      let mailRegex = /^\w+\.?\w+?\@\w+\.(\w+\.)?\w+$/
+      let mailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       return mailRegex.test(this.info.mail)
     },
     isValidPostal() {

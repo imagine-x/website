@@ -14,6 +14,9 @@
             <h2>In the News</h2>
             <ul class="list--clean">
                 <li>
+                    <a href="http://www.squamishchief.com/news/local-news/tracking-mla-sturdy-s-votes-1.7823947#sthash.5eYfjV3o.tgGjfYMk.dpuf" target="_blank">Tracking MLA Sturdy’s votes - New app lets constituents quickly see how their MLA votes (The Squamish Chief - January 18, 2017)</a>
+                </li>
+                <li>
                     <a href="http://www.vancourier.com/news/new-app-whips-up-attention-towards-how-mlas-vote-in-the-legislature-1.5588169" target="_blank">New app whips up attention towards how MLAs vote in the Legislature (Vancouver Courier - December 27, 2016)</a>
                 </li>
                 <li>
@@ -28,7 +31,7 @@
             <hr/>
             <h2>Press Releases</h2>
             <br>
-            <p>January 17, 2016</p>
+            <p>January 17, 2017</p>
             <h3>Imagine X issues a callout for British Columbians to crowdsource independent candidates to run in the upcoming B.C. provincial election</h3>
             <p><i>Citizen political group, Imagine X launches new candidate nomination website for British Columbians to publically nominate independent candidates</i></p>
             <p>January 17, 2016 (VANCOUVER, BC) - Imagine X, a political group in B.C., today issues a callout for British Columbians to nominate independent candidates to run in the upcoming B.C. provincial election in May 2017. British Columbians are encouraged to submit suggestions of potential candidates through Imagine X’s new online nomination platform at: <a href="/nominate">www.imagine-x.ca/nominate</a> and view a list of crowdsourced nominees at: <a href="/nominees">www.imagine-x.ca/nominees</a></p>
