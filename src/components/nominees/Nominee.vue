@@ -3,9 +3,13 @@
 <div class="nominee-card">
 
     <h3 class="nominee-card__name">
-        {{nominee.name}}
         <div v-if="nominee.official" class="official-mark-container u-inline-block" title="Official nominee with Elections BC">
-            <i class="fa fa-check-circle official-mark"></i>
+          <i class="fa fa-check-circle official-mark"></i>
+        </div>
+        {{nominee.name}}
+        <div class="top-endorse">
+          <span>+{{support}}</span>
+          <endorse-btn :name="nominee.name"></endorse-btn>
         </div>
     </h3>
     <ul class="list--clean nominee-card__list">
@@ -16,8 +20,6 @@
     <p v-if="nominee.why" class="why-block">{{nominee.why}}</p>
     <a v-if="nominee.link" v-bind:href="nominee.link" target="_blank">More information ></a>
     <p></p>
-    <endorse-btn :name="nominee.name"></endorse-btn>
-    <span>+{{support}}</span>
 
 </div>
 
@@ -47,6 +49,9 @@ export default {
 
 <style lang="stylus" scoped>
 @import "../../styles/main"
+
+.top-endorse
+    float:right
 
 .endorse {
     display: inline-block;
