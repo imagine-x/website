@@ -7,8 +7,8 @@
           <i class="fa fa-check-circle official-mark"></i>
         </div>
         {{nominee.name}}
-        <div class="top-endorse">
-          <span>+{{support}}</span>
+        <div class="endorse-container">
+          <span class="endorse__count">+{{support}}</span>
           <endorse-btn :name="nominee.name"></endorse-btn>
         </div>
     </h3>
@@ -51,11 +51,16 @@ export default {
 <style lang="stylus" scoped>
 @import "../../styles/main"
 
-.top-endorse
-    float:right
-    span
-        font-size: .8em
+.endorse-container {
+    float: right;
+}
 
+.endorse__count {
+    font-size: 18px;
+    transform: translateY(2px);
+    display: inline-block;
+    margin-right: 0.25rem;
+}
 
 .endorse {
     display: inline-block;

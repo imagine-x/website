@@ -58,9 +58,6 @@ export default {
 <style lang="stylus" scoped>
 @import "../../styles/main"
 
-i
-    color: #4CAF50
-
 .official-mark {
     font-size: 20px;
     color: #4CAF50;

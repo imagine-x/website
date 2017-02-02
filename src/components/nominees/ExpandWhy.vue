@@ -21,10 +21,10 @@ export default {
     props: ['why'],
     computed: {
         isLong(){
-            return this.why.length > 160
+            return this.why.length > 315
         },
         beginWhy(){
-            return this.why.slice(0,160)
+            return this.why.slice(0, 315)
         }
     },
     data(){
