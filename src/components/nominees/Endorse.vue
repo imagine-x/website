@@ -33,7 +33,6 @@
        Yes, I want to subscribe to the Imagine X mailing list
        <span class="help-text"> (If you've already subscribed, you will not be subscribed again)</span></label>
      </label>
-     <p></p>
      <button class="btn--full u-margin--top" @click.prevent='login'>
        Sign in & Endorse nominee
      </button>
