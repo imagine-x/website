@@ -3,9 +3,13 @@
 <div class="nominee-card">
 
     <h3 class="nominee-card__name">
-        {{nominee.name}}
         <div v-if="nominee.official" class="official-mark-container u-inline-block" title="Official nominee with Elections BC">
-            <i class="fa fa-check-circle official-mark"></i>
+          <i class="fa fa-check-circle official-mark"></i>
+        </div>
+        {{nominee.name}}
+        <div class="endorse-container">
+          <span class="endorse__count">+{{support}}</span>
+          <endorse-btn :name="nominee.name"></endorse-btn>
         </div>
     </h3>
     <ul class="list--clean nominee-card__list">
@@ -13,11 +17,9 @@
         <li v-if="nominee.location"><b>Region:</b> {{nominee.location}}<li>
         <li v-if="nominee.riding"><b>Riding:</b> {{nominee.riding}}<li>
     </ul>
-    <p v-if="nominee.why" class="why-block">{{nominee.why}}</p>
+    <expand-why :why="nominee.why"> </expand-why>
     <a v-if="nominee.link" v-bind:href="nominee.link" target="_blank">More information ></a>
     <p></p>
-    <endorse-btn :name="nominee.name"></endorse-btn>
-    <span>+{{support}}</span>
 
 </div>
 
@@ -26,11 +28,12 @@
 
 <script>
 import EndorseBtn from './EndorseBtn'
+import ExpandWhy from './ExpandWhy'
 
 export default {
         props: ['nominee'],
         components: {
-          EndorseBtn
+          EndorseBtn, ExpandWhy
         },
         computed: {
             support(){
@@ -47,6 +50,17 @@ export default {
 
 <style lang="stylus" scoped>
 @import "../../styles/main"
+
+.endorse-container {
+    float: right;
+}
+
+.endorse__count {
+    font-size: 18px;
+    transform: translateY(2px);
+    display: inline-block;
+    margin-right: 0.25rem;
+}
 
 .endorse {
     display: inline-block;
