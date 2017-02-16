@@ -7,9 +7,6 @@ We are not only designing our website, we are in the process of trying to define
 
 If you have ideas for our values are goals. Please add them to files within the ./src/vuex/imaginexCopy folder.
 
-If you want to call attention to incompetence, corruption, stupidity, or other activities far too often associated with our politicians: Add your ideas to the ./src/vuex/attackAdCopy folder.
-
-
 ### Development Help
 
 If you are a website/javascript developer, take a moment read http://vuejs.org/ . It is a framework that breaks websites down into components. Each component has a template, a script, and a style tag. Feel free to experiment with major changes to styles/structure. All the things will change.
